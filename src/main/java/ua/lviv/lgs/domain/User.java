@@ -2,12 +2,32 @@ package ua.lviv.lgs.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user")
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
 	private Integer userId;
+	
+	@Column(name = "assigned_id")
 	private String assignedId;
+	
+	@Column
 	private String password;
+	
+	@Column
 	private Role role;
+	
+	@Column(name = "purchase_date")
 	private Date purchaseDate;
 	
 	public User(Integer userId, String assignedId, String password, Role role, Date purchaseDate) {

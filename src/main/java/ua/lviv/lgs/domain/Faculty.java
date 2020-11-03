@@ -2,11 +2,28 @@ package ua.lviv.lgs.domain;
 
 import java.util.HashSet;
 import java.util.Set;
- 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "faculty")
 public class Faculty {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "faculty_id")
 	private Integer facultyId;
+	
+	@Column
 	private String name;
+	
+	
+	///////////////////////////
 	private Set<NameOfLesson> nameOfLessons = new HashSet<>();
 	private Set<Applicant> applicants = new HashSet<>();
 	

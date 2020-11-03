@@ -1,15 +1,44 @@
 package ua.lviv.lgs.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "applicant")
 public class Applicant {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "applicant_id")
 	private Integer applicantId;
+	
+	@Column(name = "first_fame")
 	private String firstName;
+	
+	@Column(name = "last_fame")
 	private String lastName;
+	
+	@Column
 	private String email;
+	
+	@Column
 	private Boolean checked;
+	
+	@Column
 	private Boolean accepted;	
+	
+	@Column
 	private Integer pointId;
+	
+	@Column(name = "user_id")
 	private Integer userId;
+	
+	
+	///////////////////
 	private Faculty faculty;
 	
 	public Applicant(Integer applicantId, String firstName, String lastName, String email, Boolean checked,

@@ -1,10 +1,28 @@
 package ua.lviv.lgs.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "point")
 public class Point {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "point_id")
 	private Integer pointId;
+	
+	@Column(name = "applicant_id")
 	private Integer applicantId;
+	
+	@Column(name = "lesson_id")
 	private Integer lessonId;
+	
+	@Column
 	private Double ball;
 	
 	public Point(Integer pointId, Integer applicantId, Integer lessonId, Double ball) {
