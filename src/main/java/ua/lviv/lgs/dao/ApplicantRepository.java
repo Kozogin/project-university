@@ -7,5 +7,7 @@ import ua.lviv.lgs.domain.Applicant;
 
 @Repository
 public interface ApplicantRepository extends JpaRepository<Applicant, Integer>{
+	
+	//Applicant findByFirstName(String firstName);
 
 }

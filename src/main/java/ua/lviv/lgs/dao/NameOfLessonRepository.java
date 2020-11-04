@@ -7,5 +7,7 @@ import ua.lviv.lgs.domain.NameOfLesson;
 
 @Repository
 public interface NameOfLessonRepository extends JpaRepository<NameOfLesson, Integer>{
-
+	
+	NameOfLesson findByName(String name);
+	
 }

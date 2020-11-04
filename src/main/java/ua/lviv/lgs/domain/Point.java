@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,26 +17,28 @@ public class Point {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "point_id")
 	private Integer pointId;
+		
+	@ManyToOne
+	@JoinColumn(name = "lesson_id", referencedColumnName = "lesson_id")
+	private NameOfLesson nameOfLesson;	
 	
-	@Column(name = "applicant_id")
-	private Integer applicantId;
-	
-	@Column(name = "lesson_id")
-	private Integer lessonId;
-	
+	@ManyToOne
+	@JoinColumn(name = "applicant_id", referencedColumnName = "applicant_id")
+	private Applicant applicant;
+		
 	@Column
 	private Double ball;
-	
-	public Point(Integer pointId, Integer applicantId, Integer lessonId, Double ball) {
+
+	public Point(Integer pointId, NameOfLesson nameOfLesson, Applicant applicant, Double ball) {
 		this.pointId = pointId;
-		this.applicantId = applicantId;
-		this.lessonId = lessonId;
+		this.nameOfLesson = nameOfLesson;
+		this.applicant = applicant;
 		this.ball = ball;
 	}
 	
-	public Point(Integer applicantId, Integer lessonId, Double ball) {
-		this.applicantId = applicantId;
-		this.lessonId = lessonId;
+	public Point(NameOfLesson nameOfLesson, Applicant applicant, Double ball) {
+		this.nameOfLesson = nameOfLesson;
+		this.applicant = applicant;
 		this.ball = ball;
 	}
 	
@@ -48,20 +52,20 @@ public class Point {
 		this.pointId = pointId;
 	}
 
-	public Integer getApplicantId() {
-		return applicantId;
+	public NameOfLesson getNameOfLesson() {
+		return nameOfLesson;
 	}
 
-	public void setApplicantId(Integer applicantId) {
-		this.applicantId = applicantId;
+	public void setNameOfLesson(NameOfLesson nameOfLesson) {
+		this.nameOfLesson = nameOfLesson;
 	}
 
-	public Integer getLessonId() {
-		return lessonId;
+	public Applicant getApplicant() {
+		return applicant;
 	}
 
-	public void setLessonId(Integer lessonId) {
-		this.lessonId = lessonId;
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
 	}
 
 	public Double getBall() {
@@ -76,8 +80,8 @@ public class Point {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((applicantId == null) ? 0 : applicantId.hashCode());
 		result = prime * result + ((ball == null) ? 0 : ball.hashCode());
+		result = prime * result + ((pointId == null) ? 0 : pointId.hashCode());
 		return result;
 	}
 
@@ -90,25 +94,22 @@ public class Point {
 		if (getClass() != obj.getClass())
 			return false;
 		Point other = (Point) obj;
-		if (applicantId == null) {
-			if (other.applicantId != null)
-				return false;
-		} else if (!applicantId.equals(other.applicantId))
-			return false;
 		if (ball == null) {
 			if (other.ball != null)
 				return false;
 		} else if (!ball.equals(other.ball))
+			return false;
+		if (pointId == null) {
+			if (other.pointId != null)
+				return false;
+		} else if (!pointId.equals(other.pointId))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Point [pointId=" + pointId + ", applicantId=" + applicantId + ", lessonId=" + lessonId + ", ball="
-				+ ball + "]";
-	}
+		return "Point [pointId=" + pointId + ", ball=" + ball + "]";
+	}	
 	
-	
-
 }

@@ -8,4 +8,6 @@ import ua.lviv.lgs.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
+	User findByAssignedId(String assignedId);
+	
 }

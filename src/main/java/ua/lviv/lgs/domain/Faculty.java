@@ -1,12 +1,10 @@
 package ua.lviv.lgs.domain;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,29 +13,20 @@ import javax.persistence.Table;
 public class Faculty {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "faculty_id")
 	private Integer facultyId;
 	
 	@Column
 	private String name;
-	
-	
-	///////////////////////////
-	private Set<NameOfLesson> nameOfLessons = new HashSet<>();
-	private Set<Applicant> applicants = new HashSet<>();
-	
-	public Faculty(Integer facultyId, String name, Set<NameOfLesson> nameOfLessons, Set<Applicant> applicants) {
+		
+	public Faculty(Integer facultyId, String name) {
 		this.facultyId = facultyId;
 		this.name = name;
-		this.nameOfLessons = nameOfLessons;
-		this.applicants = applicants;
 	}
 	
-	public Faculty(String name, Set<NameOfLesson> nameOfLessons, Set<Applicant> applicants) {
+	public Faculty(String name, Set<NameOfLesson> nameOfLessons) {
 		this.name = name;
-		this.nameOfLessons = nameOfLessons;
-		this.applicants = applicants;
 	}
 	
 	public Faculty() {}
@@ -56,23 +45,7 @@ public class Faculty {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Set<NameOfLesson> getNameOfLessons() {
-		return nameOfLessons;
-	}
-
-	public void setNameOfLessons(Set<NameOfLesson> nameOfLessons) {
-		this.nameOfLessons = nameOfLessons;
-	}
-
-	public Set<Applicant> getApplicants() {
-		return applicants;
-	}
-
-	public void setApplicants(Set<Applicant> applicants) {
-		this.applicants = applicants;
-	}
+	}		
 
 	@Override
 	public int hashCode() {

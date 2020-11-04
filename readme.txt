@@ -14,9 +14,15 @@ Faculty
 NameOfLesson
 lessons that are needed for this faculty [one to many] (Faculty and NameOfLesson)
 
+FacultyLesson
+object for implementation  [many to many] (Faculty and NameOfLesson)
+
 Point
 object for implementation  [many to many] (Applicant and NameOfLesson)
 
 
+
+
+Repository
 
 

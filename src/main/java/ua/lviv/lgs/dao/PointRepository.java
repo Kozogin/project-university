@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import ua.lviv.lgs.domain.Point;
 
 @Repository
-public interface PointRepository extends JpaRepository<Point, Integer>{
+public interface PointRepository extends JpaRepository<Point, Integer>{	
 
 }

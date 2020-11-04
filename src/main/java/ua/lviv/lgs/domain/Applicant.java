@@ -1,29 +1,23 @@
 package ua.lviv.lgs.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "applicant")
-public class Applicant {
+public class Applicant{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "applicant_id")
 	private Integer applicantId;
-	
-	@Column(name = "first_fame")
-	private String firstName;
-	
-	@Column(name = "last_fame")
-	private String lastName;
-	
-	@Column
-	private String email;
 	
 	@Column
 	private Boolean checked;
@@ -37,43 +31,36 @@ public class Applicant {
 	@Column(name = "user_id")
 	private Integer userId;
 	
-	
-	///////////////////
-	private Faculty faculty;
-	
-	public Applicant(Integer applicantId, String firstName, String lastName, String email, Boolean checked,
-			Boolean accepted, Integer pointId, Integer userId, Faculty faculty) {
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "applicant_id2", referencedColumnName = "user_id")	
+	private User userss;
+		
+	@ManyToOne
+	@JoinColumn(name = "faculty_id", referencedColumnName = "faculty_id")	
+	private Faculty facultys;
+
+	public Applicant(Integer applicantId, Boolean checked, Boolean accepted, Integer pointId, Integer userId,
+			User userss, Faculty facultys) {
 		this.applicantId = applicantId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
 		this.checked = checked;
 		this.accepted = accepted;
 		this.pointId = pointId;
 		this.userId = userId;
-		this.faculty = faculty;
+		this.userss = userss;
+		this.facultys = facultys;
 	}
 	
-	public Applicant(String firstName, String lastName, String email, Boolean checked,
-			Boolean accepted, Integer pointId, Integer userId, Faculty faculty) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+	public Applicant(Boolean checked, Boolean accepted, Integer pointId, Integer userId,
+			User userss, Faculty facultys) {
 		this.checked = checked;
 		this.accepted = accepted;
 		this.pointId = pointId;
 		this.userId = userId;
-		this.faculty = faculty;
+		this.userss = userss;
+		this.facultys = facultys;
 	}
 	
 	public Applicant() {}
-	
-	public Applicant(String firstName, String lastName, String email, Faculty faculty) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.faculty = faculty;
-	}
 
 	public Integer getApplicantId() {
 		return applicantId;
@@ -81,30 +68,6 @@ public class Applicant {
 
 	public void setApplicantId(Integer applicantId) {
 		this.applicantId = applicantId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Boolean getChecked() {
@@ -139,12 +102,20 @@ public class Applicant {
 		this.userId = userId;
 	}
 
-	public Faculty getFaculty() {
-		return faculty;
+	public User getUserss() {
+		return userss;
 	}
 
-	public void setFaculty(Faculty faculty) {
-		this.faculty = faculty;
+	public void setUserss(User userss) {
+		this.userss = userss;
+	}
+
+	public Faculty getFacultys() {
+		return facultys;
+	}
+
+	public void setFacultys(Faculty facultys) {
+		this.facultys = facultys;
 	}
 
 	@Override
@@ -154,9 +125,6 @@ public class Applicant {
 		result = prime * result + ((accepted == null) ? 0 : accepted.hashCode());
 		result = prime * result + ((applicantId == null) ? 0 : applicantId.hashCode());
 		result = prime * result + ((checked == null) ? 0 : checked.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((pointId == null) ? 0 : pointId.hashCode());
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
@@ -186,21 +154,6 @@ public class Applicant {
 				return false;
 		} else if (!checked.equals(other.checked))
 			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
 		if (pointId == null) {
 			if (other.pointId != null)
 				return false;
@@ -216,10 +169,9 @@ public class Applicant {
 
 	@Override
 	public String toString() {
-		return "Applicant [applicantId=" + applicantId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", checked=" + checked + ", accepted=" + accepted + ", pointId=" + pointId
-				+ ", userId=" + userId + "]";
-	}	
-	
+		return "Applicant [applicantId=" + applicantId + ", checked=" + checked + ", accepted=" + accepted
+				+ ", pointId=" + pointId + ", userId=" + userId + "]";
+	}
+		
 
 }

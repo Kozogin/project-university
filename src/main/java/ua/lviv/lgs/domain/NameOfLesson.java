@@ -3,7 +3,6 @@ package ua.lviv.lgs.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,27 +11,20 @@ import javax.persistence.Table;
 public class NameOfLesson {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "lesson_id")
 	private Integer lessonId;
 	
 	@Column
-	private String name;
+	private String name;	
 	
-	
-	
-	//////////////////////////////////
-	private Faculty faculty;
-	
-	public NameOfLesson(Integer lessonId, String name, Faculty faculty) {
+	public NameOfLesson(Integer lessonId, String name) {
 		this.lessonId = lessonId;
 		this.name = name;
-		this.faculty = faculty;
-	}
+		}
 	
-	public NameOfLesson(String name, Faculty faculty) {
+	public NameOfLesson(String name) {
 		this.name = name;
-		this.faculty = faculty;
 	}
 	
 	public NameOfLesson() {}
@@ -51,14 +43,6 @@ public class NameOfLesson {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Faculty getFaculty() {
-		return faculty;
-	}
-
-	public void setFaculty(Faculty faculty) {
-		this.faculty = faculty;
 	}	
 	
 	@Override
