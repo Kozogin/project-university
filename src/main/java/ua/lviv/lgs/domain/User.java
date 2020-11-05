@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +27,9 @@ public class User {
 	@Column
 	private String password;
 	
+	@Column
+	private String passwordConfirm;
+	
 	@Column(name = "first_name")
 	private String firstName;
 	
@@ -35,6 +40,7 @@ public class User {
 	private String email;
 	
 	@Column
+	@Enumerated(EnumType.STRING)
 	private Role role;
 	
 	@OneToOne(mappedBy = "userss")
@@ -79,6 +85,18 @@ public class User {
 		this.purchaseDate = purchaseDate;
 	}
 	
+	public User(User user) {
+		this.userId = user.userId;
+		this.assignedId = user.assignedId;
+		this.password = user.password;
+		this.firstName = user.firstName;
+		this.lastName = user.lastName;
+		this.email = user.email;
+		this.role = user.role;
+		this.applicantss = user.applicantss;
+		this.purchaseDate = user.purchaseDate;
+	}
+	
 	public User() {}
 
 	public Integer getUserId() {
@@ -103,6 +121,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}	
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 	public String getFirstName() {
