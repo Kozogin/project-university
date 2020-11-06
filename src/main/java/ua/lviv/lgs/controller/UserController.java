@@ -1,8 +1,13 @@
 package ua.lviv.lgs.controller;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +38,7 @@ public class UserController {
         }
         userService.save(userForm);
 
-
-        return "redirect:/home";
+        return "redirect:/user";
     }
 
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
@@ -48,13 +52,32 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value ="/home", method = RequestMethod.GET)
-    public String welcome(Model model) {
+//    @RequestMapping(value ="/user", method = RequestMethod.GET)
+//    public String welcomeUser(Model model) { 
+//        return "user";
+//    }
+    
+    @RequestMapping(value ="/admin", method = RequestMethod.GET)
+    public String welcomeAdmin(Model model) {     	
+        return "admin";
+    }
+    
+    @RequestMapping(value ="/user", method = RequestMethod.GET)
+    public String welcome(ModelMap model, Authentication authentication) {
+    	//System.out.println(authentication.getAuthorities().toString());
     	
-//    	System.out.println(userService.findByAssignedId("IDThu Nov 05 20:51:41 EET 2020").get());
+    	Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
     	
+    	String role = null;
+    	for (GrantedAuthority grantedAuthority : authorities) {
+    		 role = grantedAuthority.toString();
+		}
     	
-        return "home";
+    	if(role.equals("ROLE_ADMIN")) {
+    		return "admin";
+    	}    		
+    	
+        return "user";
     }
     
     

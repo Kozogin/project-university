@@ -1,5 +1,7 @@
 package ua.lviv.lgs.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Optional;
 
@@ -24,13 +26,29 @@ public class UserService{
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setPasswordConfirm(bCryptPasswordEncoder.encode(user.getPasswordConfirm()));
         user.setRole(Role.ROLE_USER);
-        user.setPurchaseDate(new Date());
-        user.setAssignedId("ID" + new Date().toString());
+        user.setPurchaseDate(new Date());        
+        user.setAssignedId(generateAssignedId());
         userRepository.save(user);
     }
     
     public Optional<User> findByAssignedId(String assignedId) {    	
 		return userRepository.findByAssignedId(assignedId);    	
+    }
+    
+    private String generateAssignedId() {
+    	
+    	LocalDate today = LocalDate.now();
+		LocalTime time = LocalTime.now();
+    	String year = Integer.toString(today.getYear());
+    	String mounth = Integer.toString(today.getMonthValue());
+    	String day = Integer.toString(today.getDayOfMonth());
+    	String hour = Integer.toString(time.getHour());
+    	String minute = Integer.toString(time.getMinute());
+    	String second = Integer.toString(time.getSecond());
+    	
+    	String assignedIdGenerated = "ID" + year + mounth + day +hour + minute + second + "00";
+				
+		return assignedIdGenerated;    	
     }
 
 }
