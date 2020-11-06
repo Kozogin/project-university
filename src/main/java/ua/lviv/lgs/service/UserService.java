@@ -17,6 +17,7 @@ import ua.lviv.lgs.domain.User;
 public class UserService{
     @Autowired
     private UserRepository userRepository;
+    private User lastUser = new User();
 
     @Autowired
     private PasswordEncoder bCryptPasswordEncoder;
@@ -28,6 +29,9 @@ public class UserService{
         user.setRole(Role.ROLE_USER);
         user.setPurchaseDate(new Date());        
         user.setAssignedId(generateAssignedId());
+        
+        lastUser = new User(user);
+        lastUser.setUserId(0);
         userRepository.save(user);
     }
     
@@ -49,6 +53,13 @@ public class UserService{
     	String assignedIdGenerated = "ID" + year + mounth + day +hour + minute + second + "00";
 				
 		return assignedIdGenerated;    	
+    }
+    
+    public User getLastRegistrationUser(){
+    	
+    	User lastSendUser = new User(lastUser);
+    	lastUser = null;
+		return lastSendUser;    	
     }
 
 }

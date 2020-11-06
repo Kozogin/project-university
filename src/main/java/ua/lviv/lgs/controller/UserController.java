@@ -1,10 +1,7 @@
 package ua.lviv.lgs.controller;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.UserService;
@@ -26,7 +24,6 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-
         return "registration";
     }
 
@@ -38,9 +35,27 @@ public class UserController {
         }
         userService.save(userForm);
 
-        return "redirect:/user";
+        return "redirect:/reg_succeess";
     }
-
+    
+    
+    @RequestMapping(value ="/reg_succeess", method = RequestMethod.GET)
+	public ModelAndView regSucceess() {
+    	
+    	User lastUser = userService.getLastRegistrationUser();
+    	if(lastUser != null) {
+    		ModelAndView map = new ModelAndView("reg_succeess");
+    		map.addObject("lastUser", lastUser);
+    		return map;
+    	}
+		
+		return null;
+	}
+    
+    
+    
+    
+    //--------------------------------------------------------------------------
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null)
@@ -51,11 +66,7 @@ public class UserController {
 
         return "login";
     }
-
-//    @RequestMapping(value ="/user", method = RequestMethod.GET)
-//    public String welcomeUser(Model model) { 
-//        return "user";
-//    }
+    
     
     @RequestMapping(value ="/admin", method = RequestMethod.GET)
     public String welcomeAdmin(Model model) {     	
@@ -64,20 +75,9 @@ public class UserController {
     
     @RequestMapping(value ="/user", method = RequestMethod.GET)
     public String welcome(ModelMap model, Authentication authentication) {
-    	//System.out.println(authentication.getAuthorities().toString());
-    	
-    	Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-    	
-    	String role = null;
-    	for (GrantedAuthority grantedAuthority : authorities) {
-    		 role = grantedAuthority.toString();
-		}
-    	
-    	if(role.equals("ROLE_ADMIN")) {
-    		return "admin";
-    	}    		
-    	
-        return "user";
+
+    	String role = authentication.getAuthorities().stream().findFirst().orElse(null).toString();    	
+        return role.equals("ROLE_ADMIN") ? "admin" : "user";
     }
     
     
