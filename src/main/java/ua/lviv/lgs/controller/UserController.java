@@ -31,7 +31,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-       // userService.save(userForm);
+        userService.save(userForm);
 
 
         return "redirect:/home";
@@ -50,6 +50,10 @@ public class UserController {
 
     @RequestMapping(value ="/home", method = RequestMethod.GET)
     public String welcome(Model model) {
+    	
+//    	System.out.println(userService.findByAssignedId("IDThu Nov 05 20:51:41 EET 2020").get());
+    	
+    	
         return "home";
     }
     

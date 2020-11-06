@@ -35,29 +35,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-//		http.authorizeRequests()
-//		.antMatchers("/hello").access("hasRole('USER')").anyRequest().permitAll()		
-//			.and()
-//				.formLogin().loginPage("/login")
-//				.loginProcessingUrl("/j_spring_security_check")
-//				.usernameParameter("j_assignedId")
-//				.passwordParameter("j_password").and().logout()
-//				.logoutSuccessUrl("/hello").and().exceptionHandling()
-//				.accessDeniedPage("/403").and().csrf();
-		
-		
-		
-		
-		
-		
-		
+				
 		http.authorizeRequests()
-		.antMatchers("/" , "/registration").permitAll()
-		.antMatchers("/home").access("hasRole('ROLE_USER')").anyRequest().permitAll().and()
+		.antMatchers("/" , "/registration").permitAll()		
+		.antMatchers("/home").hasRole("USER").anyRequest().permitAll()
+		
+		.and()
 		
 		.formLogin().loginPage("/login")
-		.defaultSuccessUrl("/home").usernameParameter("email").passwordParameter("password").and()
+		.defaultSuccessUrl("/home")
+		.usernameParameter("assignedId")
+		.passwordParameter("password")
+		
+		.and()
+		
 		.logout().logoutSuccessUrl("/login?logout").and()
 		.exceptionHandling().accessDeniedPage("/403").and()
 		.csrf();

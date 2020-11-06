@@ -17,8 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
-	//private UserRoleRepository userRoleRepository;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String assignedId) throws UsernameNotFoundException {
 
@@ -26,6 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		if (userOptional.isPresent()) {
 			User user = userOptional.get();
+			
+			System.out.println("role ===  " + new CustomUserDetails(user, Collections.singletonList(user.getRole().toString())));
+			
 			return new CustomUserDetails(user, Collections.singletonList(user.getRole().toString()));
 		}
 
