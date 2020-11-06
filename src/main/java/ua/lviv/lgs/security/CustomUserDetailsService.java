@@ -24,9 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		Optional<User> userOptional = userRepository.findByAssignedId(assignedId);
 
 		if (userOptional.isPresent()) {
-			User user = userOptional.get();
-			
-			System.out.println("role ===  " + new CustomUserDetails(user, Collections.singletonList(user.getRole().toString())));
+			User user = userOptional.get();			
 			
 			return new CustomUserDetails(user, Collections.singletonList(user.getRole().toString()));
 		}

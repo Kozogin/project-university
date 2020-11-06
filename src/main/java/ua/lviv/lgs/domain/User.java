@@ -86,6 +86,7 @@ public class User {
 	}
 	
 	public User(User user) {
+		
 		this.userId = user.userId;
 		this.assignedId = user.assignedId;
 		this.password = user.password;
