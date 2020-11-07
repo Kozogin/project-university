@@ -50,7 +50,7 @@
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University    - <sub>create faculty</sub></sub></h1>
+				<h1>University    - <sub>Create faculty</sub></h1>
 			</div>
 
 			<div class="w3-container">
