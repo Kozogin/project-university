@@ -98,3 +98,7 @@ body {
 div.login-page div.alert.alert-success{
 	  display: none; 
 }
+
+#reg_success_ok{
+	text-decoration:underline;
+}

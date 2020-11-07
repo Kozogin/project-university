@@ -1,5 +1,7 @@
 package ua.lviv.lgs.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.Applicant;
+import ua.lviv.lgs.domain.Role;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.UserService;
 
@@ -41,16 +44,23 @@ public class UserController {
     
     @RequestMapping(value ="/reg_succeess", method = RequestMethod.GET)
 	public ModelAndView regSucceess() {
-    	
+    	    	
     	User lastUser = userService.getLastRegistrationUser();
-    	if(lastUser != null) {
+    	if(lastUser == null) { 
+    		lastUser = new User("","","","","",Role.ROLE_USER, new Date());
+    	}
+    	   		
     		ModelAndView map = new ModelAndView("reg_succeess");
     		map.addObject("lastUser", lastUser);
     		return map;
-    	}
-		
-		return null;
 	}    
+    
+//    @RequestMapping(value = "/reg_succeess", method = RequestMethod.GET)
+//    public String regSucceessMod(Model model) {        
+//        return "reg_succeess";
+//    }
+    
+    
     
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
