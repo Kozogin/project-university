@@ -15,7 +15,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
+	<link rel="stylesheet" href="../css/login.css">
+	
     <title>Create an account</title>
 
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +26,7 @@
 
 <body>
 
-<div class="container">
+<div class="container form">
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
         <h2 class="form-signin-heading">Create your account</h2>
@@ -70,6 +72,9 @@
         </spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        
+        <p class="message">Already registered? <a href="${contextPath}/login">Sign In</a></p>
+        
     </form:form>
 
 </div>
