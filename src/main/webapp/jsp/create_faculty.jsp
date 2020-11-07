@@ -50,7 +50,7 @@
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University</h1>
+				<h1>University    - <sub>create faculty</sub></sub></h1>
 			</div>
 
 			<div class="w3-container">
@@ -79,8 +79,6 @@
 								</div>
 							</spring:bind>
 
-
-
 							<c:if test="${pageContext.request.userPrincipal.name != null}">
 								<form id="logoutForm" method="POST"
 									action="${contextPath}/logout">
@@ -89,11 +87,7 @@
 										value="${_csrf.token}" />
 								</form>
 							</c:if>
-
-
-
-
-
+							
 						</form:form>
 
 					</div>

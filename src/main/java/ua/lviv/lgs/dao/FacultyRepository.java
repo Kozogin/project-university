@@ -8,6 +8,6 @@ import ua.lviv.lgs.domain.Faculty;
 @Repository
 public interface FacultyRepository extends JpaRepository<Faculty, Integer>{
 	
-	Faculty findByName(String name);
+	Faculty findByFacultyId(Integer name);
 
 }

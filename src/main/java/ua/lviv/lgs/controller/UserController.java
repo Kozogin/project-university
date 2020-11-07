@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.Applicant;
-import ua.lviv.lgs.domain.Faculty;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.UserService;
 
@@ -20,9 +19,7 @@ import ua.lviv.lgs.service.UserService;
 public class UserController {
 	
     @Autowired
-    private UserService userService;
-
-
+    private UserService userService;       
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -95,49 +92,7 @@ public class UserController {
     }
     
     //------------------------------------------------------------------
-    @RequestMapping(value ="/create_faculty", method = RequestMethod.GET)
-    public String createFaculty(Model model) { 
-    	model.addAttribute("createFacultyForm", new Faculty());
-        return "create_faculty";
-    }
-    
-    @RequestMapping(value = "/create_faculty", method = RequestMethod.POST)
-    public String createFacultyPost(@ModelAttribute("createFacultyForm") Faculty createFacultyForm, BindingResult bindingResult, Model model) {
-
-        if (bindingResult.hasErrors()) {
-            return "user";
-        }
-       // userService.save(applicantForm);
-
-        return "redirect:/user";
-    }
-    
-    @RequestMapping(value ="/faculties", method = RequestMethod.GET)
-    public String faculties() {     	
-        return "faculties";
-    }
-    
-    @RequestMapping(value ="/create_lesson", method = RequestMethod.GET)
-    public String createLesson(Model model) {
-    	//model.addAttribute("createNameOfLessonForm", new NameOfLesson());
-        return "create_lesson";
-    }
-    
-//    @RequestMapping(value = "/create_faculty", method = RequestMethod.POST)
-//    public String createLesson(@ModelAttribute("createNameOfLessonForm") Faculty createNameOfLessonForm, BindingResult bindingResult, Model model) {
-//
-//        if (bindingResult.hasErrors()) {
-//            return "user";
-//        }
-//       // userService.save(applicantForm);
-//
-//        return "redirect:/user";
-//    }
-    
-    @RequestMapping(value ="/lessons", method = RequestMethod.GET)
-    public String lessons() {     	
-        return "lessons";
-    }
+   
     
     @RequestMapping(value ="/add_lesson_to_faculty", method = RequestMethod.GET)
     public String addLessonToFaculty() {     	

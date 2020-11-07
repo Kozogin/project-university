@@ -15,6 +15,7 @@ import ua.lviv.lgs.domain.User;
 
 @Service
 public class UserService{
+	
     @Autowired
     private UserRepository userRepository;
     private User lastUser = new User();
@@ -37,6 +38,13 @@ public class UserService{
     
     public Optional<User> findByAssignedId(String assignedId) {    	
 		return userRepository.findByAssignedId(assignedId);    	
+    }    
+        
+    public User getLastRegistrationUser(){
+    	
+    	User lastSendUser = new User(lastUser);
+    	lastUser = null;
+		return lastSendUser;    	
     }
     
     private String generateAssignedId() {
@@ -53,13 +61,6 @@ public class UserService{
     	String assignedIdGenerated = "ID" + year + mounth + day +hour + minute + second + "00";
 				
 		return assignedIdGenerated;    	
-    }
-    
-    public User getLastRegistrationUser(){
-    	
-    	User lastSendUser = new User(lastUser);
-    	lastUser = null;
-		return lastSendUser;    	
     }
 
 }
