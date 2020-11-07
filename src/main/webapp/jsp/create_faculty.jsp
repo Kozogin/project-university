@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Application submission</title>
+<title>Cretate faculty</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -36,22 +36,21 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">Home</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
-				lessons to faculty</a>
+			<a href="/user" class="w3-bar-item w3-button">Home</a> 
+			<a href="/create_faculty" class="w3-bar-item w3-button">Create faculty</a>
+			<a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
+			<a href="/create_lesson" class="w3-bar-item w3-button">Create lesson</a>
+			<a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add lessons to faculty</a>
 			<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
-
+			
 		</div>
 
 		<!-- Page Content -->
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University </h1>							
+				<h1>University</h1>
 			</div>
 
 			<div class="w3-container">
@@ -63,24 +62,20 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">
-						Welcome (user) ${pageContext.request.userPrincipal.name}
-					</h3>
-
 				</c:if>
 
 				<div class="container">
 					<div class="form">
 
-						<form:form method="POST" modelAttribute="applicantForm"
+						<form:form method="POST" modelAttribute="createFacultyForm"
 							class="form-signin">
-							<h4 class="form-signin-heading">Application submission</h4>
+							<h4 class="form-signin-heading">Create faculty</h4>
 
-							<spring:bind path="pointId">
+							<spring:bind path="name">
 								<div class="form-group ${status.error ? 'has-error' : ''}">
-									<form:input type="text" path="pointId" class="form-control"
-										placeholder="pointId" autofocus="true"></form:input>
-									<form:errors path="pointId"></form:errors>
+									<form:input type="text" path="name" class="form-control"
+										placeholder="name" autofocus="true"></form:input>
+									<form:errors path="name"></form:errors>
 								</div>
 							</spring:bind>
 
