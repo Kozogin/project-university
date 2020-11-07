@@ -87,15 +87,29 @@ public class User {
 	
 	public User(User user) {
 		
-		this.userId = user.userId;
-		this.assignedId = user.assignedId;
-		this.password = user.password;
-		this.firstName = user.firstName;
-		this.lastName = user.lastName;
-		this.email = user.email;
-		this.role = user.role;
-		this.applicantss = user.applicantss;
-		this.purchaseDate = user.purchaseDate;
+		if(user != null) {
+			this.userId = user.userId;
+			this.assignedId = user.assignedId;
+			this.password = user.password;
+			this.firstName = user.firstName;
+			this.lastName = user.lastName;
+			this.email = user.email;
+			this.role = user.role;
+			this.applicantss = user.applicantss;
+			this.purchaseDate = user.purchaseDate;
+		} else {
+			this.userId = 0;
+			this.assignedId = "";
+			this.password = "";
+			this.firstName = "";
+			this.lastName = "";
+			this.email = "";
+			this.role = Role.ROLE_USER;
+			this.applicantss = null;
+			this.purchaseDate = null;
+		}
+		
+		
 	}
 	
 	public User() {}
