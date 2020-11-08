@@ -66,8 +66,19 @@
 
 				<div class="container">
 					
-					
-					
+					<c:if test="${not empty faculties}">
+						<c:forEach items="${faculties}" var="currentFaculties">
+
+							<div class="w3-card-4" style="width: 500px; margin: 8%">
+								
+								<div class="w3-container w3-center">
+									<h3>${currentFaculties.facultyId}</h3> 
+									<p>${currentFaculties.name}</p>									
+								</div>								
+							</div>
+
+						</c:forEach>
+					</c:if>								
 					
 				</div>
 			</div>

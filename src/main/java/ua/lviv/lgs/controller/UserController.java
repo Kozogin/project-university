@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ua.lviv.lgs.domain.Applicant;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.UserService;
 
@@ -19,7 +18,10 @@ import ua.lviv.lgs.service.UserService;
 public class UserController {
 	
     @Autowired
-    private UserService userService;       
+    private UserService userService; 
+    
+//    @Autowired
+//    private FacultyService facultyService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -73,25 +75,17 @@ public class UserController {
     }
     
     @RequestMapping(value ="/user", method = RequestMethod.GET)
-    public String welcome(ModelMap model, Authentication authentication) {    	
+    public ModelAndView welcome(ModelMap model, Authentication authentication) {    	
     	
     	String role = authentication.getAuthorities().stream().findFirst().orElse(null).toString();
     	if(role.equals("ROLE_ADMIN")) {
-    		return "admin";
+    		return new ModelAndView("admin");
     	}
-    	model.addAttribute("applicantForm", new Applicant());
-        return "user";
-    }
-    
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public String applicationSubmission(@ModelAttribute("applicantForm") Applicant applicantForm, BindingResult bindingResult, Model model) {
-
-        if (bindingResult.hasErrors()) {
-            return "user";
-        }
-       // userService.save(applicantForm);
-
-        return "redirect:/reg_succeess";
+    	    	
+    	ModelAndView map = new ModelAndView("user");
+    	map.addObject("users", userService.getAllUsers());
+    	
+        return map;
     }
     
     //------------------------------------------------------------------

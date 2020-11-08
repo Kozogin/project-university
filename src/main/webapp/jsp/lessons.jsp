@@ -36,21 +36,26 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">Home</a> 
-			<a href="/create_faculty" class="w3-bar-item w3-button">Create faculty</a>
-			<a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create lesson</a>
-			<a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add lessons to faculty</a>
-			<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
-			
+			<a href="/user" class="w3-bar-item w3-button">Home</a> <a
+				href="/create_faculty" class="w3-bar-item w3-button">Create
+				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
+			<a href="/create_lesson" class="w3-bar-item w3-button">Create
+				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
+				lessons to faculty</a>
+			<h4 class="text">
+				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
+			</h4>
+
 		</div>
 
 		<!-- Page Content -->
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University    - <sub>all lessons</sub></h1>
+				<h1>
+					University - <sub>all lessons</sub>
+				</h1>
 			</div>
 
 			<div class="w3-container">
@@ -65,10 +70,24 @@
 				</c:if>
 
 				<div class="container">
-					
-					
-					
-					
+
+					<c:if test="${not empty lessons}">
+						<c:forEach items="${lessons}" var="currentLessons">
+
+							<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+								<div class="w3-container w3-center">
+									<h3>${currentLessons.lessonId}</h3>
+									<p>${currentLessons.name}</p>
+								</div>
+								<button class="w3-button w3-block w3-dark-grey">+ add
+									to this faculty</button>
+							</div>
+
+						</c:forEach>
+					</c:if>
+
+
 				</div>
 			</div>
 		</div>

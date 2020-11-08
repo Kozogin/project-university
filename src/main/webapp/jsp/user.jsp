@@ -43,7 +43,9 @@
 				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
 			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
 				lessons to faculty</a>
-			<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
+			<h4 class="text">
+				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
+			</h4>
 
 		</div>
 
@@ -51,7 +53,7 @@
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University</h1>							
+				<h1>University</h1>
 			</div>
 
 			<div class="w3-container">
@@ -63,45 +65,30 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">
-						Welcome (user) ${pageContext.request.userPrincipal.name}
-					</h3>
+					<h3 class="text">Welcome (user)
+						${pageContext.request.userPrincipal.name}</h3>
 
 				</c:if>
 
 				<div class="container">
-					<div class="form">
 
-						<form:form method="POST" modelAttribute="applicantForm"
-							class="form-signin">
-							<h4 class="form-signin-heading">Application submission</h4>
+					<c:if test="${not empty users}">
+						<c:forEach items="${users}" var="currentUsers">
 
-							<spring:bind path="pointId">
-								<div class="form-group ${status.error ? 'has-error' : ''}">
-									<form:input type="text" path="pointId" class="form-control"
-										placeholder="pointId" autofocus="true"></form:input>
-									<form:errors path="pointId"></form:errors>
-								</div>
-							</spring:bind>
+							<div class="w3-card-4" style="width: 500px; margin: 8%">
+								
+								<div class="w3-container w3-center">
+									<h3>${currentUsers.assignedId}</h3> 
+									<p>${currentUsers.firstName}</p>
+									<p>${currentUsers.lastName}</p>
+									<p>${currentUsers.email}</p>
+									<p>${currentUsers.purchaseDate}</p>																	
+								</div>								
+							</div>
 
+						</c:forEach>
+					</c:if>	
 
-
-							<c:if test="${pageContext.request.userPrincipal.name != null}">
-								<form id="logoutForm" method="POST"
-									action="${contextPath}/logout">
-									<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-									<input type="hidden" name="${_csrf.parameterName}"
-										value="${_csrf.token}" />
-								</form>
-							</c:if>
-
-
-
-
-
-						</form:form>
-
-					</div>
 				</div>
 			</div>
 		</div>

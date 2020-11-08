@@ -1,5 +1,7 @@
 package ua.lviv.lgs.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class FacultyService {
 	
 	public Faculty findByFacultyId(Integer facultyId){
 		return facultyRepository.findByFacultyId(facultyId);		
+	}
+	
+	public List<Faculty> getAllFaculty(){
+		return facultyRepository.findAll();		
 	}
 
 }

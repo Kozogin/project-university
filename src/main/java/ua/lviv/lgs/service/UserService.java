@@ -3,6 +3,7 @@ package ua.lviv.lgs.service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserService{
 	
     @Autowired
     private UserRepository userRepository;
-    private User lastUser = new User();
+    private User lastUser;
 
     @Autowired
     private PasswordEncoder bCryptPasswordEncoder;
@@ -31,19 +32,23 @@ public class UserService{
         user.setPurchaseDate(new Date());        
         user.setAssignedId(generateAssignedId());
         
-        lastUser = new User(user);
-        lastUser.setUserId(0);
+        lastUser = new User(user);       
         userRepository.save(user);
     }
     
     public Optional<User> findByAssignedId(String assignedId) {    	
 		return userRepository.findByAssignedId(assignedId);    	
-    }    
+    }  
+    
+    public List<User> getAllUsers(){
+		return userRepository.findAll();    	
+    }
+    
         
     public User getLastRegistrationUser(){
     	
     	User lastSendUser = new User(lastUser);
-    	lastUser = null;
+    	lastUser = new User("","","","","",Role.ROLE_USER,new Date());
 		return lastSendUser;    	
     }
     

@@ -86,8 +86,7 @@ public class User {
 	}
 	
 	public User(User user) {
-		
-		if(user != null) {
+				
 			this.userId = user.userId;
 			this.assignedId = user.assignedId;
 			this.password = user.password;
@@ -97,18 +96,6 @@ public class User {
 			this.role = user.role;
 			this.applicantss = user.applicantss;
 			this.purchaseDate = user.purchaseDate;
-		} else {
-			this.userId = 0;
-			this.assignedId = "";
-			this.password = "";
-			this.firstName = "";
-			this.lastName = "";
-			this.email = "";
-			this.role = Role.ROLE_USER;
-			this.applicantss = null;
-			this.purchaseDate = null;
-		}
-		
 		
 	}
 	

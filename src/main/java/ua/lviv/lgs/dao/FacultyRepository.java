@@ -9,5 +9,5 @@ import ua.lviv.lgs.domain.Faculty;
 public interface FacultyRepository extends JpaRepository<Faculty, Integer>{
 	
 	Faculty findByFacultyId(Integer name);
-
+	
 }
