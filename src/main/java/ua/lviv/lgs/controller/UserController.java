@@ -16,91 +16,76 @@ import ua.lviv.lgs.service.UserService;
 
 @Controller
 public class UserController {
-	
-    @Autowired
-    private UserService userService; 
-    
-//    @Autowired
-//    private FacultyService facultyService;
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-        return "registration";
-    }
+	@Autowired
+	private UserService userService;
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String registration(Model model) {
+		model.addAttribute("userForm", new User());
+		return "registration";
+	}
 
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-        userService.save(userForm);
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
 
-        return "redirect:/reg_succeess";
-    }
-    
-    
-    @RequestMapping(value ="/reg_succeess", method = RequestMethod.GET)
+		if (bindingResult.hasErrors()) {
+			return "registration";
+		}
+		userService.save(userForm);
+
+		return "redirect:/reg_succeess";
+	}
+
+	@RequestMapping(value = "/reg_succeess", method = RequestMethod.GET)
 	public ModelAndView regSucceess() {
-    	    	
-    	User lastUser = userService.getLastRegistrationUser();
-    	
-    	if(lastUser.getAssignedId() == "") { 
-    		return new ModelAndView("login");
-    	}
-    	   		
-    		ModelAndView map = new ModelAndView("reg_succeess");
-    		map.addObject("lastUser", lastUser);
-    		return map;
-	}    
-    
-    
-    
-    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
+
+		User lastUser = userService.getLastRegistrationUser();
+
+		if (lastUser.getAssignedId() == "") {
+			return new ModelAndView("login");
+		}
+
+		ModelAndView map = new ModelAndView("reg_succeess");
+		map.addObject("lastUser", lastUser);
+		return map;
+	}
+
+	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
+	public String login(Model model, String error, String logout) {
 //        if (error != null)
 //            model.addAttribute("error", "Your username and password is invalid.");
 //
 //        if (logout != null)
 //            model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
-    }
-    
-    
-    @RequestMapping(value ="/admin", method = RequestMethod.GET)
-    public String welcomeAdmin(Model model) {     	
-        return "admin";
-    }
-    
-    @RequestMapping(value ="/user", method = RequestMethod.GET)
-    public ModelAndView welcome(ModelMap model, Authentication authentication) {    	
-    	
-    	String role = authentication.getAuthorities().stream().findFirst().orElse(null).toString();
-    	if(role.equals("ROLE_ADMIN")) {
-    		return new ModelAndView("admin");
-    	}
-    	    	
-    	ModelAndView map = new ModelAndView("user");
-    	map.addObject("users", userService.getAllUsers());
-    	
-        return map;
-    }
-    
-    //------------------------------------------------------------------
-   
-    
-    @RequestMapping(value ="/add_lesson_to_faculty", method = RequestMethod.GET)
-    public String addLessonToFaculty() {     	
-        return "add_lesson_to_faculty";
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+		return "login";
+	}
+
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String welcomeAdmin(Model model) {
+		return "admin";
+	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public ModelAndView welcome(ModelMap model, Authentication authentication) {
+
+		String role = authentication.getAuthorities().stream().findFirst().orElse(null).toString();
+		
+		if (role.equals("ROLE_ADMIN")) {
+			ModelAndView map = new ModelAndView("admin");
+			map.addObject("users", userService.getAllUsers());
+			return map;
+		}
+
+		return new ModelAndView("user");
+	}
+
+	// ------------------------------------------------------------------
+
+	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
+	public String addLessonToFaculty() {
+		return "add_lesson_to_faculty";
+	}
+
 }
