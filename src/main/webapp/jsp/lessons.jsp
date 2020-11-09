@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>All lessons</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -54,7 +54,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>all Application</sub>
+					University - <sub>all lessons</sub>
 				</h1>
 			</div>
 
@@ -67,35 +67,32 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">Welcome (admin)
-						${pageContext.request.userPrincipal.name}</h3>
-
 				</c:if>
 
 				<div class="container">
 
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
+					<c:if test="${not empty lessons}">
+						<c:forEach items="${lessons}" var="currentLessons">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3>
-									<p>${currentUsers.firstName}</p>
-									<p>${currentUsers.lastName}</p>
-									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>
+									<h3>${currentLessons.lessonId}</h3>
+									<p>${currentLessons.name}</p>
 								</div>
+								<button class="w3-button w3-block w3-dark-grey">+ add
+									to this faculty</button>
 							</div>
 
 						</c:forEach>
 					</c:if>
 
+
 				</div>
 			</div>
 		</div>
+		<!-- /container -->
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

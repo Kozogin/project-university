@@ -1,35 +1,66 @@
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>User success registration</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
 
+<link rel="stylesheet" href="../css/login.css">
 
+<title>Registration successfully</title>
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+<link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
-
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.text {
+	text-align: center;
+}
+</style>
 </head>
 
 <body>
+	<div>
+		<!-- Sidebar -->
+		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
+			<h3 class="w3-bar-item">Menu</h3>						
+		</div>
 
-	<br>
+		<!-- Page Content -->
+		<div style="margin-left: 10%">
+
+			<div class="w3-container w3-teal">
+				<h1>University    - <sub>registration successfully</sub></h1>
+			</div>
+
+			<div class="w3-container">
+
+				<br>
+				<c:if test="${pageContext.request.userPrincipal.name != null}">
+					<form id="logoutForm" method="POST" action="${contextPath}/logout">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+					</form>
+
+				</c:if>
+
+				<div class="container">
+					
+					
+					<br>
 	<br>
 	<div>
 		<form>
@@ -48,7 +79,7 @@
 					<h3>${lastUser.assignedId}</h3>
 					<br>
 					<div>
-						<a href="login">Ok</a>
+						<h4 class="text"><a id="reg_success_ok" href ="login" onclick="document.forms['logoutForm'].submit()">Ok</a></h4>
 					</div>
 				</div>
 			</div>
@@ -58,50 +89,17 @@
 
 
 	<input name="_csrf" type="hidden" value="${_csrf.token}" />
-
-
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="_csrf" content="${_csrf.token}"/>
-<meta name="_csrf_header" content="${_csrf.headerName}"/>
-
-<meta charset="ISO-8859-1">
-<title>registration successfully</title>
-</head>
-<body>
-		<br><br>
-		<h2>registration successfully</h2>
-		
-	<div>
-	<form>
-		<div> 
-			<a href="login">Ok</a>
-		</div>	
-	</form>		
-	</div>
-
-	
-		<input name="_csrf" type="hidden" value="${_csrf.token}" />
-</body>
-</html> --%>

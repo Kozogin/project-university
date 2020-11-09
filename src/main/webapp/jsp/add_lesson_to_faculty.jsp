@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>Add lessons to faculty</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -36,26 +36,21 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
-				lessons to faculty</a>
-			<h4 class="text">
-				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-			</h4>
-
+			<a href="/user" class="w3-bar-item w3-button">All Application</a> 
+			<a href="/create_faculty" class="w3-bar-item w3-button">Create faculty</a>
+			<a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
+			<a href="/create_lesson" class="w3-bar-item w3-button">Create lesson</a>
+			<a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add lessons to faculty</a>
+			<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
+			
 		</div>
 
 		<!-- Page Content -->
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>
-					University - <sub>all Application</sub>
-				</h1>
+				<h1>University    - <sub>add lessons to faculty</sub></h1>
 			</div>
 
 			<div class="w3-container">
@@ -67,35 +62,18 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">Welcome (admin)
-						${pageContext.request.userPrincipal.name}</h3>
-
 				</c:if>
 
 				<div class="container">
-
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
-
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3>
-									<p>${currentUsers.firstName}</p>
-									<p>${currentUsers.lastName}</p>
-									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>
-								</div>
-							</div>
-
-						</c:forEach>
-					</c:if>
-
+					
+					
+					
+					
 				</div>
 			</div>
 		</div>
+		<!-- /container -->
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
