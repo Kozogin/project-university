@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.User;
+import ua.lviv.lgs.service.FacultyService;
 import ua.lviv.lgs.service.UserService;
 
 @Controller
@@ -19,7 +20,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
+	
+	@Autowired
+    private FacultyService facultyService;
+	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model) {
 		model.addAttribute("userForm", new User());
@@ -74,11 +78,13 @@ public class UserController {
 		
 		if (role.equals("ROLE_ADMIN")) {
 			ModelAndView map = new ModelAndView("admin");
-			map.addObject("users", userService.getAllUsers());
+			map.addObject("users", userService.findAllApplicant());
 			return map;
 		}
-
-		return new ModelAndView("user");
+		
+		ModelAndView map = new ModelAndView("user");
+		map.addObject("faculties", facultyService.getAllFaculty());	    	
+        return map;
 	}
 
 	// ------------------------------------------------------------------

@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Application submission</title>
+<title>All Application</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -36,7 +36,7 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">Home</a> <a
+			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
 				href="/create_faculty" class="w3-bar-item w3-button">Create
 				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create
@@ -53,7 +53,9 @@
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University</h1>
+				<h1>
+					University - <sub>all Application</sub>
+				</h1>
 			</div>
 
 			<div class="w3-container">
@@ -76,24 +78,24 @@
 						<c:forEach items="${users}" var="currentUsers">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
-								
+
 								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3> 
+									<h3>${currentUsers.assignedId}</h3>
 									<p>${currentUsers.firstName}</p>
 									<p>${currentUsers.lastName}</p>
 									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>																	
-								</div>								
+									<p>${currentUsers.purchaseDate}</p>
+								</div>
 							</div>
 
 						</c:forEach>
-					</c:if>	
+					</c:if>
 
 				</div>
 			</div>
 		</div>
-		<!-- /container -->
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

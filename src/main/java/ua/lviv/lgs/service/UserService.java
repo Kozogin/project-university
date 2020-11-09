@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,6 +43,16 @@ public class UserService{
     
     public List<User> getAllUsers(){
 		return userRepository.findAll();    	
+    }
+    
+    public List<User> findAllApplicant(){
+    	try {
+		return userRepository.findAll().stream()
+				.filter(user -> user.getRole() == Role.ROLE_USER)
+				.collect(Collectors.toList());  
+    	} catch (Exception e) {    		
+    	}
+		return null;
     }
     
         

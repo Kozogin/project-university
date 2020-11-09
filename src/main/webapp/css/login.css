@@ -102,3 +102,19 @@ div.login-page div.alert.alert-success{
 #reg_success_ok{
 	text-decoration:underline;
 }
+
+#facultySelect, #facultySelect > option{
+	font-family: "Roboto", sans-serif;
+	font-weight:bold;
+	line-height: 1.5;
+	text-transform: uppercase;
+	outline: 0;
+	
+	width: 100%;
+	
+	padding: 15px;
+	color: #000000;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+}

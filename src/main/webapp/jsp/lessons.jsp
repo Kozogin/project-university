@@ -36,7 +36,7 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">Home</a> <a
+			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
 				href="/create_faculty" class="w3-bar-item w3-button">Create
 				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create
