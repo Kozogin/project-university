@@ -1,18 +1,21 @@
 package ua.lviv.lgs.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.FacultyService;
+import ua.lviv.lgs.service.UserDTOHelper;
 import ua.lviv.lgs.service.UserService;
 
 @Controller
@@ -26,19 +29,32 @@ public class UserController {
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model) {
-		model.addAttribute("userForm", new User());
+		//model.addAttribute("userForm", new User());
 		return "registration";
 	}
 
+//	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+//	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+//
+//		if (bindingResult.hasErrors()) {
+//			return "registration";
+//		}
+//		userService.save(userForm);
+//		return "redirect:/reg_succeess";
+//	}
+	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-
-		if (bindingResult.hasErrors()) {
-			return "registration";
-		}
-		userService.save(userForm);
-
-		return "redirect:/reg_succeess";
+	public ModelAndView registration(@RequestParam MultipartFile imgFile, @RequestParam String password, 
+			@RequestParam String passwordConfirm, @RequestParam String firstName, 
+			@RequestParam String lastName, @RequestParam String email) throws IOException {
+		
+		System.out.println("cont regi post before");
+		
+		userService.save(UserDTOHelper.createEntity(imgFile, password, passwordConfirm, firstName, lastName, email));
+		
+		System.out.println("cont regi post after");
+		
+		return new ModelAndView("redirect:/reg_succeess");
 	}
 
 	@RequestMapping(value = "/reg_succeess", method = RequestMethod.GET)

@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -38,6 +39,12 @@ public class User {
 	
 	@Column
 	private String email;
+	
+	@Lob
+	private byte [] imgFile;
+	
+	@Lob
+	private String encodedImage;
 	
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -179,6 +186,22 @@ public class User {
 
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
+	}	
+
+	public byte[] getImgFile() {
+		return imgFile;
+	}
+
+	public void setImgFile(byte[] imgFile) {
+		this.imgFile = imgFile;
+	}	
+
+	public String getEncodedImage() {
+		return encodedImage;
+	}
+
+	public void setEncodedImage(String encodedImage) {
+		this.encodedImage = encodedImage;
 	}
 
 	@Override
