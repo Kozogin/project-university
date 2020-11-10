@@ -17,8 +17,7 @@ public class UserDTOHelper {
 		user.setPasswordConfirm(passwordConfirm);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
-		user.setEmail(email);		
-		user.setImgFile(imgFile.getBytes());
+		user.setEmail(email);
 		user.setEncodedImage(Base64.getEncoder().encodeToString(imgFile.getBytes()));
 		return user;		
 	}

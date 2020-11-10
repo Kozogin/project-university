@@ -39,10 +39,7 @@ public class User {
 	
 	@Column
 	private String email;
-	
-	@Lob
-	private byte [] imgFile;
-	
+		
 	@Lob
 	private String encodedImage;
 	
@@ -186,14 +183,6 @@ public class User {
 
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
-	}	
-
-	public byte[] getImgFile() {
-		return imgFile;
-	}
-
-	public void setImgFile(byte[] imgFile) {
-		this.imgFile = imgFile;
 	}	
 
 	public String getEncodedImage() {

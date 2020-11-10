@@ -28,20 +28,9 @@ public class UserController {
     private FacultyService facultyService;
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-	public String registration(Model model) {
-		//model.addAttribute("userForm", new User());
+	public String registration(Model model) {		
 		return "registration";
 	}
-
-//	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-//	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-//
-//		if (bindingResult.hasErrors()) {
-//			return "registration";
-//		}
-//		userService.save(userForm);
-//		return "redirect:/reg_succeess";
-//	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView registration(@RequestParam MultipartFile imgFile, @RequestParam String password, 
@@ -73,12 +62,6 @@ public class UserController {
 
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
-//        if (error != null)
-//            model.addAttribute("error", "Your username and password is invalid.");
-//
-//        if (logout != null)
-//            model.addAttribute("message", "You have been logged out successfully.");
-
 		return "login";
 	}
 
