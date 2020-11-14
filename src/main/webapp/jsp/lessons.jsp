@@ -61,6 +61,11 @@
 			<div class="w3-container">
 
 				<br>
+
+
+
+
+
 				<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<form id="logoutForm" method="POST" action="${contextPath}/logout">
 						<input type="hidden" name="${_csrf.parameterName}"
@@ -71,7 +76,46 @@
 
 				<div class="container">
 
-					<c:if test="${not empty lessons}">
+
+					<form:form modelAttribute="selectFaculty" method="POST">
+
+						<form:select id="facultySelect" path="facultyId" action="${contextPath}/lessons">
+							<option></option>
+							<form:options items="${facultyId}" />
+						</form:select>
+
+
+						<%-- <input type="hidden" value="${faculties}"
+							class="form-control" name="faculty"> --%>
+						<input type="submit" class="w3-button w3-block w3-dark-grey"
+							value="+ add to this faculty">
+					</form:form>
+
+					<%-- </form:form> --%>
+					<%-- <form:form modelAttribute="faculties" action="${contextPath}/lessons" method="POST">
+				
+				
+					<h4 class="form-signin-heading">Choice faculty</h4>
+						
+						<form:select path="name" >
+						 <form:select path="name" items="${nameList}" >
+							<form:option value="none" label="Select"></form:option>
+							<form:option items="${faculties}" value="${faculties}"></form:option>
+						</form:select> 
+
+
+					
+						
+						
+						<input type="submit" class="w3-button w3-block w3-dark-grey"
+							value="+ add to this faculty">
+					</form:form> --%>
+
+
+
+					<br>
+
+					<%-- <c:if test="${not empty lessons}">
 						<c:forEach items="${lessons}" var="currentLessons">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
@@ -80,12 +124,29 @@
 									<h3>${currentLessons.lessonId}</h3>
 									<p>${currentLessons.name}</p>
 								</div>
-								<button class="w3-button w3-block w3-dark-grey">+ add
-									to this faculty</button>
+
+
+
+
+
+								<form:form action="${contextPath}/lessons" method="POST">
+									<input type="hidden" value="${currentLessons.lessonId}"
+										class="form-control" name="lessonId">
+									<input type="hidden" value="${currentFaculties.name}"
+										class="form-control" name="facultyId">
+									<input type="submit" class="w3-button w3-block w3-dark-grey"
+										value="+ add to this faculty">
+								</form:form>
+
+
+
+
+
+								
 							</div>
 
 						</c:forEach>
-					</c:if>
+					</c:if> --%>
 
 
 				</div>

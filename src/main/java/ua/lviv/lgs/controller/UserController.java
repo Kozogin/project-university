@@ -36,12 +36,8 @@ public class UserController {
 	public ModelAndView registration(@RequestParam MultipartFile imgFile, @RequestParam String password, 
 			@RequestParam String passwordConfirm, @RequestParam String firstName, 
 			@RequestParam String lastName, @RequestParam String email) throws IOException {
-		
-		System.out.println("cont regi post before");
-		
+				
 		userService.save(UserDTOHelper.createEntity(imgFile, password, passwordConfirm, firstName, lastName, email));
-		
-		System.out.println("cont regi post after");
 		
 		return new ModelAndView("redirect:/reg_succeess");
 	}
@@ -86,11 +82,5 @@ public class UserController {
         return map;
 	}
 
-	// ------------------------------------------------------------------
-
-	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
-	public String addLessonToFaculty() {
-		return "add_lesson_to_faculty";
-	}
-
+	
 }

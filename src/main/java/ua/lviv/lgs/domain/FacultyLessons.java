@@ -36,6 +36,12 @@ public class FacultyLessons {
 		this.nameOfLessons = nameOfLessons;
 	}
 	
+	
+	
+	public FacultyLessons(Integer facultyLessonsId) {
+		this.facultyLessonsId = facultyLessonsId;
+	}
+
 	public FacultyLessons() {}
 
 	public Integer getFacultyLessonsId() {
