@@ -9,10 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.Faculty;
@@ -24,6 +22,8 @@ import ua.lviv.lgs.service.NameOfLessonService;
 
 @Controller
 public class NameOfLessonController {
+	
+	private Faculty choiseFaculty = new Faculty();
 	
 	@Autowired
     private NameOfLessonService nameOfLessonService;
@@ -55,38 +55,38 @@ public class NameOfLessonController {
     public ModelAndView welcome(ModelMap model) { 
     	    	    	
     	ModelAndView map = new ModelAndView("lessons");
+    	List<Faculty> allAndChoiseFaculty = new ArrayList<>();
+    	allAndChoiseFaculty.add(choiseFaculty);
+    	allAndChoiseFaculty.addAll(facultyService.getAllFaculty());
     	
     	map.addObject("lessons", nameOfLessonService.getAllLesson());    	
-    	map.addObject("faculties", facultyService.getAllFaculty());    	
+    	map.addObject("faculties", allAndChoiseFaculty);    	
     	map.addObject("selectFaculty", new Faculty());
     	
         return map;
     }
     
     @RequestMapping(value = "/lessons", method = RequestMethod.POST)
-	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson nameOfLesson) {
-			
-//		
-//		NameOfLesson nameOfLesson = nameOfLessonService.findByLessonId(lessonId);
-//		
-//		FacultyLessons facultyLessons = new FacultyLessons();
-//		facultyLessons.setNameOfLessons(nameOfLesson);
-//				
-//		System.out.println(facultyLessons.getNameOfLessons());
-		System.out.println("facultyId ----- "+faculty);
-		System.out.println("lessonId ------- "+nameOfLesson);
+	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson lesson) {
 		
-	//	facultyLessonsService.addFacultyLessons(facultyLessons);
+    	try {
+    		if(faculty.getFacultyId() != null) {    		
+    			choiseFaculty = new Faculty(facultyService.findByFacultyId(faculty.getFacultyId()));
+    		}
+    		
+    		NameOfLesson nameOfLesson = nameOfLessonService.findByLessonId(lesson.getLessonId());
+    		if(nameOfLesson != null) {
+	    		
+	    		FacultyLessons facultyLessons = new FacultyLessons();
+	    		facultyLessons.setNameOfLessons(nameOfLesson);
+	    		facultyLessons.setFacultys(choiseFaculty);		
+	    		facultyLessonsService.addFacultyLessons(facultyLessons);
+    		}
+	    		
+    	} catch(Exception e) {}
+		
 		return new ModelAndView("redirect:/lessons");
 	}
     
-    
-    
-    
-//    private ModelAndView getFacultyLessonsItems() {
-//		ModelAndView map = new ModelAndView("redirect:/add_lesson_to_faculty");
-//		map.addObject("add_lesson_to_faculty", facultyLessonsService.getAll());
-//		return map;		
-//	}
 
 }

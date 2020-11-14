@@ -79,16 +79,7 @@
 
 					<form:form modelAttribute="selectFaculty" method="POST">
 
-						<%-- <form:select id="facultySelect" path="name" action="${contextPath}/lessons">
-							<option></option>
-							<form:options items="${name}"/>
-						</form:select> --%>
-
-
-
-
 						<form:select id="facultySelect" path="facultyId">
-							<option></option>
 
 							<c:if test="${not empty faculties}">
 								<c:forEach items="${faculties}" var="currentFaculties">
@@ -100,33 +91,9 @@
 						</form:select>
 
 
-
-
 						<input type="submit" class="w3-button w3-block w3-dark-grey"
 							value="+ add to this faculty">
 					</form:form>
-
-					<%-- </form:form> --%>
-					<%-- <form:form modelAttribute="faculties" action="${contextPath}/lessons" method="POST">
-				
-				
-					<h4 class="form-signin-heading">Choice faculty</h4>
-						
-						<form:select path="name" >
-						 <form:select path="name" items="${nameList}" >
-							<form:option value="none" label="Select"></form:option>
-							<form:option items="${faculties}" value="${faculties}"></form:option>
-						</form:select> 
-
-
-					
-						
-						
-						<input type="submit" class="w3-button w3-block w3-dark-grey"
-							value="+ add to this faculty">
-					</form:form> --%>
-
-
 
 					<br>
 
@@ -141,27 +108,17 @@
 								</div>
 
 
-
-
-
-								 <form:form action="${contextPath}/lessons" method="POST">
+								<form:form action="${contextPath}/lessons" method="POST">
 									<input type="hidden" value="${currentLessons.lessonId}"
 										class="form-control" name="lessonId">
-									<%-- <input type="hidden" value="${currentFaculties.name}"
-										class="form-control" name="facultyId"> --%>
+
 									<input type="submit" class="w3-button w3-block w3-dark-grey"
-										value="+ add to this faculty">
-								</form:form> 
-
-
-
-
-
-								
+										value="choise this faculty">
+								</form:form>
 							</div>
 
 						</c:forEach>
-					</c:if> 
+					</c:if>
 
 
 				</div>
@@ -169,6 +126,7 @@
 		</div>
 		<!-- /container -->
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
