@@ -78,7 +78,7 @@
 
 
 					<form:form modelAttribute="selectFaculty" method="POST">
-
+						<h4 class="form-signin-heading">Choice faculty</h4>
 						<form:select id="facultySelect" path="facultyId">
 
 							<c:if test="${not empty faculties}">
@@ -92,7 +92,7 @@
 
 
 						<input type="submit" class="w3-button w3-block w3-dark-grey"
-							value="+ add to this faculty">
+							value="+ choise this faculty">
 					</form:form>
 
 					<br>
@@ -113,7 +113,7 @@
 										class="form-control" name="lessonId">
 
 									<input type="submit" class="w3-button w3-block w3-dark-grey"
-										value="choise this faculty">
+										value="+ add to this faculty">
 								</form:form>
 							</div>
 

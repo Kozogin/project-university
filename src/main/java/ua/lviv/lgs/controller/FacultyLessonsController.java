@@ -27,18 +27,23 @@ public class FacultyLessonsController {
 	@Autowired
 	private FacultyService facultyService;
 	
-	@RequestMapping(value = "/add_lesson_to_facultys", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
+	public String getAllItems() throws IOException {
+		return "add_lesson_to_faculty";
+	}*/
+	
+	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
 	public ModelAndView getAllItems() throws IOException {
 		return getFacultyLessonsItems();
 	}
 	
-	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam String facultyLessonsId) throws IOException {
-		
-		facultyLessonsService.delete(new FacultyLessons(Integer.parseInt(facultyLessonsId.replaceAll("\\s",""))));
-				
-		return getFacultyLessonsItems();
-	}
+//	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
+//	public ModelAndView delete(@RequestParam String facultyLessonsId) throws IOException {
+//		
+//		facultyLessonsService.delete(new FacultyLessons(Integer.parseInt(facultyLessonsId.replaceAll("\\s",""))));
+//				
+//		return getFacultyLessonsItems();
+//	}
 	
 //	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.POST)
 //	public ModelAndView addFacultyLessons(@RequestParam String lessonId) {
@@ -56,8 +61,11 @@ public class FacultyLessonsController {
 //	}
 	
 	private ModelAndView getFacultyLessonsItems() {
-		ModelAndView map = new ModelAndView("redirect:/add_lesson_to_faculty");
-		map.addObject("add_lesson_to_faculty", facultyLessonsService.getAll());
+		ModelAndView map = new ModelAndView("add_lesson_to_faculty");
+		map.addObject("lesson_to_faculty", facultyLessonsService.getAll());
+		
+		System.out.println(facultyLessonsService.getAll());
+		
 		return map;		
 	}
 	
