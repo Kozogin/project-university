@@ -79,14 +79,29 @@
 
 					<form:form modelAttribute="selectFaculty" method="POST">
 
-						<form:select id="facultySelect" path="facultyId" action="${contextPath}/lessons">
+						<%-- <form:select id="facultySelect" path="name" action="${contextPath}/lessons">
 							<option></option>
-							<form:options items="${facultyId}" />
+							<form:options items="${name}"/>
+						</form:select> --%>
+
+
+
+
+						<form:select id="facultySelect" path="facultyId">
+							<option></option>
+
+							<c:if test="${not empty faculties}">
+								<c:forEach items="${faculties}" var="currentFaculties">
+
+									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
+
+								</c:forEach>
+							</c:if>
 						</form:select>
 
 
-						<%-- <input type="hidden" value="${faculties}"
-							class="form-control" name="faculty"> --%>
+
+
 						<input type="submit" class="w3-button w3-block w3-dark-grey"
 							value="+ add to this faculty">
 					</form:form>

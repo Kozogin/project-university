@@ -68,7 +68,7 @@ public class NameOfLessonController {
     	listInteger.add(new Faculty(204, "y5t8"));
     	
     	
-    	map.addObject("facultyId", listInteger);
+    	map.addObject("faculties", listInteger);
     	map.addObject("selectFaculty", new Faculty());
     	
     	
