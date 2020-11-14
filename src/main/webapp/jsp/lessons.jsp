@@ -130,7 +130,7 @@
 
 					<br>
 
-					<%-- <c:if test="${not empty lessons}">
+					<c:if test="${not empty lessons}">
 						<c:forEach items="${lessons}" var="currentLessons">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
@@ -144,14 +144,14 @@
 
 
 
-								<form:form action="${contextPath}/lessons" method="POST">
+								 <form:form action="${contextPath}/lessons" method="POST">
 									<input type="hidden" value="${currentLessons.lessonId}"
 										class="form-control" name="lessonId">
-									<input type="hidden" value="${currentFaculties.name}"
-										class="form-control" name="facultyId">
+									<%-- <input type="hidden" value="${currentFaculties.name}"
+										class="form-control" name="facultyId"> --%>
 									<input type="submit" class="w3-button w3-block w3-dark-grey"
 										value="+ add to this faculty">
-								</form:form>
+								</form:form> 
 
 
 
@@ -161,7 +161,7 @@
 							</div>
 
 						</c:forEach>
-					</c:if> --%>
+					</c:if> 
 
 
 				</div>

@@ -53,33 +53,18 @@ public class NameOfLessonController {
     
     @RequestMapping(value ="/lessons", method = RequestMethod.GET)
     public ModelAndView welcome(ModelMap model) { 
-    	
-    	//model.addAttribute("faculty", new Faculty());
     	    	    	
     	ModelAndView map = new ModelAndView("lessons");
-    	//map.addObject("lessons", nameOfLessonService.getAllLesson());	
     	
-//    	model.addAttribute("selectFaculty", new Faculty()); 
-    	
-    	List<Faculty> listInteger = new ArrayList<>();
-    	listInteger.add(new Faculty(201,"iitt"));
-    	listInteger.add(new Faculty(202, "llkk"));
-    	listInteger.add(new Faculty(203,"8844"));
-    	listInteger.add(new Faculty(204, "y5t8"));
-    	
-    	
-    	map.addObject("faculties", listInteger);
+    	map.addObject("lessons", nameOfLessonService.getAllLesson());    	
+    	map.addObject("faculties", facultyService.getAllFaculty());    	
     	map.addObject("selectFaculty", new Faculty());
     	
-    	
-    	
-    	
-  //  	map.addObject("faculties", facultyService.getAllFaculty());
         return map;
     }
     
     @RequestMapping(value = "/lessons", method = RequestMethod.POST)
-	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty) {
+	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson nameOfLesson) {
 			
 //		
 //		NameOfLesson nameOfLesson = nameOfLessonService.findByLessonId(lessonId);
@@ -89,10 +74,10 @@ public class NameOfLessonController {
 //				
 //		System.out.println(facultyLessons.getNameOfLessons());
 		System.out.println("facultyId ----- "+faculty);
-		//System.out.println("lessonId ------- "+lessonId);
+		System.out.println("lessonId ------- "+nameOfLesson);
 		
 	//	facultyLessonsService.addFacultyLessons(facultyLessons);
-		return new ModelAndView("lessons");
+		return new ModelAndView("redirect:/lessons");
 	}
     
     
