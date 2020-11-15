@@ -66,7 +66,7 @@
 
 				<div class="container">
 					
-					<%-- <c:if test="${not empty faculties}">
+					<c:if test="${not empty faculties}">
 						<c:forEach items="${faculties}" var="currentFaculties">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
@@ -78,7 +78,7 @@
 							</div>
 
 						</c:forEach>
-					</c:if>		 --%>						
+					</c:if>		 						
 					
 				</div>
 			</div>

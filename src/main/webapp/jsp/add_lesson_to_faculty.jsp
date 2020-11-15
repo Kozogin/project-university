@@ -70,16 +70,45 @@
 				</c:if>
 
 				<div class="container">
+				
+				
+					<form:form modelAttribute="selectFaculty" method="POST">
+						<h4 class="form-signin-heading">Choice faculty</h4>
+						<form:select id="facultySelect" path="facultyId">
+
+							<c:if test="${not empty faculties}">
+								<c:forEach items="${faculties}" var="currentFaculties">
+
+									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
+
+								</c:forEach>
+							</c:if>
+						</form:select>
 
 
-					<c:if test="${not empty lesson_to_faculty}">
-						<c:forEach items="${lesson_to_faculty}" var="currentLessonToFaculty">
+						<input type="submit" class="w3-button w3-block w3-dark-grey"
+							value="+ choise this faculty">
+					</form:form>
+
+					<br>
+				
+					
+				
+				
+				
+				
+				
+				
+
+
+					<c:if test="${not empty nameOfLesson}">
+						<c:forEach items="${nameOfLesson}" var="currentNameOfLesson">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 								<div class="w3-container w3-center">
-									<h3>${currentLessonToFaculty.facultys}</h3>
-									<p>${currentLessonToFaculty.nameOfLessons}</p>
+									<h3>${currentNameOfLesson.name}</h3>
+									
 								</div>
 							</div>
 
