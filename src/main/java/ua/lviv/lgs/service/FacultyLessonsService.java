@@ -27,6 +27,14 @@ public class FacultyLessonsService {
 		return facultyLessonsRepository.findAll();
 	}
 	
+	public List<FacultyLessons> getAllThisFaculty(Integer facultyId){
+		return facultyLessonsRepository.findAll()
+				.stream()
+				.filter(faculeson -> faculeson.getFacultys().getFacultyId() == facultyId)
+				.collect(Collectors.toList());
+	}
+	
+	
 	public List<NameOfLesson> getLessonsOfThisFaculty(Integer facultyId){
 		
 		try {
@@ -53,7 +61,7 @@ public class FacultyLessonsService {
 	
 	public void delete(FacultyLessons facultyLessons) {
 		facultyLessonsRepository.delete(facultyLessons);
-	}
+	}	
 	
 	public void addFacultyLessons(FacultyLessons facultyLessons) {
 		facultyLessonsRepository.save(facultyLessons);
