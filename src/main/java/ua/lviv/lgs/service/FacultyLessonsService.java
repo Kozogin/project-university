@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sun.el.stream.Stream;
-
 import ua.lviv.lgs.dao.FacultyLessonsRepository;
 import ua.lviv.lgs.dao.NameOfLessonRepository;
 import ua.lviv.lgs.domain.FacultyLessons;

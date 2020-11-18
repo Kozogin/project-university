@@ -40,9 +40,9 @@
 				href="/create_faculty" class="w3-bar-item w3-button">Create
 				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
-				lessons to faculty</a>
+				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
+			lessons are required</a>
 			<h4 class="text">
 				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h4>
@@ -54,7 +54,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>add lessons to faculty</sub>
+					University - <sub>grades for these lessons are required</sub>
 				</h1>
 			</div>
 
@@ -92,23 +92,18 @@
 
 					<br>
 				
-					
-				
-				
-				
-				
 				
 				
 
 
-					<c:if test="${not empty nameOfLesson}">
-						<c:forEach items="${nameOfLesson}" var="currentNameOfLesson">
+					<c:if test="${not empty lessonThisFaculty}">
+						<c:forEach items="${lessonThisFaculty}" var="currentLessonThisFaculty">
 
 							<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 								<div class="w3-container w3-center">
-									<h3>${currentNameOfLesson.name}</h3>
-									<a href="add_lesson_to_faculty_del?lessonId= ${currentNameOfLesson.lessonId}">delete</a>
+									<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
+									<a href="add_lesson_to_faculty_del?facultyLessonsId= ${currentLessonThisFaculty.facultyLessonsId}">delete</a>
 								</div>
 							</div>
 
