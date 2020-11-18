@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ua.lviv.lgs.domain.Faculty;
 import ua.lviv.lgs.domain.FacultyLessons;
-import ua.lviv.lgs.domain.NameOfLesson;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
@@ -112,7 +111,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson lesson) {
+	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty) {
 
 		try {
 			if (faculty.getFacultyId() != null) {

@@ -77,59 +77,66 @@
 				<div class="container">
 
 
-					<div class="container">
-						<form:form modelAttribute="selectFaculty" method="POST">
-							<h4 class="form-signin-heading">Choice faculty</h4>
-							<form:select id="facultySelect" path="facultyId">
 
-								<c:if test="${not empty faculties}">
-									<c:forEach items="${faculties}" var="currentFaculties">
+					<form:form modelAttribute="selectFaculty" method="POST">
+						<h4 class="form-signin-heading">Choice faculty</h4>
+						<form:select id="facultySelect" path="facultyId">
 
-										<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
+							<c:if test="${not empty faculties}">
+								<c:forEach items="${faculties}" var="currentFaculties">
 
-									</c:forEach>
-								</c:if>
-							</form:select>
+									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
 
-
-							<input type="submit" class="w3-button w3-block w3-dark-grey"
-								value="+ choise this faculty">
-						</form:form>
-
-						<br>
+								</c:forEach>
+							</c:if>
+						</form:select>
 
 
+						<input type="submit" class="w3-button w3-block w3-dark-grey"
+							value="+ choise this faculty">
+					</form:form>
+
+					<br>
 
 
 
-						<c:if test="${not empty lessonThisFaculty}">
-							<c:forEach items="${lessonThisFaculty}"
-								var="currentLessonThisFaculty">
 
-								<div class="w3-card-4" style="width: 500px; margin: 8%">
 
-									<div class="w3-container w3-center">
-										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-										<input name="ball" type="text" placeholder="">
-										<br><br>
-									</div>
+					<c:if test="${not empty lessonThisFaculty}">
+
+						<c:set var="count" value="0" scope="page" />
+
+						<c:forEach items="${lessonThisFaculty}"
+							var="currentLessonThisFaculty">
+
+							<c:set var="count" value="${count + 1}" scope="page" />
+
+							<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+								<div class="w3-container w3-center">
+									<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
+									<input name="ball" type="text" placeholder="${count}">
+									<br> <br>
 								</div>
-
-							</c:forEach>
-						</c:if>
-
-						<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-							<div class="w3-container w3-center">
-								<h3>GPA</h3>
-								<input name="ball" type="text" placeholder="ball from 1 to 12">
-								<br><br>
 							</div>
+
+						</c:forEach>
+					</c:if>
+
+					<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+						<div class="w3-container w3-center">
+							<h3>GPA</h3>
+							<input name="ballgpa" type="text" placeholder="ball from 1 to 12">
+							<br> <br>
 						</div>
-
-
-
 					</div>
+
+
+
+
+
+
 				</div>
 			</div>
 			<!-- /container -->
