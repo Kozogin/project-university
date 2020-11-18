@@ -18,6 +18,7 @@ import ua.lviv.lgs.domain.FacultyLessons;
 import ua.lviv.lgs.domain.NameOfLesson;
 import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
+import ua.lviv.lgs.service.NameOfLessonService;
 
 @Controller
 public class FacultyLessonsController {
@@ -29,6 +30,9 @@ public class FacultyLessonsController {
 
 	@Autowired
 	private FacultyService facultyService;
+	
+	@Autowired
+    private NameOfLessonService nameOfLessonService;
 
 	@RequestMapping(value = "/add_lesson_to_faculty", method = RequestMethod.GET)
 	public ModelAndView welcome(ModelMap model) {
@@ -70,13 +74,11 @@ public class FacultyLessonsController {
 	}
 
 	@RequestMapping(value = "/add_lesson_to_faculty_del", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam String facultyLessonsId, ModelMap model) throws IOException {
+	public ModelAndView delete(@RequestParam String lessonId, ModelMap model) throws IOException {
 
 		//facultyLessonsService.delete(new FacultyLessons(Integer.parseInt(facultyLessonsId.replaceAll("\\s", ""))));
-		
-		System.out.println(facultyLessonsId);
-		
-		
+		System.out.println(lessonId);
+			
 		
 		List<NameOfLesson> nameOfLesson = new ArrayList<>();
 
@@ -88,9 +90,10 @@ public class FacultyLessonsController {
 		} catch (Exception e) {
 		}
 		
-		
+		facultyLessonsService.delete(new FacultyLessons(choiseFaculty, 
+				nameOfLessonService.findByLessonId(Integer.parseInt( lessonId.replaceAll("\\s", "") ))));
 
-		ModelAndView map = new ModelAndView("add_lesson_to_faculty");
+		ModelAndView map = new ModelAndView("redirect:/add_lesson_to_faculty");
 		List<Faculty> allAndChoiseFaculty = new ArrayList<>();
 		allAndChoiseFaculty.add(choiseFaculty);
 		allAndChoiseFaculty.addAll(facultyService.getAllFaculty());

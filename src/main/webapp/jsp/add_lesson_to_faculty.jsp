@@ -108,7 +108,7 @@
 
 								<div class="w3-container w3-center">
 									<h3>${currentNameOfLesson.name}</h3>
-									<a href="add_lesson_to_faculty_del?facultyLessonsId= ${currentNameOfLesson.lessonId}">delete</a>
+									<a href="add_lesson_to_faculty_del?lessonId= ${currentNameOfLesson.lessonId}">delete</a>
 								</div>
 							</div>
 
