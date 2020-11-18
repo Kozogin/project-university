@@ -56,7 +56,7 @@
 								action="${contextPath}/logout">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" />
-							</form> ${pageContext.request.userPrincipal.name}</a>
+							</form> ${pageContext.request.userPrincipal.name}
 
 
 						</c:if>
@@ -78,42 +78,54 @@
 
 
 					<div class="container">
-						<div class="form">
+						<form:form modelAttribute="selectFaculty" method="POST">
+							<h4 class="form-signin-heading">Choice faculty</h4>
+							<form:select id="facultySelect" path="facultyId">
 
-							<form:form method="POST" modelAttribute="createFacultyForm"
-								class="form-signin">
-								<h4 class="form-signin-heading">Choice faculty</h4>
+								<c:if test="${not empty faculties}">
+									<c:forEach items="${faculties}" var="currentFaculties">
 
+										<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
 
-								<select id="facultySelect">
-									<option></option>
-
-									<c:if test="${not empty faculties}">
-										<c:forEach items="${faculties}" var="currentFaculties">
-
-											<option value="${currentFaculties.facultyId}">${currentFaculties.name}</option>
-
-										</c:forEach>
-									</c:if>
-								</select>
-
-								<br>
-								<br>
-
-
-								<c:if test="${pageContext.request.userPrincipal.name != null}">
-									<form id="logoutForm" method="POST"
-										action="${contextPath}/logout">
-										<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-										<input type="hidden" name="${_csrf.parameterName}"
-											value="${_csrf.token}" />
-									</form>
+									</c:forEach>
 								</c:if>
+							</form:select>
 
-							</form:form>
 
+							<input type="submit" class="w3-button w3-block w3-dark-grey"
+								value="+ choise this faculty">
+						</form:form>
+
+						<br>
+
+
+
+
+
+						<c:if test="${not empty lessonThisFaculty}">
+							<c:forEach items="${lessonThisFaculty}"
+								var="currentLessonThisFaculty">
+
+								<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+									<div class="w3-container w3-center">
+										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
+										<input name="ball" type="text" placeholder="">
+										<br><br>
+									</div>
+								</div>
+
+							</c:forEach>
+						</c:if>
+
+						<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+							<div class="w3-container w3-center">
+								<h3>GPA</h3>
+								<input name="ball" type="text" placeholder="ball from 1 to 12">
+								<br><br>
+							</div>
 						</div>
-
 
 
 
