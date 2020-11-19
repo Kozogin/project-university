@@ -13,19 +13,22 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserPointController {
 	
 	@RequestMapping(value = "/userball", method = RequestMethod.GET)
-	public String registration(Model model) {
+	public String userPoint(Model model) {
 		System.out.println("User Point Contr -------------------------------------- GET");
 		return "user";
 	}
 	
 	@RequestMapping(value = "/userball", method = RequestMethod.POST)
-	public ModelAndView registration(
+	public ModelAndView userPointPost(
 			@RequestParam String ballgpa,
-			@RequestParam String ball1,
-			@RequestParam String ball2
+			@RequestParam (value="ball") String [] ball
 			) throws IOException {
 		
-		System.out.println("User Point Contr -- POST  " + ballgpa + " -- " + ball1 + " -- " + ball2);	
+		System.out.println("User Point Contr -- POST  " + ballgpa);	
+		
+		for (int i = 0; i < ball.length; i++) {
+			System.out.println(ball[i]);
+		}
 		
 		return new ModelAndView("redirect:/user");
 	}

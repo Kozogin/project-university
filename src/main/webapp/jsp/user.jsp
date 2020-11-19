@@ -115,7 +115,7 @@
 
 									<div class="w3-container w3-center">
 										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-										<input name="ball${count}" type="text" placeholder="${count}">
+										<input name="ball" type="text" placeholder="${count}">
 										<br> <br>
 									</div>
 								</div>
