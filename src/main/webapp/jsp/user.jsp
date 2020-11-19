@@ -99,40 +99,44 @@
 					<br>
 
 
+					<%-- action="${contextPath}/logout" --%>
+					<form:form action="${contextPath}/userball" method="POST">
 
+						<c:if test="${not empty lessonThisFaculty}">
 
+							<c:set var="count" value="0" scope="page" />
 
-					<c:if test="${not empty lessonThisFaculty}">
+							<c:forEach items="${lessonThisFaculty}"
+								var="currentLessonThisFaculty">
 
-						<c:set var="count" value="0" scope="page" />
+								<c:set var="count" value="${count + 1}" scope="page" />
 
-						<c:forEach items="${lessonThisFaculty}"
-							var="currentLessonThisFaculty">
+								<div class="w3-card-4" style="width: 500px; margin: 8%">
 
-							<c:set var="count" value="${count + 1}" scope="page" />
-
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-								<div class="w3-container w3-center">
-									<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-									<input name="ball" type="text" placeholder="${count}">
-									<br> <br>
+									<div class="w3-container w3-center">
+										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
+										<input name="ball${count}" type="text" placeholder="${count}">
+										<br> <br>
+									</div>
 								</div>
+
+							</c:forEach>
+						</c:if>
+
+						<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+							<div class="w3-container w3-center">
+								<h3>GPA</h3>
+								<input name="ballgpa" type="text"
+									placeholder="ball from 1 to 12"> <br> <br>
 							</div>
-
-						</c:forEach>
-					</c:if>
-
-					<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-						<div class="w3-container w3-center">
-							<h3>GPA</h3>
-							<input name="ballgpa" type="text" placeholder="ball from 1 to 12">
-							<br> <br>
 						</div>
-					</div>
+						
+						
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+						
 
-
+					</form:form>
 
 
 
