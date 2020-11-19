@@ -60,6 +60,11 @@ public class Applicant{
 		this.facultys = facultys;
 	}
 	
+	public Applicant(User userss, Faculty facultys) {		
+		this.userss = userss;
+		this.facultys = facultys;
+	}
+	
 	public Applicant() {}
 
 	public Integer getApplicantId() {

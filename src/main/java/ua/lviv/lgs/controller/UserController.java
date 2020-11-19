@@ -2,6 +2,7 @@ package ua.lviv.lgs.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ua.lviv.lgs.domain.Applicant;
 import ua.lviv.lgs.domain.Faculty;
 import ua.lviv.lgs.domain.FacultyLessons;
+import ua.lviv.lgs.domain.NameOfLesson;
+import ua.lviv.lgs.domain.Point;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
+import ua.lviv.lgs.service.PointService;
 import ua.lviv.lgs.service.UserDTOHelper;
 import ua.lviv.lgs.service.UserService;
 
@@ -28,7 +33,8 @@ import ua.lviv.lgs.service.UserService;
 public class UserController {
 
 	private Faculty choiseFaculty = new Faculty();
-
+	private List<FacultyLessons> lessonThisFaculty = new ArrayList<>();
+	
 	@Autowired
 	private UserService userService;
 
@@ -37,6 +43,9 @@ public class UserController {
 
 	@Autowired
 	private FacultyLessonsService facultyLessonsService;
+	
+	@Autowired
+	private PointService pointService;
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model) {
@@ -88,7 +97,7 @@ public class UserController {
 			return map;
 		}
 
-		List<FacultyLessons> lessonThisFaculty = new ArrayList<>();
+		//List<FacultyLessons> lessonThisFaculty = new ArrayList<>();
 
 		try {
 			if (choiseFaculty.getFacultyId() != null) {
@@ -101,7 +110,7 @@ public class UserController {
 		ModelAndView map = new ModelAndView("user");
 		List<Faculty> allAndChoiseFaculty = new ArrayList<>();
 		allAndChoiseFaculty.add(choiseFaculty);
-		allAndChoiseFaculty.addAll(facultyService.getAllFaculty());
+		allAndChoiseFaculty.addAll(facultyService.getAllFaculty());		
 
 		map.addObject("faculties", allAndChoiseFaculty);
 		map.addObject("selectFaculty", new Faculty());
@@ -122,6 +131,51 @@ public class UserController {
 		ModelAndView map = new ModelAndView("redirect:/user");
 
 		return map;
+	}	
+	
+	@RequestMapping(value = "/userball", method = RequestMethod.POST)
+	public ModelAndView userPointPost(
+			Authentication authentication,
+			@RequestParam String ballgpa,
+			@RequestParam (value="ball") String [] ball
+			) throws IOException {
+		
+		System.out.println("User Point Contr -- POST  " + ballgpa);	
+		
+		for (int i = 0; i < ball.length; i++) {
+			System.out.println(ball[i]);
+		}
+		
+		int i = 0;
+		Applicant aplicant = new Applicant(
+				userService.findByAssignedId(authentication.getName()).get(), 
+				choiseFaculty);
+		
+		for (Iterator<FacultyLessons> iterator = lessonThisFaculty.iterator(); 
+				iterator.hasNext();) {
+			FacultyLessons facultyLessons = (FacultyLessons) iterator.next();
+			NameOfLesson lesson = facultyLessons.getNameOfLessons();
+						
+			
+			
+			//try {				
+				
+				System.out.println("aplicant " + aplicant);
+				System.out.println("lesson " + lesson);
+				System.out.println("ball " + ball[i]);
+				System.out.println("point" + new Point(lesson, aplicant, Double.parseDouble(ball[i])));
+				
+				pointService.save(new Point(
+						lesson, 
+						aplicant,
+						Double.parseDouble(ball[i])));
+			//} catch (Exception e) {}
+		
+				i++;
+		}
+		
+		
+		return new ModelAndView("redirect:/user");
 	}
 
 }
