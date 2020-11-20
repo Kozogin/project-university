@@ -104,18 +104,18 @@
 
 						<c:if test="${not empty lessonThisFaculty}">
 
-							<c:set var="count" value="0" scope="page" />
+							<%-- <c:set var="count" value="0" scope="page" /> --%>
 
 							<c:forEach items="${lessonThisFaculty}"
 								var="currentLessonThisFaculty">
 
-								<c:set var="count" value="${count + 1}" scope="page" />
+								<%-- <c:set var="count" value="${count + 1}" scope="page" /> --%>
 
 								<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 									<div class="w3-container w3-center">
 										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-										<input name="ball" type="text" placeholder="${count}">
+										<input name="ball" type="text" placeholder="ball from 1 to 12">
 										<br> <br>
 									</div>
 								</div>

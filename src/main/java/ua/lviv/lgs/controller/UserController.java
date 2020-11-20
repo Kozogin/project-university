@@ -101,8 +101,6 @@ public class UserController {
 			return map;
 		}
 
-		// List<FacultyLessons> lessonThisFaculty = new ArrayList<>();
-
 		try {
 			if (choiseFaculty.getFacultyId() != null) {
 				lessonThisFaculty = facultyLessonsService.getAllThisFaculty(choiseFaculty.getFacultyId());
@@ -140,38 +138,53 @@ public class UserController {
 	@RequestMapping(value = "/userball", method = RequestMethod.POST)
 	public ModelAndView userPointPost(Authentication authentication, @RequestParam String ballgpa,
 			@RequestParam(value = "ball") String[] ball) throws IOException {
-
-		System.out.println("User Point Contr -- POST  " + ballgpa);
-
-		for (int i = 0; i < ball.length; i++) {
-			System.out.println(ball[i]);
-		}
-
+	
 		int i = 0;
 		
-		Applicant aplicant = new Applicant(userService.findByAssignedId(authentication.getName()).get(),
-				choiseFaculty);
-
 		User user = userService.findByAssignedId(authentication.getName()).get();
+		
+		Boolean checked = false;
+		try {
+			checked = user.getApplicantss().getChecked();
+		} catch (Exception e) {}			
+
+		Applicant aplicant = new Applicant(userService.findByAssignedId(authentication.getName()).get(), choiseFaculty);
+		
+		if(checked) {
+			return new ModelAndView("redirect:/apl_success");
+		}
+
+		aplicant.setBallgpa(Double.parseDouble(ballgpa));
+		aplicant.setChecked(false);
+		aplicant.setAccepted(false);		
 
 		if (!applicantService.isExist(user)) {
 			pointService.delete(user);
 		}
-		
-			for (Iterator<FacultyLessons> iterator = lessonThisFaculty.iterator(); iterator.hasNext();) {
-				FacultyLessons facultyLessons = (FacultyLessons) iterator.next();
-				NameOfLesson lesson = facultyLessons.getNameOfLessons();
 
-				// try {
+		for (Iterator<FacultyLessons> iterator = lessonThisFaculty.iterator(); iterator.hasNext();) {
+			FacultyLessons facultyLessons = (FacultyLessons) iterator.next();
+			NameOfLesson lesson = facultyLessons.getNameOfLessons();
 
+			try {
 				pointService.save(new Point(lesson, aplicant, Double.parseDouble(ball[i])));
-				// } catch (Exception e) {}
-
-				i++;
+			} catch (Exception e) {
 			}
-		
 
-		return new ModelAndView("redirect:/user");
+			i++;
+		}
+
+		return new ModelAndView("redirect:/apl_success");
+	}
+
+	@RequestMapping(value = { "/apl_success" }, method = RequestMethod.GET)
+	public String ifCheked(Model model) {
+		return "apl_success";
+	}
+	
+	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)
+	public String q(Model model) {
+		return "application_of_entrants";
 	}
 
 }

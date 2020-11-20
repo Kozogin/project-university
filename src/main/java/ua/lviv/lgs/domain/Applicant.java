@@ -23,13 +23,10 @@ public class Applicant{
 	private Boolean checked;
 	
 	@Column
-	private Boolean accepted;	
+	private Boolean accepted;
 	
 	@Column
-	private Integer pointId;
-	
-	@Column(name = "user_id")
-	private Integer userId;
+	private Double ballgpa;
 	
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "applicant_id2", referencedColumnName = "user_id")	
@@ -37,25 +34,24 @@ public class Applicant{
 		
 	@ManyToOne
 	@JoinColumn(name = "faculty_id", referencedColumnName = "faculty_id")	
-	private Faculty facultys;
-
-	public Applicant(Integer applicantId, Boolean checked, Boolean accepted, Integer pointId, Integer userId,
+	private Faculty facultys;	
+	
+	public Applicant(Integer applicantId, Boolean checked, Boolean accepted, Double ballgpa,
 			User userss, Faculty facultys) {
+		super();
 		this.applicantId = applicantId;
 		this.checked = checked;
 		this.accepted = accepted;
-		this.pointId = pointId;
-		this.userId = userId;
+		this.ballgpa = ballgpa;		
 		this.userss = userss;
 		this.facultys = facultys;
 	}
-	
-	public Applicant(Boolean checked, Boolean accepted, Integer pointId, Integer userId,
+
+	public Applicant(Boolean checked, Boolean accepted, Double ballgpa,
 			User userss, Faculty facultys) {
 		this.checked = checked;
 		this.accepted = accepted;
-		this.pointId = pointId;
-		this.userId = userId;
+		this.ballgpa = ballgpa;		
 		this.userss = userss;
 		this.facultys = facultys;
 	}
@@ -89,23 +85,7 @@ public class Applicant{
 
 	public void setAccepted(Boolean accepted) {
 		this.accepted = accepted;
-	}
-
-	public Integer getPointId() {
-		return pointId;
-	}
-
-	public void setPointId(Integer pointId) {
-		this.pointId = pointId;
-	}
-
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+	}	
 
 	public User getUserss() {
 		return userss;
@@ -123,15 +103,22 @@ public class Applicant{
 		this.facultys = facultys;
 	}
 
+	public Double getBallgpa() {
+		return ballgpa;
+	}
+
+	public void setBallgpa(Double ballgpa) {
+		this.ballgpa = ballgpa;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((accepted == null) ? 0 : accepted.hashCode());
 		result = prime * result + ((applicantId == null) ? 0 : applicantId.hashCode());
+		result = prime * result + ((ballgpa == null) ? 0 : ballgpa.hashCode());
 		result = prime * result + ((checked == null) ? 0 : checked.hashCode());
-		result = prime * result + ((pointId == null) ? 0 : pointId.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
 
@@ -154,20 +141,15 @@ public class Applicant{
 				return false;
 		} else if (!applicantId.equals(other.applicantId))
 			return false;
+		if (ballgpa == null) {
+			if (other.ballgpa != null)
+				return false;
+		} else if (!ballgpa.equals(other.ballgpa))
+			return false;
 		if (checked == null) {
 			if (other.checked != null)
 				return false;
 		} else if (!checked.equals(other.checked))
-			return false;
-		if (pointId == null) {
-			if (other.pointId != null)
-				return false;
-		} else if (!pointId.equals(other.pointId))
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
 			return false;
 		return true;
 	}
@@ -175,7 +157,7 @@ public class Applicant{
 	@Override
 	public String toString() {
 		return "Applicant [applicantId=" + applicantId + ", checked=" + checked + ", accepted=" + accepted
-				+ ", pointId=" + pointId + ", userId=" + userId + "]";
+				+ ", ballgpa=" + ballgpa + "]";
 	}
 		
 

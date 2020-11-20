@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -19,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>The application is accepted</title>
+<title>All Application</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -36,14 +35,31 @@
 	<div>
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>						
+			<h3 class="w3-bar-item">Menu</h3>
+			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
+				href="/create_faculty" class="w3-bar-item w3-button">Create
+				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
+			<a href="/create_lesson" class="w3-bar-item w3-button">Create
+				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons
+				and add lessons to faculty</a> <a href="/add_lesson_to_faculty"
+				class="w3-bar-item w3-button">Grades for these lessons are
+				required</a> <a href="/application_of_entrants"
+				class="w3-bar-item w3-button">Application of entrants</a>
+
+
+			<h4 class="text">
+				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
+			</h4>
+
 		</div>
 
 		<!-- Page Content -->
 		<div style="margin-left: 10%">
 
 			<div class="w3-container w3-teal">
-				<h1>University    - <sub>the application is accepted</sub></h1>
+				<h1>
+					University - <sub>application of entrants</sub>
+				</h1>
 			</div>
 
 			<div class="w3-container">
@@ -55,42 +71,32 @@
 							value="${_csrf.token}" />
 					</form>
 
+					<h3 class="text">${pageContext.request.userPrincipal.name}</h3>
+
 				</c:if>
 
 				<div class="container">
-					
-					
-					<br>
-	<br>
-	<div>
-		<form>
-			<div>
 
-				<div class="w3-container w3-center">
-				<br>
-				<br>
-					<h2>The application is accepted</h2>
-					
-					<div>
-						<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Ok</a></h4>
-					</div>
-				</div>
-			</div>
-		</form>
+					<table border="1">
+						<tr>
+							<td>Id</td>
+							<td>First name</td>
+							<td>Last name</td>
+							<td>Email</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>${age}</td>
+						</tr>
+					</table>
 
-	</div>
-
-
-	<input name="_csrf" type="hidden" value="${_csrf.token}" />
-					
-					
-					
-					
 				</div>
 			</div>
 		</div>
-		<!-- /container -->
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
