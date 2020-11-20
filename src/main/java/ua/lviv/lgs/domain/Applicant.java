@@ -31,7 +31,7 @@ public class Applicant{
 	@Column(name = "user_id")
 	private Integer userId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "applicant_id2", referencedColumnName = "user_id")	
 	private User userss;
 		

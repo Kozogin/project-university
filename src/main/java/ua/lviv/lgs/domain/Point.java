@@ -3,6 +3,7 @@ package ua.lviv.lgs.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Point {
 	@JoinColumn(name = "lesson_id", referencedColumnName = "lesson_id")
 	private NameOfLesson nameOfLesson;	
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "applicant_id", referencedColumnName = "applicant_id")
 	private Applicant applicant;
 		
