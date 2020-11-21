@@ -2,6 +2,7 @@ package ua.lviv.lgs.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -192,10 +193,26 @@ public class UserController {
 	public ModelAndView entrants(ModelMap model) {
 		ModelAndView map = new ModelAndView("application_of_entrants");
 		map.addObject("users", userService.findAllApplicant()); 
-		map.addObject("checkeds", new Applicant());
-		map.addObject("accepteds", new Applicant());
+		map.addObject("checked", new Applicant());
+		map.addObject("accepted", new Applicant());
 		
 		return map;
 	}
+	
+	
+	@RequestMapping(value = "/application_of_entrants", method = RequestMethod.POST)
+	public ModelAndView entrantsPost(Authentication authentication, 
+			@RequestParam(value = "checked") String[] checked			
+			) throws IOException {
+		
+		for (int i = 0; i < checked.length; i++) {
+			System.out.println("check ---------------" + checked);
+//			System.out.println("accep ---------------" + accepted);
+		}
+		System.out.println("arrays to string" + Arrays.toString(checked));
+		
+		return new ModelAndView("redirect:/application_of_entrants");
+	}
+	
 
 }

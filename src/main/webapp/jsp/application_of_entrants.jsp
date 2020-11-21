@@ -87,70 +87,71 @@ tr:nth-child(even) {
 
 				</c:if>
 
+				 <form:form action="${contextPath}/application_of_entrants" modelAttribute="checked" method="POST">
+  
+					<table>
+						<tr>
+							<th>Id</th>
+							<th>First name</th>
+							<th>Last name</th>
+							<th>Selected faculty</th>
+							<th>GPA</th>
+							<th>The sum of points</th>
+							<th>Cheked</th>
+							<th>Accepted</th>
+							<th>Revision</th>
+						</tr>
 
-				<table>
-					<tr>
-						<th>Id</th>
-						<th>First name</th>
-						<th>Last name</th>
-						<th>Selected faculty</th>
-						<th>GPA</th>
-						<th>The sum of points</th>
-						<th>Cheked</th>
-						<th>Accepted</th>
-						<th>Revision</th>
-					</tr>
-
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
+						<c:if test="${not empty users}">
+							<c:forEach items="${users}" var="currentUsers">
 
 
 
-							<tr>
-								<td>${currentUsers.assignedId}</td>
-								<td>${currentUsers.firstName}</td>
-								<td>${currentUsers.lastName}</td>
-								<td>${currentUsers.applicantss.facultys.name}</td>
-								<td>${currentUsers.applicantss.ballgpa}</td>
-								<td>${currentUsers.applicantss.pointsForBall}</td>
-								
+								<tr>
+									<td>${currentUsers.assignedId}</td>
+									<td>${currentUsers.firstName}</td>
+									<td>${currentUsers.lastName}</td>
+									<td>${currentUsers.applicantss.facultys.name}</td>
+									<td>${currentUsers.applicantss.ballgpa}</td>
+									<td>${currentUsers.applicantss.pointsForBall}</td>
 
-									<c:if test="${currentUsers.applicantss.checked == false}">								
-										<td><form:checkbox path="checkeds" name="check"
-											value="chec" /></td>									
+
+									<c:if test="${currentUsers.applicantss.checked == false}">
+										<td><form:checkbox path="checked" name="checked"
+												value="checked" /></td>
 									</c:if>
-									<c:if test="${currentUsers.applicantss.checked == true}">								
-										<td><form:checkbox path="checkeds" name="check"
-											value="chec" checked="checked" /></td>									
+									<c:if test="${currentUsers.applicantss.checked == true}">
+										<td><form:checkbox path="checked" name="checked"
+												value="checked" checked="checked" /></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.checked}">
 										<td></td>
 									</c:if>
-									
-									
-									<c:if test="${currentUsers.applicantss.accepted == false}">								
-										<td><form:checkbox path="accepteds" name="accep"
-											value="accept" /></td>									
+
+
+									<c:if test="${currentUsers.applicantss.accepted == false}">
+										<td><form:checkbox path="accepted" name="accepted"
+												value="accepted" /></td>
 									</c:if>
-									<c:if test="${currentUsers.applicantss.accepted == true}">								
-										<td><form:checkbox path="accepteds" name="accep"
-											value="accept" checked="checked" /></td>									
+									<c:if test="${currentUsers.applicantss.accepted == true}">
+										<td><form:checkbox path="accepted" name="accepted"
+												value="accepted" checked="checked" /></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.accepted}">
 										<td></td>
 									</c:if>
 
-								
-								<td><input type="submit"></td>
 
-							</tr>
+									<td><input type="submit"></td>
 
-						</c:forEach>
-					</c:if>
+								</tr>
+
+							</c:forEach>
+						</c:if>
 
 
-				</table>
-
+					</table>
+				  </form:form> 
 
 			</div>
 		</div>
