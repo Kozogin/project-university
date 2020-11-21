@@ -183,8 +183,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)
-	public String q(Model model) {
-		return "application_of_entrants";
+	public ModelAndView entrants(ModelMap model) {
+		ModelAndView map = new ModelAndView("application_of_entrants");
+		map.addObject("users", userService.findAllApplicant());		
+		return map;
 	}
 
 }

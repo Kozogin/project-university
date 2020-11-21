@@ -25,8 +25,20 @@
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-.text {
-	text-align: center;
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
 }
 </style>
 </head>
@@ -75,24 +87,43 @@
 
 				</c:if>
 
-				<div class="container">
 
-					<table border="1">
-						<tr>
-							<td>Id</td>
-							<td>First name</td>
-							<td>Last name</td>
-							<td>Email</td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>User1</td>
-							<td>${age}</td>
-						</tr>
-					</table>
+				<table>
+					<tr>
+						<th>Id</th>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Selected faculty</th>
+						<th>GPA</th>
+						<th>The sum of points</th>
+						<th>Cheked</th>
+						<th>Accepted</th>
+						<th>Revision</th>
+					</tr>
 
-				</div>
+					<c:if test="${not empty users}">
+						<c:forEach items="${users}" var="currentUsers">
+
+							<tr>
+								<td>${currentUsers.assignedId}</td>
+								<td>${currentUsers.firstName}</td>
+								<td>${currentUsers.lastName}</td>
+								<td>${currentUsers.applicantss.facultys.name}</td>
+								<td>${currentUsers.applicantss.ballgpa}</td>
+								<td>suma</td>
+								<td><input type="checkbox"></td>
+								<td><input type="checkbox"></td>
+								<td><input type="submit"></td>
+								
+							</tr>
+
+						</c:forEach>
+					</c:if>
+
+
+				</table>
+
+
 			</div>
 		</div>
 	</div>

@@ -28,6 +28,8 @@ public class Applicant{
 	@Column
 	private Double ballgpa;
 	
+	
+	
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "applicant_id2", referencedColumnName = "user_id")	
 	private User userss;
