@@ -104,17 +104,45 @@ tr:nth-child(even) {
 					<c:if test="${not empty users}">
 						<c:forEach items="${users}" var="currentUsers">
 
+
+
 							<tr>
 								<td>${currentUsers.assignedId}</td>
 								<td>${currentUsers.firstName}</td>
 								<td>${currentUsers.lastName}</td>
 								<td>${currentUsers.applicantss.facultys.name}</td>
 								<td>${currentUsers.applicantss.ballgpa}</td>
-								<td>suma</td>
-								<td><input type="checkbox"></td>
-								<td><input type="checkbox"></td>
-								<td><input type="submit"></td>
+								<td>${currentUsers.applicantss.pointsForBall}</td>
 								
+
+									<c:if test="${currentUsers.applicantss.checked == false}">								
+										<td><form:checkbox path="checkeds" name="check"
+											value="chec" /></td>									
+									</c:if>
+									<c:if test="${currentUsers.applicantss.checked == true}">								
+										<td><form:checkbox path="checkeds" name="check"
+											value="chec" checked="checked" /></td>									
+									</c:if>
+									<c:if test="${empty currentUsers.applicantss.checked}">
+										<td></td>
+									</c:if>
+									
+									
+									<c:if test="${currentUsers.applicantss.accepted == false}">								
+										<td><form:checkbox path="accepteds" name="accep"
+											value="accept" /></td>									
+									</c:if>
+									<c:if test="${currentUsers.applicantss.accepted == true}">								
+										<td><form:checkbox path="accepteds" name="accep"
+											value="accept" checked="checked" /></td>									
+									</c:if>
+									<c:if test="${empty currentUsers.applicantss.accepted}">
+										<td></td>
+									</c:if>
+
+								
+								<td><input type="submit"></td>
+
 							</tr>
 
 						</c:forEach>

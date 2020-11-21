@@ -153,10 +153,16 @@ public class UserController {
 		if(checked) {
 			return new ModelAndView("redirect:/apl_success");
 		}
+		
+		Double pointsForBall = 0.0;
+		for (int j = 0; j < ball.length; j++) {
+			pointsForBall += Double.parseDouble(ball[i]);
+		}
 
 		aplicant.setBallgpa(Double.parseDouble(ballgpa));
 		aplicant.setChecked(false);
-		aplicant.setAccepted(false);		
+		aplicant.setAccepted(false);	
+		aplicant.setPointsForBall(pointsForBall);
 
 		if (!applicantService.isExist(user)) {
 			pointService.delete(user);
@@ -185,7 +191,10 @@ public class UserController {
 	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)
 	public ModelAndView entrants(ModelMap model) {
 		ModelAndView map = new ModelAndView("application_of_entrants");
-		map.addObject("users", userService.findAllApplicant());		
+		map.addObject("users", userService.findAllApplicant()); 
+		map.addObject("checkeds", new Applicant());
+		map.addObject("accepteds", new Applicant());
+		
 		return map;
 	}
 
