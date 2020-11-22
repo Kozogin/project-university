@@ -99,6 +99,7 @@ tr:nth-child(even) {
 							<th>The sum of points</th>
 							<th>Cheked</th>
 							<th>Accepted</th>
+							<th>Rejected</th>
 							<th>Revision</th>
 						</tr>
 
@@ -136,6 +137,16 @@ tr:nth-child(even) {
 										<td><a href ="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">  ✔  </a></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.accepted}">
+										<td></td>
+									</c:if>
+									
+									<c:if test="${currentUsers.applicantss.rejected == false}">
+										<td><a href ="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
+									</c:if>
+									<c:if test="${currentUsers.applicantss.rejected == true}">
+										<td><a href ="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">  ✔  </a></td>
+									</c:if>
+									<c:if test="${empty currentUsers.applicantss.rejected}">
 										<td></td>
 									</c:if>
 

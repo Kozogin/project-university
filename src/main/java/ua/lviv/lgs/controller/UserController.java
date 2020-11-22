@@ -94,6 +94,7 @@ public class UserController {
 	public ModelAndView welcome(ModelMap model, Authentication authentication) {
 
 		String role = authentication.getAuthorities().stream().findFirst().orElse(null).toString();
+		User user = userService.findByAssignedId(authentication.getName()).get();
 
 		if (role.equals("ROLE_ADMIN")) {
 			ModelAndView map = new ModelAndView("admin");
@@ -106,6 +107,49 @@ public class UserController {
 				lessonThisFaculty = facultyLessonsService.getAllThisFaculty(choiseFaculty.getFacultyId());
 			}
 
+		} catch (Exception e) {
+		}
+
+		try {
+			if (user.getApplicantss().getAccepted()) {
+
+				ModelAndView mapAccepted = new ModelAndView("message_user");
+				mapAccepted.addObject("user", user);
+				mapAccepted.addObject("message",
+						"Congratulations, you are accepted into our " + "educational institution at the faculty  --  "
+								+ user.getApplicantss().getFacultys().getName());
+				return mapAccepted;
+			}
+			if (user.getApplicantss().getRejected()) {
+				ModelAndView mapRejected = new ModelAndView("message_user");
+				mapRejected.addObject("user", user);
+				mapRejected.addObject("message",
+						"Unfortunately, Your application for admission to the faculty " 								
+								+ user.getApplicantss().getFacultys().getName()
+								+ " is rejected ");
+				return mapRejected;
+			}
+			if (user.getApplicantss().getChecked()) {
+				ModelAndView mapChecked = new ModelAndView("message_user");
+				mapChecked.addObject("user", user);
+				mapChecked.addObject("message",
+						"Your data has been verified. Later, a decision "
+								+ "will be made regarding your admission to the faculty  --  "
+								+ user.getApplicantss().getFacultys().getName());
+				return mapChecked;
+			}
+			
+			if (!user.getApplicantss().getChecked()) {
+				ModelAndView mapChecked = new ModelAndView("message_user");
+				mapChecked.addObject("user", user);
+				mapChecked.addObject("message",
+						"ou have already applied to the faculty "
+								+ user.getApplicantss().getFacultys().getName()
+								+" , and you can still make changes");
+				return mapChecked;
+			}			
+			
+			
 		} catch (Exception e) {
 		}
 
@@ -138,22 +182,23 @@ public class UserController {
 	@RequestMapping(value = "/userball", method = RequestMethod.POST)
 	public ModelAndView userPointPost(Authentication authentication, @RequestParam String ballgpa,
 			@RequestParam(value = "ball") String[] ball) throws IOException {
-	
+
 		int i = 0;
-		
+
 		User user = userService.findByAssignedId(authentication.getName()).get();
-		
+
 		Boolean checked = false;
 		try {
 			checked = user.getApplicantss().getChecked();
-		} catch (Exception e) {}			
+		} catch (Exception e) {
+		}
 
 		Applicant aplicant = new Applicant(userService.findByAssignedId(authentication.getName()).get(), choiseFaculty);
-		
-		if(checked) {
+
+		if (checked) {
 			return new ModelAndView("redirect:/apl_success");
 		}
-		
+
 		Double pointsForBall = 0.0;
 		for (int j = 0; j < ball.length; j++) {
 			pointsForBall += Double.parseDouble(ball[i]);
@@ -161,7 +206,8 @@ public class UserController {
 
 		aplicant.setBallgpa(Double.parseDouble(ballgpa));
 		aplicant.setChecked(false);
-		aplicant.setAccepted(false);	
+		aplicant.setAccepted(false);
+		aplicant.setRejected(false);
 		aplicant.setPointsForBall(pointsForBall);
 
 		if (!applicantService.isExist(user)) {
@@ -187,59 +233,64 @@ public class UserController {
 	public String ifCheked(Model model) {
 		return "apl_success";
 	}
-	
+
 	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)
 	public ModelAndView entrants(ModelMap model) {
 		ModelAndView map = new ModelAndView("application_of_entrants");
-		map.addObject("users", userService.findAllApplicant()); 
+		map.addObject("users", userService.findAllApplicant());
 		map.addObject("checked", new Applicant());
 		map.addObject("accepted", new Applicant());
-		
+
 		return map;
 	}
-	
-	
+
 	@RequestMapping(value = "/application_of_entrants", method = RequestMethod.POST)
-	public ModelAndView entrantsPost(Authentication authentication, 
-			@RequestParam(value = "applicantId", required = false) String applicantId,
-			ModelMap model
-			) throws IOException {
+	public ModelAndView entrantsPost(Authentication authentication,
+			@RequestParam(value = "applicantId", required = false) String applicantId, ModelMap model)
+			throws IOException {
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
-	
-	
-	
-	
+
 	@RequestMapping(value = "/application_of_entrants_check", method = RequestMethod.GET)
-	public ModelAndView checkedGet( 
-			@RequestParam(value = "applicantId", required = false) Integer applicantId,
-			ModelMap model
-			) throws IOException {			
-		
+	public ModelAndView checkedGet(@RequestParam(value = "applicantId", required = false) Integer applicantId,
+			ModelMap model) throws IOException {
+
 		Applicant applicantss = applicantService.findApplicant(applicantId);
-		if(applicantss.getChecked() && applicantss.getAccepted()) {
+		if (applicantss.getChecked() && applicantss.getAccepted()) {
 			applicantss.setAccepted(!applicantss.getAccepted());
-		}	
+		}
 		applicantss.setChecked(!applicantss.getChecked());
 		applicantService.save(applicantss);
-		
+
 		return new ModelAndView("redirect:/application_of_entrants");
-	}	
+	}
 
 	@RequestMapping(value = "/application_of_entrants_accep", method = RequestMethod.GET)
-	public ModelAndView acceptedGet( 
-			@RequestParam(value = "applicantId", required = false) Integer applicantId,
-			ModelMap model
-			) throws IOException {			
-		
+	public ModelAndView acceptedGet(@RequestParam(value = "applicantId", required = false) Integer applicantId,
+			ModelMap model) throws IOException {
+
 		Applicant applicantss = applicantService.findApplicant(applicantId);
-		if(applicantss.getChecked() || (!applicantss.getChecked() && applicantss.getAccepted())) {
+		if (applicantss.getChecked() || (!applicantss.getChecked() && applicantss.getAccepted())) {
 			applicantss.setAccepted(!applicantss.getAccepted());
 			applicantService.save(applicantss);
 		}
-					
+
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
+	
+	@RequestMapping(value = "/application_of_entrants_reject", method = RequestMethod.GET)
+	public ModelAndView rejectedGet(@RequestParam(value = "applicantId", required = false) Integer applicantId,
+			ModelMap model) throws IOException {
+
+		Applicant applicantss = applicantService.findApplicant(applicantId);
+		if (applicantss.getChecked() && !applicantss.getAccepted()) {
+			applicantss.setRejected(!applicantss.getRejected());
+			applicantService.save(applicantss);
+		}
+
+		return new ModelAndView("redirect:/application_of_entrants");
+	}
+	
 	
 
 }
