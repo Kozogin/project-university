@@ -295,12 +295,19 @@ public class UserController {
 	public ModelAndView details(
 			@RequestParam(value = "assignedId") String assignedId, ModelMap model) {
 		
-		System.out.println(assignedId + "assignedId" + " -------------------- ");
+		User user = userService.findByAssignedId(assignedId).get();
+		Applicant applicant = user.getApplicantss();
+
+		List<FacultyLessons> lessonThisFacultySingle = 
+				facultyLessonsService.getAllThisFaculty(applicant.getFacultys().getFacultyId());
 		
 		ModelAndView map = new ModelAndView("singleApplicant");			
-		map.addObject("userSingle", userService.findByAssignedId(assignedId).get());
+		map.addObject("userSingle", user);
+		map.addObject("lessons", lessonThisFacultySingle);
 		
 		
+		
+		System.out.println("lessonThisFacultySingle  " + lessonThisFacultySingle);
 			
 		return map;
 	}
