@@ -151,7 +151,7 @@ tr:nth-child(even) {
 									</c:if>
 
 
-									<td><input type="submit"></td>
+									<td><a href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
 
 								</tr>
 

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -16,27 +15,34 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-
 <link rel="stylesheet" href="../css/login.css">
-
-<title>Registration successfully</title>
+<title>Cabinet</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-.text {
-	text-align: center;
-}
-</style>
-</head>
 
+</head>
 <body>
+
 	<div>
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
+
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<form id="logoutForm" method="POST" action="${contextPath}/logout">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+
+				<h4>
+					<a onclick="document.forms['logoutForm'].submit()">Logout</a>
+				</h4>
+
+			</c:if>
+
 		</div>
 
 		<!-- Page Content -->
@@ -44,7 +50,17 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>message</sub>
+					University - <sub>detail <c:if
+							test="${pageContext.request.userPrincipal.name != null}">
+							<form id="logoutForm" method="POST"
+								action="${contextPath}/logout">
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
+							</form> ${pageContext.request.userPrincipal.name}
+
+
+						</c:if>
+					</sub>
 				</h1>
 			</div>
 
@@ -56,52 +72,47 @@
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" />
 					</form>
-
 				</c:if>
 
 				<div class="container">
 
+					<form:form action="${contextPath}/singleApplicant" method="POST">
 
-					<br> <br>
-					<div>
-						<form>
-							<div>
+						<br>
 
-								<div class="w3-container w3-center">
-								<h3>${user.firstName} ${user.lastName}</h3>
-									<br> <br> <br>
-									
-									<h3>${message}</h3>
+							<h2>${userSingle.assignedId}</h2>
+							<h2>${userSingle.firstName} ${userSingle.lastName}</h2>
+							<h2>${userSingle.email}</h2>
+							<h2>faculty ${userSingle.applicantss.facultys.name}</h2>
+						
 
-									
-									<br>
-									<div>
-										<h4 class="text">
-											<a id="reg_success_ok" href="login"
-												onclick="document.forms['logoutForm'].submit()">Exit</a>
-										</h4>										
-										
-										
-									</div>
-								</div>
+						<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+							<div class="w3-container w3-center">
+								<h3>GPA</h3>
+								<input name="ballgpa" type="text"
+									placeholder="ball from 1 to 12"> <br> <br>
 							</div>
-						</form>
-
-					</div>
+						</div>
 
 
-					<input name="_csrf" type="hidden" value="${_csrf.token}" />
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+
+					</form:form>
 
 
 
 
 				</div>
 			</div>
+			<!-- /container -->
 		</div>
-		<!-- /container -->
-	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+
+
+
+
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

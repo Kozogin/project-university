@@ -137,17 +137,8 @@ public class UserController {
 								+ "will be made regarding your admission to the faculty  --  "
 								+ user.getApplicantss().getFacultys().getName());
 				return mapChecked;
-			}
-			
-			if (!user.getApplicantss().getChecked()) {
-				ModelAndView mapChecked = new ModelAndView("message_user");
-				mapChecked.addObject("user", user);
-				mapChecked.addObject("message",
-						"ou have already applied to the faculty "
-								+ user.getApplicantss().getFacultys().getName()
-								+" , and you can still make changes");
-				return mapChecked;
-			}			
+			}	
+					
 			
 			
 		} catch (Exception e) {
@@ -256,10 +247,13 @@ public class UserController {
 			ModelMap model) throws IOException {
 
 		Applicant applicantss = applicantService.findApplicant(applicantId);
-		if (applicantss.getChecked() && applicantss.getAccepted()) {
-			applicantss.setAccepted(!applicantss.getAccepted());
-		}
+		
 		applicantss.setChecked(!applicantss.getChecked());
+		if(!applicantss.getChecked()) {
+			applicantss.setAccepted(false);
+			applicantss.setRejected(false);
+		}
+		
 		applicantService.save(applicantss);
 
 		return new ModelAndView("redirect:/application_of_entrants");
@@ -272,6 +266,9 @@ public class UserController {
 		Applicant applicantss = applicantService.findApplicant(applicantId);
 		if (applicantss.getChecked() || (!applicantss.getChecked() && applicantss.getAccepted())) {
 			applicantss.setAccepted(!applicantss.getAccepted());
+			if(applicantss.getAccepted() && applicantss.getRejected()) {
+				applicantss.setRejected(false);
+			}			
 			applicantService.save(applicantss);
 		}
 
@@ -283,14 +280,40 @@ public class UserController {
 			ModelMap model) throws IOException {
 
 		Applicant applicantss = applicantService.findApplicant(applicantId);
-		if (applicantss.getChecked() && !applicantss.getAccepted()) {
+		if (applicantss.getChecked()) {
 			applicantss.setRejected(!applicantss.getRejected());
+			if(applicantss.getAccepted() && applicantss.getRejected()) {
+				applicantss.setAccepted(false);
+			}
 			applicantService.save(applicantss);
 		}
 
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
 	
+	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.GET)
+	public ModelAndView details(
+			@RequestParam(value = "assignedId") String assignedId, ModelMap model) {
+		
+		System.out.println(assignedId + "assignedId" + " -------------------- ");
+		
+		ModelAndView map = new ModelAndView("singleApplicant");			
+		map.addObject("userSingle", userService.findByAssignedId(assignedId).get());
+		
+		
+			
+		return map;
+	}
 	
+	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.POST)
+	public ModelAndView detailsPost(
+			@RequestParam(value = "userId", required = false) Integer userId, ModelMap model) {
+		
+		ModelAndView map = new ModelAndView("singleApplicant");		
+			System.out.println(userId + "  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		return map;
+	}
+	
+	 
 
 }
