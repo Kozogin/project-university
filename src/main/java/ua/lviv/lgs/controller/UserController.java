@@ -202,14 +202,13 @@ public class UserController {
 	
 	@RequestMapping(value = "/application_of_entrants", method = RequestMethod.POST)
 	public ModelAndView entrantsPost(Authentication authentication, 
-			@RequestParam(value = "checked") String[] checked			
+			@RequestParam(value = "checked", defaultValue = "false", required = false) String[] checked,
+			@RequestParam(value = "accepted", defaultValue = "false", required = false) String[] accepted
 			) throws IOException {
 		
-		for (int i = 0; i < checked.length; i++) {
-			System.out.println("check ---------------" + checked);
-//			System.out.println("accep ---------------" + accepted);
-		}
-		System.out.println("arrays to string" + Arrays.toString(checked));
+		
+		System.out.println("arrays to string checked" + Arrays.toString(checked));
+		System.out.println("arrays to string accepted" + Arrays.toString(accepted));
 		
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
