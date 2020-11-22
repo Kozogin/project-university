@@ -2,7 +2,6 @@ package ua.lviv.lgs.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -202,14 +201,43 @@ public class UserController {
 	
 	@RequestMapping(value = "/application_of_entrants", method = RequestMethod.POST)
 	public ModelAndView entrantsPost(Authentication authentication, 
-			@RequestParam(value = "checked", defaultValue = "false", required = false) String[] checked,
-			@RequestParam(value = "accepted", defaultValue = "false", required = false) String[] accepted
+			@RequestParam(value = "applicantId", required = false) String applicantId,
+			ModelMap model
 			) throws IOException {
+		return new ModelAndView("redirect:/application_of_entrants");
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/application_of_entrants_check", method = RequestMethod.GET)
+	public ModelAndView checkedGet( 
+			@RequestParam(value = "applicantId", required = false) Integer applicantId,
+			ModelMap model
+			) throws IOException {			
 		
+		Applicant applicantss = applicantService.findApplicant(applicantId);
+		if(applicantss.getChecked() && applicantss.getAccepted()) {
+			applicantss.setAccepted(!applicantss.getAccepted());
+		}	
+		applicantss.setChecked(!applicantss.getChecked());
+		applicantService.save(applicantss);
 		
-		System.out.println("arrays to string checked" + Arrays.toString(checked));
-		System.out.println("arrays to string accepted" + Arrays.toString(accepted));
+		return new ModelAndView("redirect:/application_of_entrants");
+	}	
+
+	@RequestMapping(value = "/application_of_entrants_accep", method = RequestMethod.GET)
+	public ModelAndView acceptedGet( 
+			@RequestParam(value = "applicantId", required = false) Integer applicantId,
+			ModelMap model
+			) throws IOException {			
 		
+		Applicant applicantss = applicantService.findApplicant(applicantId);
+		if(applicantss.getChecked() || (!applicantss.getChecked() && applicantss.getAccepted())) {
+			applicantss.setAccepted(!applicantss.getAccepted());
+			applicantService.save(applicantss);
+		}
+					
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
 	

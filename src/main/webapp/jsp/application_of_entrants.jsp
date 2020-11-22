@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -117,25 +117,23 @@ tr:nth-child(even) {
 
 
 									<c:if test="${currentUsers.applicantss.checked == false}">
-										<td><form:checkbox path="checked" name="checked"
-												value="checked" /></td>
+										<td><a href ="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
 									</c:if>
+									
 									<c:if test="${currentUsers.applicantss.checked == true}">
-										<td><form:checkbox path="checked" name="checked"
-												value="checked" checked="checked" /></td>
+										<td><a href ="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">  ✔   </a></td>
 									</c:if>
+									
 									<c:if test="${empty currentUsers.applicantss.checked}">
 										<td></td>
 									</c:if>
 
 
 									<c:if test="${currentUsers.applicantss.accepted == false}">
-										<td><form:checkbox path="accepted" name="accepted"
-												value="accepted" /></td>
+										<td><a href ="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
 									</c:if>
 									<c:if test="${currentUsers.applicantss.accepted == true}">
-										<td><form:checkbox path="accepted" name="accepted"
-												value="accepted" checked="checked" /></td>
+										<td><a href ="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">  ✔  </a></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.accepted}">
 										<td></td>
