@@ -94,7 +94,7 @@
 
 				<div class="container form">
 
-					<form:form method="POST" action="${contextPath}/automatic_check"
+					<form:form method="POST" action="${contextPath}/selection_options"
 						class="form-signin">
 						<h2 class="form-signin-heading">Operations with entrants
 							applications</h2>
@@ -102,34 +102,21 @@
 
 						<div class="form-group ${status.error ? 'has-error' : ''}">
 							<div class="ancor_div">
-								<a href="${contextPath}/application_of_entrants" class="form-control">automatic
+								<a href="${contextPath}/selection_options_check" class="form-control">automatic
 									check</a>
 							</div>
 						</div>
 						<br>
 
 						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="text" name="lastName" class="form-control"
-								placeholder="Last name" autofocus="true"></input>
+							<input type="text" name="totalBall" class="form-control"
+								placeholder="the total score is not less" autofocus="true"></input>
 						</div>
 
 						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="text" name="email" class="form-control"
-								placeholder="Email" autofocus="true"></input>
-						</div>
-
-						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="password" name="password" class="form-control"
-								placeholder="Password"></input>
-						</div>
-
-						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="password" name="passwordConfirm"
-								class="form-control" placeholder="Confirm your password"></input>
-						</div>
-
-
-
+							<input type="text" name="number" class="form-control"
+								placeholder="number of vacancies" autofocus="true"></input>
+						</div>	
 
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 

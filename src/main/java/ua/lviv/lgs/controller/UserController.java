@@ -2,6 +2,7 @@ package ua.lviv.lgs.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,6 +25,7 @@ import ua.lviv.lgs.domain.NameOfLesson;
 import ua.lviv.lgs.domain.Point;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.ApplicantService;
+import ua.lviv.lgs.service.ComparatorApplicant;
 import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
 import ua.lviv.lgs.service.LessonDTO;
@@ -184,15 +186,16 @@ public class UserController {
 		if (checked) {
 			return new ModelAndView("redirect:/apl_success");
 		}
-		
+
 		Double pointsForBall = 0.0;
-		try {			
-			for (int j = 0; j < ball.length; j++) {				
-				pointsForBall += ball[j] == null? 0.0: ball[j];
+		try {
+			for (int j = 0; j < ball.length; j++) {
+				pointsForBall += ball[j] == null ? 0.0 : ball[j];
 			}
 			pointsForBall /= ball.length;
-		} catch (Exception e) {}
-		
+			pointsForBall += aplicant.getBallgpa();
+		} catch (Exception e) {
+		}
 
 		aplicant.setBallgpa(ballgpa);
 		aplicant.setChecked(false);
@@ -311,10 +314,11 @@ public class UserController {
 
 	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.POST)
 	public ModelAndView detailsPost(Authentication authentication, @RequestParam(required = false) Double ballgpa,
-			@RequestParam(value = "ball", required = false) Double[] ball, @RequestParam(required = false) String assignedId) {
+			@RequestParam(value = "ball", required = false) Double[] ball,
+			@RequestParam(required = false) String assignedId) {
 
 		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
-		
+
 		int i = 0;
 		User user = userService.findByAssignedId(assignedId).get();
 		Applicant applicant = user.getApplicantss();
@@ -322,9 +326,9 @@ public class UserController {
 		applicant.setBallgpa(ballgpa);
 		Double sumOfPoint = 0.0;
 		for (int j = 0; j < ball.length; j++) {
-			sumOfPoint += ball[j] == null? 0.0: ball[j];
+			sumOfPoint += ball[j] == null ? 0.0 : ball[j];
 		}
-		applicant.setPointsForBall(sumOfPoint / ball.length);
+		applicant.setPointsForBall(applicant.getBallgpa() + sumOfPoint / ball.length);
 
 		List<Point> points = pointService.findByApplicant(applicant);
 		for (Point point : points) {
@@ -340,43 +344,69 @@ public class UserController {
 		return map;
 	}
 	
-	
 	@RequestMapping(value = { "/selection_options" }, method = RequestMethod.GET)
-	public ModelAndView selectionOptions(Model model) {
-		
+	public ModelAndView selectionOptions() {
 		ModelAndView map = new ModelAndView("selection_options");
-		
-		List<Applicant> allApplicant = applicantService.getAllApplicant();		
+		return map;		
+	}	
+
+	@RequestMapping(value = { "/selection_options_check" }, method = RequestMethod.GET)
+	public ModelAndView selectionOptionsGet(Model model) {
+
+		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
+
+		List<Applicant> allApplicant = applicantService.getAllApplicant();
 		for (Applicant applicant : allApplicant) {
-			
+
 			boolean checked = true;
 			List<Point> points = pointService.findByApplicant(applicant);
 			for (Point point : points) {
-				if(point.getBall() == null 
-						|| (point.getBall() < 1) || (point.getBall() > 12)
-						|| point.getBall() % 1 != 0){
+				if (point.getBall() == null || (point.getBall() < 1) || (point.getBall() > 12)
+						|| point.getBall() % 1 != 0) {
 					checked = false;
 				}
 			}
-			if(checked) {
-				if(applicant.getBallgpa() < 1 || applicant.getBallgpa() > 12  ) {
+			if (checked) {
+				if (applicant.getBallgpa() < 1 || applicant.getBallgpa() > 12) {
 					checked = false;
 				}
 			}
 			applicant.setChecked(checked);
 			applicantService.save(applicant);
-			
 		}
-		
-		System.out.println("selection_options  selection_options       ////////////////////");
-		
 		return map;
 	}
-	
-	
-	
-	
-	
-	
+
+	@RequestMapping(value = { "/selection_options" }, method = RequestMethod.POST)
+	public ModelAndView selectionOptionsPost(@RequestParam(value = "totalBall", required = false) Double totalBall,
+			@RequestParam(value = "number", required = false) Integer number) {
+
+		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
+		List<Applicant> allApplicant = applicantService.getAllApplicant();
+
+		Collections.sort(allApplicant, new ComparatorApplicant());
+
+		int i = 1;
+		for (Applicant applicant : allApplicant) {
+
+			if (applicant.getChecked()) {
+
+				if (applicant.getPointsForBall() >= totalBall && i <= number) {
+					applicant.setAccepted(true);
+					applicant.setRejected(false);
+					i++;
+				} else {
+					applicant.setAccepted(false);
+					applicant.setRejected(true);
+				}
+				
+				applicantService.save(applicant);
+				
+			}
+
+		}
+
+		return map;
+	}
 
 }
