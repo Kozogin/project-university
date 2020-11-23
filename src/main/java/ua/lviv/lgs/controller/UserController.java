@@ -168,8 +168,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userball", method = RequestMethod.POST)
-	public ModelAndView userPointPost(Authentication authentication, @RequestParam String ballgpa,
-			@RequestParam(value = "ball") String[] ball) throws IOException {
+	public ModelAndView userPointPost(Authentication authentication, @RequestParam(required = false) Double ballgpa,
+			@RequestParam(value = "ball", required = false) Double[] ball) throws IOException {
 
 		int i = 0;
 		User user = userService.findByAssignedId(authentication.getName()).get();
@@ -184,15 +184,17 @@ public class UserController {
 		if (checked) {
 			return new ModelAndView("redirect:/apl_success");
 		}
-
+		
 		Double pointsForBall = 0.0;
-		for (int j = 0; j < ball.length; j++) {
-			pointsForBall += Double.parseDouble(ball[j]);
-		}
+		try {			
+			for (int j = 0; j < ball.length; j++) {				
+				pointsForBall += ball[j] == null? 0.0: ball[j];
+			}
+			pointsForBall /= ball.length;
+		} catch (Exception e) {}
+		
 
-		pointsForBall /= ball.length;
-
-		aplicant.setBallgpa(Double.parseDouble(ballgpa));
+		aplicant.setBallgpa(ballgpa);
 		aplicant.setChecked(false);
 		aplicant.setAccepted(false);
 		aplicant.setRejected(false);
@@ -207,7 +209,7 @@ public class UserController {
 			NameOfLesson lesson = facultyLessons.getNameOfLessons();
 
 			try {
-				pointService.save(new Point(lesson, aplicant, Double.parseDouble(ball[i])));
+				pointService.save(new Point(lesson, aplicant, ball[i]));
 			} catch (Exception e) {
 			}
 
@@ -308,8 +310,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.POST)
-	public ModelAndView detailsPost(Authentication authentication, @RequestParam Double ballgpa,
-			@RequestParam(value = "ball") Double[] ball, @RequestParam String assignedId) {
+	public ModelAndView detailsPost(Authentication authentication, @RequestParam(required = false) Double ballgpa,
+			@RequestParam(value = "ball", required = false) Double[] ball, @RequestParam(required = false) String assignedId) {
 
 		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
 		System.out.println(ballgpa + "  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -321,7 +323,7 @@ public class UserController {
 		applicant.setBallgpa(ballgpa);
 		Double sumOfPoint = 0.0;
 		for (int j = 0; j < ball.length; j++) {
-			sumOfPoint += ball[j];
+			sumOfPoint += ball[j] == null? 0.0: ball[j];
 		}
 		applicant.setPointsForBall(sumOfPoint / ball.length);
 
@@ -338,5 +340,17 @@ public class UserController {
 		}
 		return map;
 	}
+	
+	
+	@RequestMapping(value = { "/selection_options" }, method = RequestMethod.GET)
+	public String selectionOptions(Model model) {
+		return "selection_options";
+	}
+	
+	
+	
+	
+	
+	
 
 }

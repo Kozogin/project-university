@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>Add lessons to faculty</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -45,6 +45,7 @@
 			lessons are required</a>
 			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
 			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
+			
 			<h4 class="text">
 				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h4>
@@ -56,7 +57,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>all Application</sub>
+					University - <sub>selection options</sub>
 				</h1>
 			</div>
 
@@ -69,39 +70,20 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">Welcome (admin)
-						${pageContext.request.userPrincipal.name}</h3>
-
 				</c:if>
 
-				<div class="container">
-
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
-
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-														
-								<img
-								src="data:imgFile/jpg;base64, ${currentUsers.encodedImage}"
-								alt="Norway" style="width: 100%">
-							
-								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3>
-									<p>${currentUsers.firstName}</p>
-									<p>${currentUsers.lastName}</p>
-									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>
-								</div>
-							</div>
-
-						</c:forEach>
-					</c:if>
-
-				</div>
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 		</div>
+		<!-- /container -->
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

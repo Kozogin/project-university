@@ -44,6 +44,8 @@
 			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
 			lessons are required</a>
 			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
+			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
+			
 			<h4 class="text">
 				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h4>

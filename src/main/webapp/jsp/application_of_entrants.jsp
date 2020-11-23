@@ -55,8 +55,11 @@ tr:nth-child(even) {
 				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons
 				and add lessons to faculty</a> <a href="/add_lesson_to_faculty"
 				class="w3-bar-item w3-button">Grades for these lessons are
-				required</a> <a href="/application_of_entrants"
-				class="w3-bar-item w3-button">Application of entrants</a>
+				required</a>				 
+			<a
+				href="/application_of_entrants" class="w3-bar-item w3-button">Application
+				of entrants</a> <a href="/selection_options"
+				class="w3-bar-item w3-button">Selection options</a>
 
 
 			<h4 class="text">
@@ -87,8 +90,9 @@ tr:nth-child(even) {
 
 				</c:if>
 
-				 <form:form action="${contextPath}/application_of_entrants" modelAttribute="checked" method="POST">
-  
+				<form:form action="${contextPath}/application_of_entrants"
+					modelAttribute="checked" method="POST">
+
 					<table>
 						<tr>
 							<th>Id</th>
@@ -118,40 +122,53 @@ tr:nth-child(even) {
 
 
 									<c:if test="${currentUsers.applicantss.checked == false}">
-										<td><a href ="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
+										<td><a
+											href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
+												☒ </a></td>
 									</c:if>
-									
+
 									<c:if test="${currentUsers.applicantss.checked == true}">
-										<td><a href ="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">  ✔   </a></td>
+										<td><a
+											href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
+												✔ </a></td>
 									</c:if>
-									
+
 									<c:if test="${empty currentUsers.applicantss.checked}">
 										<td></td>
 									</c:if>
 
 
 									<c:if test="${currentUsers.applicantss.accepted == false}">
-										<td><a href ="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
+										<td><a
+											href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
+												☒ </a></td>
 									</c:if>
 									<c:if test="${currentUsers.applicantss.accepted == true}">
-										<td><a href ="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">  ✔  </a></td>
+										<td><a
+											href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
+												✔ </a></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.accepted}">
 										<td></td>
 									</c:if>
-									
+
 									<c:if test="${currentUsers.applicantss.rejected == false}">
-										<td><a href ="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">  ☒  </a></td>
+										<td><a
+											href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
+												☒ </a></td>
 									</c:if>
 									<c:if test="${currentUsers.applicantss.rejected == true}">
-										<td><a href ="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">  ✔  </a></td>
+										<td><a
+											href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
+												✔ </a></td>
 									</c:if>
 									<c:if test="${empty currentUsers.applicantss.rejected}">
 										<td></td>
 									</c:if>
 
 
-									<td><a href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
+									<td><a
+										href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
 
 								</tr>
 
@@ -160,7 +177,7 @@ tr:nth-child(even) {
 
 
 					</table>
-				  </form:form> 
+				</form:form>
 
 			</div>
 		</div>
