@@ -195,7 +195,9 @@ public class UserController {
 				pointsForBall += ball[j] == null ? 0.0 : ball[j];
 			}
 			pointsForBall /= ball.length;
-			pointsForBall += aplicant.getBallgpa();
+			
+			pointsForBall += ballgpa;
+			
 		} catch (Exception e) {
 		}
 
@@ -330,7 +332,7 @@ public class UserController {
 		for (int j = 0; j < ball.length; j++) {
 			sumOfPoint += ball[j] == null ? 0.0 : ball[j];
 		}
-		applicant.setPointsForBall(applicant.getBallgpa() + sumOfPoint / ball.length);
+		applicant.setPointsForBall(ballgpa + sumOfPoint / ball.length);
 
 		List<Point> points = pointService.findByApplicant(applicant);
 		for (Point point : points) {
