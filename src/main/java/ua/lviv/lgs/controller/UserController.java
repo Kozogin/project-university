@@ -63,9 +63,11 @@ public class UserController {
 	public ModelAndView registration(@RequestParam MultipartFile imgFile, @RequestParam String password,
 			@RequestParam String passwordConfirm, @RequestParam String firstName, @RequestParam String lastName,
 			@RequestParam String email) throws IOException {
-
-		userService.save(UserDTOHelper.createEntity(imgFile, password, passwordConfirm, firstName, lastName, email));
-
+		
+		if(password.equals(passwordConfirm)){
+			userService.save(UserDTOHelper.createEntity(imgFile, password, passwordConfirm, firstName, lastName, email));
+		}
+		
 		return new ModelAndView("redirect:/reg_succeess");
 	}
 
@@ -378,8 +380,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = { "/selection_options" }, method = RequestMethod.POST)
-	public ModelAndView selectionOptionsPost(@RequestParam(value = "totalBall", required = false) Double totalBall,
-			@RequestParam(value = "number", required = false) Integer number) {
+	public ModelAndView selectionOptionsPost(@RequestParam(value = "totalBall", required = false, defaultValue = "1") Double totalBall,
+			@RequestParam(value = "number", required = false, defaultValue = "100") Integer number) {
 
 		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
 		List<Applicant> allApplicant = applicantService.getAllApplicant();
