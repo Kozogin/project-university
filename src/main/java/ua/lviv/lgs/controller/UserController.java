@@ -314,8 +314,7 @@ public class UserController {
 			@RequestParam(value = "ball", required = false) Double[] ball, @RequestParam(required = false) String assignedId) {
 
 		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
-		System.out.println(ballgpa + "  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-
+		
 		int i = 0;
 		User user = userService.findByAssignedId(assignedId).get();
 		Applicant applicant = user.getApplicantss();
@@ -343,8 +342,35 @@ public class UserController {
 	
 	
 	@RequestMapping(value = { "/selection_options" }, method = RequestMethod.GET)
-	public String selectionOptions(Model model) {
-		return "selection_options";
+	public ModelAndView selectionOptions(Model model) {
+		
+		ModelAndView map = new ModelAndView("selection_options");
+		
+		List<Applicant> allApplicant = applicantService.getAllApplicant();		
+		for (Applicant applicant : allApplicant) {
+			
+			boolean checked = true;
+			List<Point> points = pointService.findByApplicant(applicant);
+			for (Point point : points) {
+				if(point.getBall() == null 
+						|| (point.getBall() < 1) || (point.getBall() > 12)
+						|| point.getBall() % 1 != 0){
+					checked = false;
+				}
+			}
+			if(checked) {
+				if(applicant.getBallgpa() < 1 || applicant.getBallgpa() > 12  ) {
+					checked = false;
+				}
+			}
+			applicant.setChecked(checked);
+			applicantService.save(applicant);
+			
+		}
+		
+		System.out.println("selection_options  selection_options       ////////////////////");
+		
+		return map;
 	}
 	
 	

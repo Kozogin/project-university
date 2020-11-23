@@ -88,6 +88,10 @@ public class Applicant{
 
 	public void setChecked(Boolean checked) {
 		this.checked = checked;
+		if(!checked) {
+			this.accepted = false;
+			this.rejected = false;
+		}
 	}
 
 	public Boolean getAccepted() {

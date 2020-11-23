@@ -12,5 +12,5 @@ public interface ApplicantRepository extends JpaRepository<Applicant, Integer>{
 	Applicant findByUserss(User user);
 	
 	Applicant findByApplicantId(Integer applicantId);
-
+	
 }
