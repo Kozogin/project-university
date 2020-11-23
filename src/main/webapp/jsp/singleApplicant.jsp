@@ -81,7 +81,7 @@
 						<br>
 
 						<h2>${userSingle.assignedId}</h2>
-						<h2>${userSingle.firstName}${userSingle.lastName}</h2>
+						<h2>${userSingle.firstName} ${userSingle.lastName}</h2>
 						<h2>${userSingle.email}</h2>
 						<h2>faculty ${userSingle.applicantss.facultys.name}</h2>
 
@@ -95,8 +95,8 @@
 								<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 									<div class="w3-container w3-center">
-										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-										<input name="ball" type="text" value="${currentLessonThisFaculty.nameOfLessons.name}">
+										<h3>${currentLessonThisFaculty.name}</h3>
+										<input name="ball" type="text" value="${currentLessonThisFaculty.ball}">
 										<br> <br>
 									</div>
 								</div>
@@ -110,7 +110,7 @@
 							<div class="w3-container w3-center">
 								<h3>GPA</h3>
 								<input name="ballgpa" type="text"
-									placeholder="ball from 1 to 12"> <br> <br>
+									value="${userSingle.applicantss.ballgpa}"> <br> <br>
 							</div>
 						</div>
 

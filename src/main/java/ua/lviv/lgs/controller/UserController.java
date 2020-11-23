@@ -26,6 +26,7 @@ import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.ApplicantService;
 import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
+import ua.lviv.lgs.service.LessonDTO;
 import ua.lviv.lgs.service.PointService;
 import ua.lviv.lgs.service.UserDTOHelper;
 import ua.lviv.lgs.service.UserService;
@@ -191,9 +192,11 @@ public class UserController {
 		}
 
 		Double pointsForBall = 0.0;
-		for (int j = 0; j < ball.length; j++) {
-			pointsForBall += Double.parseDouble(ball[i]);
+		for (int j = 0; j < ball.length; j++) {			
+			pointsForBall += Double.parseDouble(ball[j]);
 		}
+		
+		pointsForBall /= ball.length;
 
 		aplicant.setBallgpa(Double.parseDouble(ballgpa));
 		aplicant.setChecked(false);
@@ -298,16 +301,24 @@ public class UserController {
 		User user = userService.findByAssignedId(assignedId).get();
 		Applicant applicant = user.getApplicantss();
 
-		List<FacultyLessons> lessonThisFacultySingle = 
-				facultyLessonsService.getAllThisFaculty(applicant.getFacultys().getFacultyId());
+//		List<FacultyLessons> lessonThisFacultySingle = 
+//				facultyLessonsService.getAllThisFaculty(applicant.getFacultys().getFacultyId());
+		
+		//applicant
 		
 		ModelAndView map = new ModelAndView("singleApplicant");			
+		
+
+		List<LessonDTO> lessonDTOs = new ArrayList<>();
+		
+		List<Point> points = pointService.findByApplicant(applicant);
+		for (Point point : points) {			
+			lessonDTOs.add(new LessonDTO(point.getNameOfLesson().getName(), point.getBall()));
+		}
+		
 		map.addObject("userSingle", user);
-		map.addObject("lessons", lessonThisFacultySingle);
+		map.addObject("lessons", lessonDTOs);
 		
-		
-		
-		System.out.println("lessonThisFacultySingle  " + lessonThisFacultySingle);
 			
 		return map;
 	}

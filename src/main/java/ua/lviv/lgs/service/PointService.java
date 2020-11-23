@@ -21,6 +21,10 @@ public class PointService {
 		pointRepository.save(point);
 	}
 	
+	public List<Point> findByApplicant(Applicant applicant){		
+		return pointRepository.findByApplicant(applicant);		
+	}
+	
 	public void delete(User user) {
 		
 		Applicant applicantss = user.getApplicantss();
