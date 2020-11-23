@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/user", "apl_success").hasAnyRole("ADMIN", "USER")
 		.antMatchers(
 				"/admin", "/create_faculty", "/faculties", "/create_lesson", "/lessons",
-				"/add_lesson_to_faculty", "application_of_entrants"
+				"/add_lesson_to_faculty", "application_of_entrants", "singleApplicant"
 				)
 		
 		.hasRole("ADMIN").anyRequest().permitAll()

@@ -44,6 +44,11 @@ public class Point {
 		this.ball = ball;
 	}
 	
+	public Point(Integer pointId, Double ball) {
+		this.pointId = pointId;
+		this.ball = ball;
+	}
+	
 	public Point() {}
 
 	public Integer getPointId() {

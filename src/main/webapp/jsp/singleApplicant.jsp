@@ -113,9 +113,15 @@
 									value="${userSingle.applicantss.ballgpa}"> <br> <br>
 							</div>
 						</div>
+						
+						<input name="assignedId" type="hidden"
+									value="${userSingle.assignedId}">
 
 
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+						<br><br>
+						<a href="${contextPath}/application_of_entrants">Exit</a>
+						<br><br>
 
 					</form:form>
 

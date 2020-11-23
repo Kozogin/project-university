@@ -124,10 +124,8 @@ public class UserController {
 			if (user.getApplicantss().getRejected()) {
 				ModelAndView mapRejected = new ModelAndView("message_user");
 				mapRejected.addObject("user", user);
-				mapRejected.addObject("message",
-						"Unfortunately, Your application for admission to the faculty " 								
-								+ user.getApplicantss().getFacultys().getName()
-								+ " is rejected ");
+				mapRejected.addObject("message", "Unfortunately, Your application for admission to the faculty "
+						+ user.getApplicantss().getFacultys().getName() + " is rejected ");
 				return mapRejected;
 			}
 			if (user.getApplicantss().getChecked()) {
@@ -138,10 +136,8 @@ public class UserController {
 								+ "will be made regarding your admission to the faculty  --  "
 								+ user.getApplicantss().getFacultys().getName());
 				return mapChecked;
-			}	
-					
-			
-			
+			}
+
 		} catch (Exception e) {
 		}
 
@@ -176,9 +172,7 @@ public class UserController {
 			@RequestParam(value = "ball") String[] ball) throws IOException {
 
 		int i = 0;
-
 		User user = userService.findByAssignedId(authentication.getName()).get();
-
 		Boolean checked = false;
 		try {
 			checked = user.getApplicantss().getChecked();
@@ -192,10 +186,10 @@ public class UserController {
 		}
 
 		Double pointsForBall = 0.0;
-		for (int j = 0; j < ball.length; j++) {			
+		for (int j = 0; j < ball.length; j++) {
 			pointsForBall += Double.parseDouble(ball[j]);
 		}
-		
+
 		pointsForBall /= ball.length;
 
 		aplicant.setBallgpa(Double.parseDouble(ballgpa));
@@ -250,13 +244,13 @@ public class UserController {
 			ModelMap model) throws IOException {
 
 		Applicant applicantss = applicantService.findApplicant(applicantId);
-		
+
 		applicantss.setChecked(!applicantss.getChecked());
-		if(!applicantss.getChecked()) {
+		if (!applicantss.getChecked()) {
 			applicantss.setAccepted(false);
 			applicantss.setRejected(false);
 		}
-		
+
 		applicantService.save(applicantss);
 
 		return new ModelAndView("redirect:/application_of_entrants");
@@ -269,15 +263,15 @@ public class UserController {
 		Applicant applicantss = applicantService.findApplicant(applicantId);
 		if (applicantss.getChecked() || (!applicantss.getChecked() && applicantss.getAccepted())) {
 			applicantss.setAccepted(!applicantss.getAccepted());
-			if(applicantss.getAccepted() && applicantss.getRejected()) {
+			if (applicantss.getAccepted() && applicantss.getRejected()) {
 				applicantss.setRejected(false);
-			}			
+			}
 			applicantService.save(applicantss);
 		}
 
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
-	
+
 	@RequestMapping(value = "/application_of_entrants_reject", method = RequestMethod.GET)
 	public ModelAndView rejectedGet(@RequestParam(value = "applicantId", required = false) Integer applicantId,
 			ModelMap model) throws IOException {
@@ -285,7 +279,7 @@ public class UserController {
 		Applicant applicantss = applicantService.findApplicant(applicantId);
 		if (applicantss.getChecked()) {
 			applicantss.setRejected(!applicantss.getRejected());
-			if(applicantss.getAccepted() && applicantss.getRejected()) {
+			if (applicantss.getAccepted() && applicantss.getRejected()) {
 				applicantss.setAccepted(false);
 			}
 			applicantService.save(applicantss);
@@ -293,45 +287,56 @@ public class UserController {
 
 		return new ModelAndView("redirect:/application_of_entrants");
 	}
-	
+
 	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.GET)
-	public ModelAndView details(
-			@RequestParam(value = "assignedId") String assignedId, ModelMap model) {
-		
+	public ModelAndView details(@RequestParam(value = "assignedId") String assignedId, ModelMap model) {
+
+		User user = userService.findByAssignedId(assignedId).get();
+		Applicant applicant = user.getApplicantss();
+		ModelAndView map = new ModelAndView("singleApplicant");
+
+		List<LessonDTO> lessonDTOs = new ArrayList<>();
+		List<Point> points = pointService.findByApplicant(applicant);
+		for (Point point : points) {
+			lessonDTOs.add(new LessonDTO(point.getNameOfLesson().getName(), point.getBall()));
+		}
+
+		map.addObject("userSingle", user);
+		map.addObject("lessons", lessonDTOs);
+
+		return map;
+	}
+
+	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.POST)
+	public ModelAndView detailsPost(Authentication authentication, @RequestParam Double ballgpa,
+			@RequestParam(value = "ball") Double[] ball, @RequestParam String assignedId) {
+
+		ModelAndView map = new ModelAndView("redirect:/application_of_entrants");
+		System.out.println(ballgpa + "  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+		int i = 0;
 		User user = userService.findByAssignedId(assignedId).get();
 		Applicant applicant = user.getApplicantss();
 
-//		List<FacultyLessons> lessonThisFacultySingle = 
-//				facultyLessonsService.getAllThisFaculty(applicant.getFacultys().getFacultyId());
-		
-		//applicant
-		
-		ModelAndView map = new ModelAndView("singleApplicant");			
-		
-
-		List<LessonDTO> lessonDTOs = new ArrayList<>();
-		
-		List<Point> points = pointService.findByApplicant(applicant);
-		for (Point point : points) {			
-			lessonDTOs.add(new LessonDTO(point.getNameOfLesson().getName(), point.getBall()));
+		applicant.setBallgpa(ballgpa);
+		Double sumOfPoint = 0.0;
+		for (int j = 0; j < ball.length; j++) {
+			sumOfPoint += ball[j];
 		}
-		
-		map.addObject("userSingle", user);
-		map.addObject("lessons", lessonDTOs);
-		
-			
+		applicant.setPointsForBall(sumOfPoint / ball.length);
+
+		List<Point> points = pointService.findByApplicant(applicant);
+		for (Point point : points) {
+
+			point.setBall(ball[i]);
+
+			try {
+				pointService.save(point);
+			} catch (Exception e) {
+			}
+			i++;
+		}
 		return map;
 	}
-	
-	@RequestMapping(value = { "/singleApplicant" }, method = RequestMethod.POST)
-	public ModelAndView detailsPost(
-			@RequestParam(value = "userId", required = false) Integer userId, ModelMap model) {
-		
-		ModelAndView map = new ModelAndView("singleApplicant");		
-			System.out.println(userId + "  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		return map;
-	}
-	
-	 
 
 }
