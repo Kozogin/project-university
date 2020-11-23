@@ -40,9 +40,11 @@
 				href="/create_faculty" class="w3-bar-item w3-button">Create
 				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add
-				lessons to faculty</a>
+				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
+			lessons are required</a>
+			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
+			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
 			<h4 class="text">
 				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h4>
@@ -54,13 +56,18 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>all lessons</sub>
+					University - <sub>all lessons and add lessons to faculty</sub>
 				</h1>
 			</div>
 
 			<div class="w3-container">
 
 				<br>
+
+
+
+
+
 				<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<form id="logoutForm" method="POST" action="${contextPath}/logout">
 						<input type="hidden" name="${_csrf.parameterName}"
@@ -71,6 +78,27 @@
 
 				<div class="container">
 
+
+					<form:form modelAttribute="selectFaculty" method="POST">
+						<h4 class="form-signin-heading">Choice faculty</h4>
+						<form:select id="facultySelect" path="facultyId">
+
+							<c:if test="${not empty faculties}">
+								<c:forEach items="${faculties}" var="currentFaculties">
+
+									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
+
+								</c:forEach>
+							</c:if>
+						</form:select>
+
+
+						<input type="submit" class="w3-button w3-block w3-dark-grey"
+							value="+ choise this faculty">
+					</form:form>
+
+					<br>
+
 					<c:if test="${not empty lessons}">
 						<c:forEach items="${lessons}" var="currentLessons">
 
@@ -80,8 +108,15 @@
 									<h3>${currentLessons.lessonId}</h3>
 									<p>${currentLessons.name}</p>
 								</div>
-								<button class="w3-button w3-block w3-dark-grey">+ add
-									to this faculty</button>
+
+
+								<form:form action="${contextPath}/lessons" method="POST">
+									<input type="hidden" value="${currentLessons.lessonId}"
+										class="form-control" name="lessonId">
+
+									<input type="submit" class="w3-button w3-block w3-dark-grey"
+										value="+ add to this faculty">
+								</form:form>
 							</div>
 
 						</c:forEach>
@@ -93,6 +128,7 @@
 		</div>
 		<!-- /container -->
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

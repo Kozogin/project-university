@@ -1,7 +1,9 @@
 package ua.lviv.lgs.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ public class Point {
 	@JoinColumn(name = "lesson_id", referencedColumnName = "lesson_id")
 	private NameOfLesson nameOfLesson;	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "applicant_id", referencedColumnName = "applicant_id")
 	private Applicant applicant;
 		
@@ -39,6 +41,11 @@ public class Point {
 	public Point(NameOfLesson nameOfLesson, Applicant applicant, Double ball) {
 		this.nameOfLesson = nameOfLesson;
 		this.applicant = applicant;
+		this.ball = ball;
+	}
+	
+	public Point(Integer pointId, Double ball) {
+		this.pointId = pointId;
 		this.ball = ball;
 	}
 	

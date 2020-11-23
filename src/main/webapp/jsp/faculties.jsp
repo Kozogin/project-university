@@ -40,8 +40,11 @@
 			<a href="/create_faculty" class="w3-bar-item w3-button">Create faculty</a>
 			<a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create lesson</a>
-			<a href="/lessons" class="w3-bar-item w3-button">Lessons</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Add lessons to faculty</a>
+			<a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
+			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
+			lessons are required</a>
+			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
+			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
 			<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
 			
 		</div>
@@ -78,7 +81,7 @@
 							</div>
 
 						</c:forEach>
-					</c:if>								
+					</c:if>		 						
 					
 				</div>
 			</div>

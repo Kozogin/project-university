@@ -31,6 +31,15 @@ public class Faculty {
 	
 	public Faculty() {}
 
+	public Faculty(Faculty faculty) {
+		
+		
+			this.facultyId = faculty.facultyId;
+			this.name = faculty.name;
+		
+		
+	}
+
 	public Integer getFacultyId() {
 		return facultyId;
 	}

@@ -50,7 +50,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>cabinet <c:if
+					University - <sub>detail <c:if
 							test="${pageContext.request.userPrincipal.name != null}">
 							<form id="logoutForm" method="POST"
 								action="${contextPath}/logout">
@@ -76,46 +76,27 @@
 
 				<div class="container">
 
+					<form:form action="${contextPath}/singleApplicant" method="POST">
 
+						<br>
 
-					<form:form modelAttribute="selectFaculty" method="POST">
-						<h4 class="form-signin-heading">Choice faculty</h4>
-						<form:select id="facultySelect" path="facultyId">
+						<h2>${userSingle.assignedId}</h2>
+						<h2>${userSingle.firstName} ${userSingle.lastName}</h2>
+						<h2>${userSingle.email}</h2>
+						<h2>faculty ${userSingle.applicantss.facultys.name}</h2>
 
-							<c:if test="${not empty faculties}">
-								<c:forEach items="${faculties}" var="currentFaculties">
+						<!-- nameOfLesson -->
 
-									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
+						<c:if test="${not empty lessons}">							
 
-								</c:forEach>
-							</c:if>
-						</form:select>
-
-
-						<input type="submit" class="w3-button w3-block w3-dark-grey"
-							value="+ choise this faculty">
-					</form:form>
-
-					<br>
-
-
-					<%-- action="${contextPath}/logout" --%>
-					<form:form action="${contextPath}/userball" method="POST">
-
-						<c:if test="${not empty lessonThisFaculty}">
-
-							<%-- <c:set var="count" value="0" scope="page" /> --%>
-
-							<c:forEach items="${lessonThisFaculty}"
+							<c:forEach items="${lessons}"
 								var="currentLessonThisFaculty">
-
-								<%-- <c:set var="count" value="${count + 1}" scope="page" /> --%>
-
+								
 								<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 									<div class="w3-container w3-center">
-										<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-										<input name="ball" type="text" placeholder="ball from 1 to 12">
+										<h3>${currentLessonThisFaculty.name}</h3>
+										<input name="ball" type="text" value="${currentLessonThisFaculty.ball}">
 										<br> <br>
 									</div>
 								</div>
@@ -123,18 +104,24 @@
 							</c:forEach>
 						</c:if>
 
+
 						<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 							<div class="w3-container w3-center">
 								<h3>GPA</h3>
 								<input name="ballgpa" type="text"
-									placeholder="ball from 1 to 12"> <br> <br>
+									value="${userSingle.applicantss.ballgpa}"> <br> <br>
 							</div>
 						</div>
 						
-						
+						<input name="assignedId" type="hidden"
+									value="${userSingle.assignedId}">
+
+
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-						
+						<br><br>
+						<a href="${contextPath}/application_of_entrants">Exit</a>
+						<br><br>
 
 					</form:form>
 

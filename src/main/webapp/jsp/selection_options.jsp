@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>Add lessons to faculty</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -27,6 +27,21 @@
 <style>
 .text {
 	text-align: center;
+}
+
+.ancor_div {
+	background: #237097;
+	width: 100%;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;	
+}
+
+.ancor_div a{
+	text-decoration: none;
 }
 </style>
 </head>
@@ -40,11 +55,14 @@
 				href="/create_faculty" class="w3-bar-item w3-button">Create
 				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
 			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
-			lessons are required</a>
-			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
-			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
+				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons
+				and add lessons to faculty</a> <a href="/add_lesson_to_faculty"
+				class="w3-bar-item w3-button">Grades for these lessons are
+				required</a> <a href="/application_of_entrants"
+				class="w3-bar-item w3-button">Application of entrants</a> <a
+				href="/selection_options" class="w3-bar-item w3-button">Selection
+				options</a>
+
 			<h4 class="text">
 				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h4>
@@ -56,7 +74,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>all Application</sub>
+					University - <sub>selection options</sub>
 				</h1>
 			</div>
 
@@ -69,39 +87,54 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">Welcome (admin)
-						${pageContext.request.userPrincipal.name}</h3>
-
 				</c:if>
 
-				<div class="container">
 
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
 
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-														
-								<img
-								src="data:imgFile/jpg;base64, ${currentUsers.encodedImage}"
-								alt="Norway" style="width: 100%">
-							
-								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3>
-									<p>${currentUsers.firstName}</p>
-									<p>${currentUsers.lastName}</p>
-									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>
-								</div>
+
+				<div class="container form">
+
+					<form:form method="POST" action="${contextPath}/selection_options"
+						class="form-signin">
+						<h2 class="form-signin-heading">Operations with entrants
+							applications</h2>
+
+
+						<div class="form-group ${status.error ? 'has-error' : ''}">
+							<div class="ancor_div">
+								<a href="${contextPath}/selection_options_check" class="form-control">automatic
+									check</a>
 							</div>
+						</div>
+						<br>
 
-						</c:forEach>
-					</c:if>
+						<div class="form-group ${status.error ? 'has-error' : ''}">
+							<input type="text" name="totalBall" class="form-control"
+								placeholder="the total score is not less" autofocus="true"></input>
+						</div>
+
+						<div class="form-group ${status.error ? 'has-error' : ''}">
+							<input type="text" name="number" class="form-control"
+								placeholder="number of vacancies" autofocus="true"></input>
+						</div>	
+
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+
+						<p class="message">
+							Already registered? <a href="${contextPath}/login">Sign In</a>
+						</p>
+
+					</form:form>
 
 				</div>
+
+
+
+
 			</div>
 		</div>
+		<!-- /container -->
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -18,7 +19,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>Registration successfully</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -36,19 +37,6 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
-			lessons are required</a>
-			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
-			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
-			<h4 class="text">
-				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-			</h4>
-
 		</div>
 
 		<!-- Page Content -->
@@ -56,7 +44,7 @@
 
 			<div class="w3-container w3-teal">
 				<h1>
-					University - <sub>all Application</sub>
+					University - <sub>message</sub>
 				</h1>
 			</div>
 
@@ -69,39 +57,49 @@
 							value="${_csrf.token}" />
 					</form>
 
-					<h3 class="text">Welcome (admin)
-						${pageContext.request.userPrincipal.name}</h3>
-
 				</c:if>
 
 				<div class="container">
 
-					<c:if test="${not empty users}">
-						<c:forEach items="${users}" var="currentUsers">
 
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-														
-								<img
-								src="data:imgFile/jpg;base64, ${currentUsers.encodedImage}"
-								alt="Norway" style="width: 100%">
-							
+					<br> <br>
+					<div>
+						<form>
+							<div>
+
 								<div class="w3-container w3-center">
-									<h3>${currentUsers.assignedId}</h3>
-									<p>${currentUsers.firstName}</p>
-									<p>${currentUsers.lastName}</p>
-									<p>${currentUsers.email}</p>
-									<p>${currentUsers.purchaseDate}</p>
+								<h3>${user.firstName} ${user.lastName}</h3>
+									<br> <br> <br>
+									
+									<h3>${message}</h3>
+
+									
+									<br>
+									<div>
+										<h4 class="text">
+											<a id="reg_success_ok" href="login"
+												onclick="document.forms['logoutForm'].submit()">Exit</a>
+										</h4>										
+										
+										
+									</div>
 								</div>
 							</div>
+						</form>
 
-						</c:forEach>
-					</c:if>
+					</div>
+
+
+					<input name="_csrf" type="hidden" value="${_csrf.token}" />
+
+
+
 
 				</div>
 			</div>
 		</div>
+		<!-- /container -->
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
