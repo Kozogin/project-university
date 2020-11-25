@@ -1,0 +1,27 @@
+2020-11-25 20:25:43 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 8672 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-11-25 20:25:43 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-11-25 20:25:44 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-25 20:25:44 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83ms. Found 6 JPA repository interfaces.
+2020-11-25 20:25:45 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-25 20:25:45 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-25 20:25:45 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-25 20:25:45 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-11-25 20:25:45 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-25 20:25:45 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2210 ms
+2020-11-25 20:25:45 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-25 20:25:46 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-25 20:25:46 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-25 20:25:46 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-11-25 20:25:46 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-25 20:25:46 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41fe8e5f, org.springframework.security.web.context.SecurityContextPersistenceFilter@78226c36, org.springframework.security.web.header.HeaderWriterFilter@1174a305, org.springframework.security.web.csrf.CsrfFilter@bbf9e07, org.springframework.security.web.authentication.logout.LogoutFilter@687e4c93, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17c2d509, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11f406f8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15b82644, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3062f9f4, org.springframework.security.web.session.SessionManagementFilter@1866da85, org.springframework.security.web.access.ExceptionTranslationFilter@19ee1ae6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a22bad6]
+2020-11-25 20:25:46 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-25 20:25:46 [task-1]  WARN c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-11-25 20:25:47 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-25 20:25:47 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-25 20:25:47 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-11-25 20:25:47 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-25 20:25:48 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-25 20:25:48 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-25 20:25:49 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-11-25 20:25:49 [main]  INFO ua.lviv.lgs.Application - Started Application in 6.366 seconds (JVM running for 6.911)
+2020-11-25 20:26:35 [http-nio-8080-exec-4]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
