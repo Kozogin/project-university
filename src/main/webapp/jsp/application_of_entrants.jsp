@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All Application</title>
+<title>Application of entrants</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -44,143 +44,117 @@ tr:nth-child(even) {
 </head>
 
 <body>
-	<div>
-		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons
-				and add lessons to faculty</a> <a href="/add_lesson_to_faculty"
-				class="w3-bar-item w3-button">Grades for these lessons are
-				required</a>				 
-			<a
-				href="/application_of_entrants" class="w3-bar-item w3-button">Application
-				of entrants</a> <a href="/selection_options"
-				class="w3-bar-item w3-button">Selection options</a>
+	<jsp:include page="header.jsp"></jsp:include>
 
-
-			<h4 class="text">
-				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-			</h4>
-
+	<!-- Page Content -->
+	<div style="margin-left: 10%">
+		<div class="w3-container w3-teal">
+			<h1>
+				University - <sub>application of entrants</sub>
+			</h1>
 		</div>
+		<div class="w3-container">
+			<br>
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<form id="logoutForm" method="POST" action="${contextPath}/logout">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+			</c:if>
+		</div>
+	</div>
 
-		<!-- Page Content -->
-		<div style="margin-left: 10%">
+	<div>
 
-			<div class="w3-container w3-teal">
-				<h1>
-					University - <sub>application of entrants</sub>
-				</h1>
-			</div>
+		<form:form action="${contextPath}/application_of_entrants"
+			modelAttribute="checked" method="POST">
 
-			<div class="w3-container">
+			<table>
+				<tr>
+					<th>Id</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Selected faculty</th>
+					<th>GPA</th>
+					<th>The sum of points</th>
+					<th>Cheked</th>
+					<th>Accepted</th>
+					<th>Rejected</th>
+					<th>Revision</th>
+				</tr>
 
-				<br>
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
-					<form id="logoutForm" method="POST" action="${contextPath}/logout">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
+				<c:if test="${not empty users}">
+					<c:forEach items="${users}" var="currentUsers">
 
-					<h3 class="text">${pageContext.request.userPrincipal.name}</h3>
 
-				</c:if>
 
-				<form:form action="${contextPath}/application_of_entrants"
-					modelAttribute="checked" method="POST">
-
-					<table>
 						<tr>
-							<th>Id</th>
-							<th>First name</th>
-							<th>Last name</th>
-							<th>Selected faculty</th>
-							<th>GPA</th>
-							<th>The sum of points</th>
-							<th>Cheked</th>
-							<th>Accepted</th>
-							<th>Rejected</th>
-							<th>Revision</th>
+							<td>${currentUsers.assignedId}</td>
+							<td>${currentUsers.firstName}</td>
+							<td>${currentUsers.lastName}</td>
+							<td>${currentUsers.applicantss.facultys.name}</td>
+							<td>${currentUsers.applicantss.ballgpa}</td>
+							<td>${currentUsers.applicantss.pointsForBall}</td>
+
+
+							<c:if test="${currentUsers.applicantss.checked == false}">
+								<td><a
+									href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
+										☒ </a></td>
+							</c:if>
+
+							<c:if test="${currentUsers.applicantss.checked == true}">
+								<td><a
+									href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
+										✔ </a></td>
+							</c:if>
+
+							<c:if test="${empty currentUsers.applicantss.checked}">
+								<td></td>
+							</c:if>
+
+
+							<c:if test="${currentUsers.applicantss.accepted == false}">
+								<td><a
+									href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
+										☒ </a></td>
+							</c:if>
+							<c:if test="${currentUsers.applicantss.accepted == true}">
+								<td><a
+									href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
+										✔ </a></td>
+							</c:if>
+							<c:if test="${empty currentUsers.applicantss.accepted}">
+								<td></td>
+							</c:if>
+
+							<c:if test="${currentUsers.applicantss.rejected == false}">
+								<td><a
+									href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
+										☒ </a></td>
+							</c:if>
+							<c:if test="${currentUsers.applicantss.rejected == true}">
+								<td><a
+									href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
+										✔ </a></td>
+							</c:if>
+							<c:if test="${empty currentUsers.applicantss.rejected}">
+								<td></td>
+							</c:if>
+
+
+							<td><a
+								href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
+
 						</tr>
 
-						<c:if test="${not empty users}">
-							<c:forEach items="${users}" var="currentUsers">
+					</c:forEach>
+				</c:if>
 
 
+			</table>
+		</form:form>
 
-								<tr>
-									<td>${currentUsers.assignedId}</td>
-									<td>${currentUsers.firstName}</td>
-									<td>${currentUsers.lastName}</td>
-									<td>${currentUsers.applicantss.facultys.name}</td>
-									<td>${currentUsers.applicantss.ballgpa}</td>
-									<td>${currentUsers.applicantss.pointsForBall}</td>
-
-
-									<c:if test="${currentUsers.applicantss.checked == false}">
-										<td><a
-											href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
-												☒ </a></td>
-									</c:if>
-
-									<c:if test="${currentUsers.applicantss.checked == true}">
-										<td><a
-											href="application_of_entrants_check?applicantId=${currentUsers.applicantss.applicantId}">
-												✔ </a></td>
-									</c:if>
-
-									<c:if test="${empty currentUsers.applicantss.checked}">
-										<td></td>
-									</c:if>
-
-
-									<c:if test="${currentUsers.applicantss.accepted == false}">
-										<td><a
-											href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
-												☒ </a></td>
-									</c:if>
-									<c:if test="${currentUsers.applicantss.accepted == true}">
-										<td><a
-											href="application_of_entrants_accep?applicantId=${currentUsers.applicantss.applicantId}">
-												✔ </a></td>
-									</c:if>
-									<c:if test="${empty currentUsers.applicantss.accepted}">
-										<td></td>
-									</c:if>
-
-									<c:if test="${currentUsers.applicantss.rejected == false}">
-										<td><a
-											href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
-												☒ </a></td>
-									</c:if>
-									<c:if test="${currentUsers.applicantss.rejected == true}">
-										<td><a
-											href="application_of_entrants_reject?applicantId=${currentUsers.applicantss.applicantId}">
-												✔ </a></td>
-									</c:if>
-									<c:if test="${empty currentUsers.applicantss.rejected}">
-										<td></td>
-									</c:if>
-
-
-									<td><a
-										href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
-
-								</tr>
-
-							</c:forEach>
-						</c:if>
-
-
-					</table>
-				</form:form>
-
-			</div>
-		</div>
 	</div>
 
 	<script

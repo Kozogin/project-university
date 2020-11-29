@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="../css/login.css">
-<title>Cabinet</title>
+<title>Single applicant</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -25,119 +25,82 @@
 
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 
-	<div>
-		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>
-
+	<!-- Page Content -->
+	<div style="margin-left: 10%">
+		<div class="w3-container w3-teal">
+			<h1>
+				University - <sub>single applicant</sub>
+			</h1>
+		</div>
+		<div class="w3-container">
+			<br>
 			<c:if test="${pageContext.request.userPrincipal.name != null}">
 				<form id="logoutForm" method="POST" action="${contextPath}/logout">
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
 				</form>
+			</c:if>
+		</div>
+	</div>
 
-				<h4>
-					<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-				</h4>
 
+	<div class="container">
+
+		<form:form action="${contextPath}/singleApplicant" method="POST">
+
+			<br>
+
+			<h2>${userSingle.assignedId}</h2>
+			<h2>${userSingle.firstName}${userSingle.lastName}</h2>
+			<h2>${userSingle.email}</h2>
+			<h2>faculty ${userSingle.applicantss.facultys.name}</h2>
+
+			<!-- nameOfLesson -->
+
+			<c:if test="${not empty lessons}">
+
+				<c:forEach items="${lessons}" var="currentLessonThisFaculty">
+
+					<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+						<div class="w3-container w3-center">
+							<h3>${currentLessonThisFaculty.name}</h3>
+							<input name="ball" type="text"
+								value="${currentLessonThisFaculty.ball}"> <br> <br>
+						</div>
+					</div>
+
+				</c:forEach>
 			</c:if>
 
-		</div>
 
-		<!-- Page Content -->
-		<div style="margin-left: 10%">
+			<div class="w3-card-4" style="width: 500px; margin: 8%">
 
-			<div class="w3-container w3-teal">
-				<h1>
-					University - <sub>detail <c:if
-							test="${pageContext.request.userPrincipal.name != null}">
-							<form id="logoutForm" method="POST"
-								action="${contextPath}/logout">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" />
-							</form> ${pageContext.request.userPrincipal.name}
-
-
-						</c:if>
-					</sub>
-				</h1>
-			</div>
-
-			<div class="w3-container">
-
-				<br>
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
-					<form id="logoutForm" method="POST" action="${contextPath}/logout">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-				</c:if>
-
-				<div class="container">
-
-					<form:form action="${contextPath}/singleApplicant" method="POST">
-
-						<br>
-
-						<h2>${userSingle.assignedId}</h2>
-						<h2>${userSingle.firstName} ${userSingle.lastName}</h2>
-						<h2>${userSingle.email}</h2>
-						<h2>faculty ${userSingle.applicantss.facultys.name}</h2>
-
-						<!-- nameOfLesson -->
-
-						<c:if test="${not empty lessons}">							
-
-							<c:forEach items="${lessons}"
-								var="currentLessonThisFaculty">
-								
-								<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-									<div class="w3-container w3-center">
-										<h3>${currentLessonThisFaculty.name}</h3>
-										<input name="ball" type="text" value="${currentLessonThisFaculty.ball}">
-										<br> <br>
-									</div>
-								</div>
-
-							</c:forEach>
-						</c:if>
-
-
-						<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-							<div class="w3-container w3-center">
-								<h3>GPA</h3>
-								<input name="ballgpa" type="text"
-									value="${userSingle.applicantss.ballgpa}"> <br> <br>
-							</div>
-						</div>
-						
-						<input name="assignedId" type="hidden"
-									value="${userSingle.assignedId}">
-
-
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-						<br><br>
-						<a href="${contextPath}/application_of_entrants">Exit</a>
-						<br><br>
-
-					</form:form>
-
-
-
-
+				<div class="w3-container w3-center">
+					<h3>GPA</h3>
+					<input name="ballgpa" type="text"
+						value="${userSingle.applicantss.ballgpa}"> <br> <br>
 				</div>
 			</div>
-			<!-- /container -->
-		</div>
+
+			<input name="assignedId" type="hidden"
+				value="${userSingle.assignedId}">
 
 
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<br>
+			<br>
+			<a href="${contextPath}/application_of_entrants">Exit</a>
+			<br>
+			<br>
 
+		</form:form>
+	</div>
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

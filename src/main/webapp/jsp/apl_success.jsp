@@ -33,64 +33,50 @@
 </head>
 
 <body>
-	<div>
-		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>						
+	<jsp:include page="header.jsp"></jsp:include>
+	<!-- Page Content -->
+	<div style="margin-left: 10%">
+		<div class="w3-container w3-teal">
+			<h1>
+				University - <sub>the application is accepted</sub>
+			</h1>
 		</div>
+		<div class="w3-container">
+			<br>
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<form id="logoutForm" method="POST" action="${contextPath}/logout">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+			</c:if>
+		</div>
+	</div>
 
-		<!-- Page Content -->
-		<div style="margin-left: 10%">
-
-			<div class="w3-container w3-teal">
-				<h1>University    - <sub>the application is accepted</sub></h1>
-			</div>
-
-			<div class="w3-container">
-
-				<br>
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
-					<form id="logoutForm" method="POST" action="${contextPath}/logout">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-
-				</c:if>
-
-				<div class="container">
-					
-					
-					<br>
-	<br>
 	<div>
-		<form>
-			<div>
+		<br> <br>
+		<div>
+			<form>
+				<div>
 
-				<div class="w3-container w3-center">
-				<br>
-				<br>
-					<h2>The application is accepted</h2>
-					
-					<div>
-						<h4 class="text"><a onclick="document.forms['logoutForm'].submit()">Ok</a></h4>
+					<div class="w3-container w3-center">
+						<br> <br>
+						<h2>The application is accepted</h2>
+
+						<div>
+							<h4 class="text">
+								<a onclick="document.forms['logoutForm'].submit()">Ok</a>
+							</h4>
+						</div>
 					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 
-	</div>
-
-
-	<input name="_csrf" type="hidden" value="${_csrf.token}" />
-					
-					
-					
-					
-				</div>
-			</div>
 		</div>
-		<!-- /container -->
+
+		<input name="_csrf" type="hidden" value="${_csrf.token}" />
+
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

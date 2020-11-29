@@ -32,102 +32,78 @@
 </head>
 
 <body>
-	<div>
-		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons and add lessons to faculty</a>
-			<a href="/add_lesson_to_faculty" class="w3-bar-item w3-button">Grades for these 
-			lessons are required</a>
-			<a href="/application_of_entrants" class="w3-bar-item w3-button">Application of entrants</a>
-			<a href="/selection_options" class="w3-bar-item w3-button">Selection options</a>
-			<h4 class="text">
-				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-			</h4>
+	<jsp:include page="header.jsp"></jsp:include>
 
+	<!-- Page Content -->
+	<div style="margin-left: 10%">
+		<div class="w3-container w3-teal">
+			<h1>
+				University - <sub>all lessons</sub>
+			</h1>
 		</div>
+		<div class="w3-container">
+			<br>
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<form id="logoutForm" method="POST" action="${contextPath}/logout">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+			</c:if>
+		</div>
+	</div>
 
-		<!-- Page Content -->
-		<div style="margin-left: 10%">
+	<div>
 
-			<div class="w3-container w3-teal">
-				<h1>
-					University - <sub>all lessons and add lessons to faculty</sub>
-				</h1>
-			</div>
-
-			<div class="w3-container">
-
-				<br>
-
-
-
+		<div class="container">
 
 
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
-					<form id="logoutForm" method="POST" action="${contextPath}/logout">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
+			<form:form modelAttribute="selectFaculty" method="POST">
+				<h4 class="form-signin-heading">Choice faculty</h4>
+				<form:select id="facultySelect" path="facultyId">
 
-				</c:if>
+					<c:if test="${not empty faculties}">
+						<c:forEach items="${faculties}" var="currentFaculties">
 
-				<div class="container">
-
-
-					<form:form modelAttribute="selectFaculty" method="POST">
-						<h4 class="form-signin-heading">Choice faculty</h4>
-						<form:select id="facultySelect" path="facultyId">
-
-							<c:if test="${not empty faculties}">
-								<c:forEach items="${faculties}" var="currentFaculties">
-
-									<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
-
-								</c:forEach>
-							</c:if>
-						</form:select>
-
-
-						<input type="submit" class="w3-button w3-block w3-dark-grey"
-							value="+ choise this faculty">
-					</form:form>
-
-					<br>
-
-					<c:if test="${not empty lessons}">
-						<c:forEach items="${lessons}" var="currentLessons">
-
-							<div class="w3-card-4" style="width: 500px; margin: 8%">
-
-								<div class="w3-container w3-center">
-									<h3>${currentLessons.lessonId}</h3>
-									<p>${currentLessons.name}</p>
-								</div>
-
-
-								<form:form action="${contextPath}/lessons" method="POST">
-									<input type="hidden" value="${currentLessons.lessonId}"
-										class="form-control" name="lessonId">
-
-									<input type="submit" class="w3-button w3-block w3-dark-grey"
-										value="+ add to this faculty">
-								</form:form>
-							</div>
+							<form:option value="${currentFaculties.facultyId}">${currentFaculties.name}</form:option>
 
 						</c:forEach>
 					</c:if>
+				</form:select>
 
 
-				</div>
-			</div>
+				<input type="submit" class="w3-button w3-block w3-dark-grey"
+					value="+ choise this faculty">
+			</form:form>
+
+			<br>
+
+			<c:if test="${not empty lessons}">
+				<c:forEach items="${lessons}" var="currentLessons">
+
+					<div class="w3-card-4" style="width: 500px; margin: 8%">
+
+						<div class="w3-container w3-center">
+							<h3>${currentLessons.lessonId}</h3>
+							<p>${currentLessons.name}</p>
+						</div>
+
+
+						<form:form action="${contextPath}/lessons" method="POST">
+							<input type="hidden" value="${currentLessons.lessonId}"
+								class="form-control" name="lessonId">
+
+							<input type="submit" class="w3-button w3-block w3-dark-grey"
+								value="+ add to this faculty">
+						</form:form>
+					</div>
+
+				</c:forEach>
+			</c:if>
+
+
 		</div>
-		<!-- /container -->
 	</div>
+
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
