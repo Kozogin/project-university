@@ -120,25 +120,34 @@ public class UserController {
 
 				ModelAndView mapAccepted = new ModelAndView("message_user");
 				mapAccepted.addObject("user", user);
-				mapAccepted.addObject("message",
-						"Congratulations, you are accepted into our " + "educational institution at the faculty  --  "
-								+ user.getApplicantss().getFacultys().getName());
+				
+				mapAccepted.addObject("message", "message_accepted");
+				
+//				mapAccepted.addObject("message",
+//						"Congratulations, you are accepted into our " + "educational institution at the faculty  --  "
+//								+ user.getApplicantss().getFacultys().getName());
 				return mapAccepted;
 			}
 			if (user.getApplicantss().getRejected()) {
 				ModelAndView mapRejected = new ModelAndView("message_user");
 				mapRejected.addObject("user", user);
-				mapRejected.addObject("message", "Unfortunately, Your application for admission to the faculty "
-						+ user.getApplicantss().getFacultys().getName() + " is rejected ");
+				
+				mapRejected.addObject("message", "message_rejected");
+				
+//				mapRejected.addObject("message", "Unfortunately, Your application for admission to the faculty "
+//						+ user.getApplicantss().getFacultys().getName() + " is rejected ");
 				return mapRejected;
 			}
 			if (user.getApplicantss().getChecked()) {
 				ModelAndView mapChecked = new ModelAndView("message_user");
 				mapChecked.addObject("user", user);
-				mapChecked.addObject("message",
-						"Your data has been verified. Later, a decision "
-								+ "will be made regarding your admission to the faculty  --  "
-								+ user.getApplicantss().getFacultys().getName());
+				
+				mapChecked.addObject("message", "message_checked");				
+				
+//				mapChecked.addObject("message",
+//						"Your data has been verified. Later, a decision "
+//								+ "will be made regarding your admission to the faculty  --  "
+//								+ user.getApplicantss().getFacultys().getName());
 				return mapChecked;
 			}
 

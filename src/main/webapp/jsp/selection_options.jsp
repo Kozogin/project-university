@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Add lessons to faculty</title>
+<title><spring:message code='header.selected_options'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -37,104 +37,80 @@
 	font-size: 14px;
 	text-transform: uppercase;
 	font-family: "Roboto", sans-serif;
-	font-weight: bold;	
+	font-weight: bold;
 }
 
-.ancor_div a{
+.ancor_div a {
 	text-decoration: none;
 }
 </style>
 </head>
 
 <body>
-	<div>
-		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 10%">
-			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/user" class="w3-bar-item w3-button">All Application</a> <a
-				href="/create_faculty" class="w3-bar-item w3-button">Create
-				faculty</a> <a href="/faculties" class="w3-bar-item w3-button">Faculties</a>
-			<a href="/create_lesson" class="w3-bar-item w3-button">Create
-				lesson</a> <a href="/lessons" class="w3-bar-item w3-button">Lessons
-				and add lessons to faculty</a> <a href="/add_lesson_to_faculty"
-				class="w3-bar-item w3-button">Grades for these lessons are
-				required</a> <a href="/application_of_entrants"
-				class="w3-bar-item w3-button">Application of entrants</a> <a
-				href="/selection_options" class="w3-bar-item w3-button">Selection
-				options</a>
+	<jsp:include page="header.jsp"></jsp:include>
 
-			<h4 class="text">
-				<a onclick="document.forms['logoutForm'].submit()">Logout</a>
-			</h4>
-
+	<!-- Page Content -->
+	<div style="margin-left: 10%">
+		<div class="w3-container w3-teal">
+			<h1>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='header.selected_options'/></sub>
+			</h1>
 		</div>
+		<div class="w3-container">
+			<br>
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<form id="logoutForm" method="POST" action="${contextPath}/logout">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+			</c:if>
+		</div>
+	</div>
 
-		<!-- Page Content -->
-		<div style="margin-left: 10%">
+	<div>
 
-			<div class="w3-container w3-teal">
-				<h1>
-					University - <sub>selection options</sub>
-				</h1>
-			</div>
 
-			<div class="w3-container">
+		<div class="container form">
 
+			<form:form method="POST" action="${contextPath}/selection_options"
+				class="form-signin">
+				<h2 class="form-signin-heading">
+					<spring:message code='option.operation'/></h2>
+
+
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<div class="ancor_div">
+						<a href="${contextPath}/selection_options_check"
+							class="form-control">
+							<spring:message code='option.automatic_check'/></a>
+					</div>
+				</div>
 				<br>
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
-					<form id="logoutForm" method="POST" action="${contextPath}/logout">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
 
-				</c:if>
-
-
-
-
-				<div class="container form">
-
-					<form:form method="POST" action="${contextPath}/selection_options"
-						class="form-signin">
-						<h2 class="form-signin-heading">Operations with entrants
-							applications</h2>
-
-
-						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<div class="ancor_div">
-								<a href="${contextPath}/selection_options_check" class="form-control">automatic
-									check</a>
-							</div>
-						</div>
-						<br>
-
-						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="text" name="totalBall" class="form-control"
-								placeholder="the total score is not less" autofocus="true"></input>
-						</div>
-
-						<div class="form-group ${status.error ? 'has-error' : ''}">
-							<input type="text" name="number" class="form-control"
-								placeholder="number of vacancies" autofocus="true"></input>
-						</div>	
-
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-
-						<p class="message">
-							Already registered? <a href="${contextPath}/login">Sign In</a>
-						</p>
-
-					</form:form>
-
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<input type="text" name="totalBall" class="form-control"
+						placeholder="<spring:message code='option.score_not_less'/>" autofocus="true"></input>
 				</div>
 
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<input type="text" name="number" class="form-control"
+						placeholder="<spring:message code='option.number_vacancies'/>" autofocus="true"></input>
+				</div>
 
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<spring:message code='submit'/></button>
+				
 
+			</form:form>
 
-			</div>
 		</div>
-		<!-- /container -->
+
+
+
+
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
