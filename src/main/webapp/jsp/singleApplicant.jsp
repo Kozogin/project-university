@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="../css/login.css">
-<title>Single applicant</title>
+<title><spring:message code='applicant.single'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -31,7 +31,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>single applicant</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='applicant.single'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -79,7 +80,7 @@
 			<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 				<div class="w3-container w3-center">
-					<h3>GPA</h3>
+					<h3><spring:message code='applicant.gpa'/></h3>
 					<input name="ballgpa" type="text"
 						value="${userSingle.applicantss.ballgpa}"> <br> <br>
 				</div>
@@ -89,7 +90,8 @@
 				value="${userSingle.assignedId}">
 
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				<spring:message code='submit'/></button>
 			<br>
 			<br>
 			<a href="${contextPath}/application_of_entrants">Exit</a>

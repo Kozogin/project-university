@@ -42,7 +42,7 @@
 	});
 </script>
 
-<title>Log in with your account</title>
+<title><spring:message code='login.title'/></title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>log in with your account</sub>
+				<spring:message code='university'/> - <sub><spring:message code='login.title'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -72,18 +72,18 @@
 				<form class="login-form form-signin" method="POST"
 					action="${contextPath}/login">
 					<input class="assignedId" name="assignedId" type="text"
-						placeholder="assignedId" /> 
+						placeholder="<spring:message code='login.assignedId' />" /> 
 					<input class="password"
 						name="password" type="password" 
-						placeholder="password" /> <input
+						placeholder="<spring:message code='login.password' />" /> <input
 						type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 
 					<button class="login btn btn-lg btn-primary btn-block"
-						type="submit">login</button>
+						type="submit"><spring:message code='login.login' /></button>
 					<p class="message">
-						Not registered? <a href="${contextPath}/registration">Create
-							an account</a>
+						<spring:message code='login.not_registered'/>? <a href="${contextPath}/registration">
+						<spring:message code='login.create'/></a>
 					</p>
 
 					<div>

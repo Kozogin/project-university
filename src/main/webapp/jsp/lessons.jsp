@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>All lessons</title>
+<title><spring:message code='header.lessons_add_to_faculty'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -38,7 +38,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>all lessons</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='header.lessons_add_to_faculty'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -58,7 +59,7 @@
 
 
 			<form:form modelAttribute="selectFaculty" method="POST">
-				<h4 class="form-signin-heading">Choice faculty</h4>
+				<h4 class="form-signin-heading"><spring:message code='choice.faculty'/></h4>
 				<form:select id="facultySelect" path="facultyId">
 
 					<c:if test="${not empty faculties}">
@@ -72,7 +73,7 @@
 
 
 				<input type="submit" class="w3-button w3-block w3-dark-grey"
-					value="+ choise this faculty">
+					value="<spring:message code='choice.faculty'/>">
 			</form:form>
 
 			<br>
@@ -93,7 +94,7 @@
 								class="form-control" name="lessonId">
 
 							<input type="submit" class="w3-button w3-block w3-dark-grey"
-								value="+ add to this faculty">
+								value="<spring:message code='add.faculty'/>">
 						</form:form>
 					</div>
 

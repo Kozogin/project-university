@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="../css/login.css">
-<title>Cabinet</title>
+<title><spring:message code='cabinet'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -31,7 +31,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>cabinet</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='cabinet'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -52,7 +53,7 @@
 
 
 			<form:form modelAttribute="selectFaculty" method="POST">
-				<h4 class="form-signin-heading">Choice faculty</h4>
+				<h4 class="form-signin-heading"><spring:message code='choice.faculty'/></h4>
 				<form:select id="facultySelect" path="facultyId">
 
 					<c:if test="${not empty faculties}">
@@ -66,7 +67,7 @@
 
 
 				<input type="submit" class="w3-button w3-block w3-dark-grey"
-					value="+ choise this faculty">
+					value="<spring:message code='choice.faculty'/>">
 			</form:form>
 
 			<br>
@@ -88,7 +89,7 @@
 
 							<div class="w3-container w3-center">
 								<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
-								<input name="ball" type="text" placeholder="ball from 1 to 12">
+								<input name="ball" type="text" placeholder="<spring:message code='ballcorrect'/>">
 								<br> <br>
 							</div>
 						</div>
@@ -99,14 +100,15 @@
 				<div class="w3-card-4" style="width: 500px; margin: 8%">
 
 					<div class="w3-container w3-center">
-						<h3>GPA</h3>
-						<input name="ballgpa" type="text" placeholder="ball from 1 to 12">
+						<h3><spring:message code='applicant.gpa'/></h3>
+						<input name="ballgpa" type="text" placeholder="<spring:message code='ballcorrect'/>">
 						<br> <br>
 					</div>
 				</div>
 
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<spring:message code='submit'/></button>
 
 
 			</form:form>

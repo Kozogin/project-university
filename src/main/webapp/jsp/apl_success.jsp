@@ -1,6 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>The application is accepted</title>
+<title><spring:message code='applicant.success'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -38,7 +38,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>the application is accepted</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='applicant.success'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -60,7 +61,7 @@
 
 					<div class="w3-container w3-center">
 						<br> <br>
-						<h2>The application is accepted</h2>
+						<h2><spring:message code='applicant.success'/></h2>
 
 						<div>
 							<h4 class="text">

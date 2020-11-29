@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Add lessons to faculty</title>
+<title><spring:message code='header.grades_this_lesson'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -37,8 +37,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>grades for these 
-			lessons are required</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='header.grades_this_lesson'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -69,7 +69,7 @@
 
 
 			<input type="submit" class="w3-button w3-block w3-dark-grey"
-				value="+ choise this faculty">
+				value="<spring:message code='choice.faculty'/>">
 		</form:form>
 
 		<br>
@@ -83,7 +83,8 @@
 					<div class="w3-container w3-center">
 						<h3>${currentLessonThisFaculty.nameOfLessons.name}</h3>
 						<a
-							href="add_lesson_to_faculty_del?facultyLessonsId= ${currentLessonThisFaculty.facultyLessonsId}">delete</a>
+							href="add_lesson_to_faculty_del?facultyLessonsId= ${currentLessonThisFaculty.facultyLessonsId}">
+							<spring:message code='delete'/></a>
 					</div>
 				</div>
 

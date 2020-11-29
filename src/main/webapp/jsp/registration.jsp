@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Create an account</title>
+<title><spring:message code='login.create'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -31,7 +31,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>create an account</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='login.create'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -53,37 +54,37 @@
 
 			<form:form method="POST" action="${contextPath}/registration"
 				enctype="multipart/form-data" class="form-signin">
-				<h2 class="form-signin-heading">Create your account</h2>
+				<h2 class="form-signin-heading"><spring:message code='login.create'/></h2>
 
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="text" name="firstName" class="form-control"
-						placeholder="First name" autofocus="true"></input>
+						placeholder="<spring:message code='registration.first_name'/>" autofocus="true"></input>
 
 				</div>
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="text" name="lastName" class="form-control"
-						placeholder="Last name" autofocus="true"></input>
+						placeholder="<spring:message code='registration.last_name'/>" autofocus="true"></input>
 				</div>
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="text" name="email" class="form-control"
-						placeholder="Email" autofocus="true"></input>
+						placeholder="<spring:message code='registration.email'/>" autofocus="true"></input>
 				</div>
 
 
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="password" name="password" class="form-control"
-						placeholder="Password"></input>
+						placeholder="<spring:message code='login.password'/>"></input>
 				</div>
 
 
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="password" name="passwordConfirm" class="form-control"
-						placeholder="Confirm your password"></input>
+						placeholder="<spring:message code='registration.password_confirm'/>"></input>
 				</div>
 
 
@@ -96,10 +97,11 @@
 
 
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<spring:message code='submit'/></button>
 
 				<p class="message">
-					Already registered? <a href="${contextPath}/login">Sign In</a>
+					<spring:message code='registration.already'/>? <a href="${contextPath}/login"><spring:message code='login.login'/></a>
 				</p>
 
 			</form:form>

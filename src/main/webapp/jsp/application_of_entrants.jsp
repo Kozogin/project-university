@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Application of entrants</title>
+<title><spring:message code='header.application_entrants'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -50,7 +50,8 @@ tr:nth-child(even) {
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>application of entrants</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='header.application_entrants'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -71,16 +72,17 @@ tr:nth-child(even) {
 
 			<table>
 				<tr>
-					<th>Id</th>
-					<th>First name</th>
-					<th>Last name</th>
-					<th>Selected faculty</th>
-					<th>GPA</th>
-					<th>The sum of points</th>
-					<th>Cheked</th>
-					<th>Accepted</th>
-					<th>Rejected</th>
-					<th>Revision</th>
+					<th style="width: 10%"></th>
+					<th><spring:message code='login.assignedId'/></th>
+					<th><spring:message code='registration.first_name'/></th>
+					<th><spring:message code='registration.last_name'/></th>
+					<th><spring:message code='applicant.selected_faculty'/></th>
+					<th><spring:message code='applicant.gpa'/></th>
+					<th><spring:message code='applicant.sum_points'/></th>
+					<th><spring:message code='applicant.checked'/></th>
+					<th><spring:message code='applicant.accepted'/></th>
+					<th><spring:message code='applicant.rejected'/></th>
+					<th><spring:message code='applicant.revision'/></th>
 				</tr>
 
 				<c:if test="${not empty users}">
@@ -89,6 +91,7 @@ tr:nth-child(even) {
 
 
 						<tr>
+							<td></td>
 							<td>${currentUsers.assignedId}</td>
 							<td>${currentUsers.firstName}</td>
 							<td>${currentUsers.lastName}</td>
@@ -144,7 +147,8 @@ tr:nth-child(even) {
 
 
 							<td><a
-								href="singleApplicant?assignedId=${currentUsers.assignedId}">Details</a></td>
+								href="singleApplicant?assignedId=${currentUsers.assignedId}">
+								<spring:message code='details'/></a></td>
 
 						</tr>
 

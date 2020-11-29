@@ -1,6 +1,5 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Registration successfully</title>
+<title><spring:message code='registration.success'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -39,7 +38,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>registration successfully</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='registration.success'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -62,13 +62,13 @@
 
 				<div class="w3-container w3-center">
 					<br> <br>
-					<h2>registration successfully</h2>
+					<h2><spring:message code='registration.success'/></h2>
 					<br>
 					<h3>${lastUser.firstName}</h3>
 					<h3>${lastUser.lastName}</h3>
 					<h3>${lastUser.email}</h3>
 
-					<p>you are assigned an id</p>
+					<p><spring:message code='registration.message'/></p>
 					<h3>${lastUser.assignedId}</h3>
 					<br>
 					<div>

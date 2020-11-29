@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/login.css">
 
-<title>Selection options</title>
+<title><spring:message code='header.selected_options'/></title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -53,7 +53,8 @@
 	<div style="margin-left: 10%">
 		<div class="w3-container w3-teal">
 			<h1>
-				University - <sub>selection options</sub>
+				<spring:message code='university'/> - 
+					<sub><spring:message code='header.selected_options'/></sub>
 			</h1>
 		</div>
 		<div class="w3-container">
@@ -74,33 +75,32 @@
 
 			<form:form method="POST" action="${contextPath}/selection_options"
 				class="form-signin">
-				<h2 class="form-signin-heading">Operations with entrants
-					applications</h2>
+				<h2 class="form-signin-heading">
+					<spring:message code='option.operation'/></h2>
 
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<div class="ancor_div">
 						<a href="${contextPath}/selection_options_check"
-							class="form-control">automatic check</a>
+							class="form-control">
+							<spring:message code='option.automatic_check'/></a>
 					</div>
 				</div>
 				<br>
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="text" name="totalBall" class="form-control"
-						placeholder="the total score is not less" autofocus="true"></input>
+						placeholder="<spring:message code='option.score_not_less'/>" autofocus="true"></input>
 				</div>
 
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<input type="text" name="number" class="form-control"
-						placeholder="number of vacancies" autofocus="true"></input>
+						placeholder="<spring:message code='option.number_vacancies'/>" autofocus="true"></input>
 				</div>
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-
-				<p class="message">
-					Already registered? <a href="${contextPath}/login">Sign In</a>
-				</p>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<spring:message code='submit'/></button>
+				
 
 			</form:form>
 
