@@ -24,6 +24,7 @@ public class UserService{
 	
     @Autowired
     private UserRepository userRepository;
+    
     private User lastUser;
 
     @Autowired
