@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import ua.lviv.lgs.dao.ApplicantRepository;
+import ua.lviv.lgs.dao.FacultyLessonsRepository;
 import ua.lviv.lgs.dao.FacultyRepository;
 import ua.lviv.lgs.dao.NameOfLessonRepository;
 import ua.lviv.lgs.dao.UserRepository;
 import ua.lviv.lgs.domain.Applicant;
 import ua.lviv.lgs.domain.Faculty;
+import ua.lviv.lgs.domain.FacultyLessons;
 import ua.lviv.lgs.domain.NameOfLesson;
 import ua.lviv.lgs.domain.Role;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.ApplicantService;
+import ua.lviv.lgs.service.FacultyLessonsService;
 import ua.lviv.lgs.service.FacultyService;
 import ua.lviv.lgs.service.NameOfLessonService;
 import ua.lviv.lgs.service.UserService;
@@ -61,10 +65,18 @@ public class ApplicationTests {
 	@Autowired
 	private NameOfLessonRepository nameOfLessonRepository;
 	
+	@Autowired
+	private FacultyLessonsService facultyLessonsService;
 	
-	
+	@Autowired
+	private FacultyLessonsRepository facultyLessonsRepository;
 	
 	/*  UsertService   ---------------------------------      */
+	
+	@Before
+	public void beforeTest() {
+		
+	}
 	
 	@Test	
 	public void testSaveUser()  {		
@@ -114,9 +126,12 @@ public class ApplicationTests {
 		
 		userService.save(user3);
 		
+		//findByAssignedId("id")
 		assertTrue(userService.findByAssignedId("id1").get().getEmail().equals("1@gmail.com"));	
 		assertFalse(userService.findByAssignedId("id1").get().getEmail().equals("91@gmail.com"));
 	
+		
+		//findAllApplicant()
 		List<User> userss = userService.findAllApplicant();
 		List<User> adminRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_ADMIN)).collect(Collectors.toList());
 		List<User> userRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_USER)).collect(Collectors.toList());
@@ -127,6 +142,7 @@ public class ApplicationTests {
 		assertTrue(admin.size() == 1);
 		
 		
+		//isExist(user)
 		User user5 = new User();
 		user5.setAssignedId("id2000");
 		user5.setEmail("2000@gmail.com");
@@ -137,8 +153,7 @@ public class ApplicationTests {
 		user5.setRole(Role.ROLE_USER);
 		
 		assertTrue(applicantService.isExist(user5));			
-	}
-	
+	}	
 
 	
 	@Test	
@@ -171,6 +186,8 @@ public class ApplicationTests {
 		assertTrue(applicantFromDb.getBallgpa().equals(applicant2.getBallgpa()));
 		assertTrue(applicantFromDb.getChecked().equals(applicant2.getChecked()));
 		
+		
+		//findApplicant()
 		assertTrue(applicantService.findApplicant(
 				applicantFromDb.getApplicantId()
 				).getBallgpa() == 8.005);
@@ -200,6 +217,8 @@ public class ApplicationTests {
 		Faculty facultyFromDb = facylties.get(1);
 		assertTrue(facultyFromDb.getName().equals(faculty2.getName()));
 		
+		
+		//findByFacultyId(id)
 		Faculty faculty3 = facultyService.getAllFaculty().get(0);
 		assertTrue(facultyService.findByFacultyId(
 				faculty3.getFacultyId()).getName() == "f");
@@ -226,17 +245,31 @@ public class ApplicationTests {
 		nameOfLessons = nameOfLessonService.getAllLesson();
 		assertThat(nameOfLessons, hasSize(2));
 		
-		NameOfLesson facultyFromDb = nameOfLessons.get(1);
-		assertTrue(facultyFromDb.getName().equals(nameOfLesson2.getName()));
+		NameOfLesson nameOfLessonFromDb = nameOfLessons.get(1);
+		assertTrue(nameOfLessonFromDb.getName().equals(nameOfLesson2.getName()));
 		
+		//findByLessonId()
 		NameOfLesson nameOfLesson3 =  nameOfLessonService.getAllLesson().get(0);
 		assertTrue(nameOfLessonService.findByLessonId(
 				nameOfLesson3.getLessonId()
-				).getName() == "lesson");
-		
+				).getName() == "lesson");		
 		
 	}
 	
+		
+//	@Test	
+//	public void testSaveFacultyLessons()  {
+//		
+//		Faculty faculty = new Faculty("faculty test");
+//		NameOfLesson nameOfLesson = new NameOfLesson("lesson test");
+//		
+//		FacultyLessons facultyLessons = new FacultyLessons();
+//		facultyLessons.setFacultys(faculty);
+//		facultyLessons.setNameOfLessons(nameOfLesson);
+//		
+//		facultyLessonsService.addFacultyLessons(facultyLessons);
+//		
+//	}
 	
 
 

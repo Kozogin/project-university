@@ -1,7 +1,5 @@
 package ua.lviv.lgs.domain;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class Faculty {
 		this.name = name;
 	}
 	
-	public Faculty(String name, Set<NameOfLesson> nameOfLessons) {
+	public Faculty(String name) {
 		this.name = name;
 	}
 	
