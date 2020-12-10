@@ -50,7 +50,7 @@ public class FacultyLessonsTest {
 	
 	
 	@Test	
-	public void test1SaveFacultyLessons()  {
+	public void test1AddFacultyLessons()  {
 		
 			Faculty facultyb = new Faculty(); 
 			facultyb.setName("before faculty");		
@@ -102,10 +102,45 @@ public class FacultyLessonsTest {
 		assertTrue(FacultyLessonsFromDb2.getNameOfLessons().equals(nameOfLesson2));
 		
 		
+		//testGetLessonsOfThisFaculty
+		NameOfLesson nameOfLessonb4 = new NameOfLesson();
+		nameOfLessonb4.setName("lesson2 before faculty");		
+		nameOfLessonRepository.save(nameOfLessonb4);
+		
+		NameOfLesson nameOfLessonb3 = new NameOfLesson();
+		nameOfLessonb3.setName("lesson3 before faculty");		
+		nameOfLessonRepository.save(nameOfLessonb3);
+		
+		FacultyLessons fl = new FacultyLessons();
+		fl.setFacultys(faculty);
+		fl.setNameOfLessons(nameOfLessonb4);		
+		facultyLessonsService.addFacultyLessons(fl);
+		
+		FacultyLessons fl2 = new FacultyLessons();
+		fl2.setFacultys(faculty);
+		fl2.setNameOfLessons(nameOfLessonb3);		
+		facultyLessonsService.addFacultyLessons(fl2);
+		
+		
+		Integer facultyId = facultyLessonsRepository.findAll().get(0)
+				.getFacultys().getFacultyId();	
+		
+		assertTrue(facultyLessonsService.getLessonsOfThisFaculty(facultyId).size() == 3);
+		
+		//getAllThisFaculty
+		assertTrue(facultyLessonsService.getAllThisFaculty(facultyId).size() == 3);
+		
+		//testDelete
+		List<FacultyLessons> facultyLessonsFromDb4 = facultyLessonsService.getAll();
+		FacultyLessons FacultyLessonsFromDb4 = facultyLessonsFromDb4.get(1);
+		facultyLessonsService.delete(FacultyLessonsFromDb4);
+		List<FacultyLessons> facultyLessonsThat4 = facultyLessonsRepository.findAll();
+		assertThat(facultyLessonsThat4, hasSize(3));
+				
 	}	
 	
 //	@Test	
-//	public void test2GetLessonsOfThisFaculty() {
+//	public void testGetLessonsOfThisFaculty() {
 //		NameOfLesson nameOfLessonb = new NameOfLesson();
 //		nameOfLessonb.setName("lesson2 before faculty");		
 //		nameOfLessonRepository.save(nameOfLessonb);
@@ -125,16 +160,16 @@ public class FacultyLessonsTest {
 	
 	
 
-	@Test	
-	public void test5Delete()  {
-		
-		List<FacultyLessons> facultyLessonsFromDb = facultyLessonsService.getAll();
-		FacultyLessons FacultyLessonsFromDb2 = facultyLessonsFromDb.get(1);
-		facultyLessonsService.delete(FacultyLessonsFromDb2);
-		List<FacultyLessons> facultyLessonsThat = facultyLessonsRepository.findAll();
-		assertThat(facultyLessonsThat, hasSize(1));
-		
-	}
+//	@Test	
+//	public void testzDelete()  {
+//		
+//		List<FacultyLessons> facultyLessonsFromDb = facultyLessonsService.getAll();
+//		FacultyLessons FacultyLessonsFromDb2 = facultyLessonsFromDb.get(1);
+//		facultyLessonsService.delete(FacultyLessonsFromDb2);
+//		List<FacultyLessons> facultyLessonsThat = facultyLessonsRepository.findAll();
+//		assertThat(facultyLessonsThat, hasSize(1));
+//		
+//	}
 		
 	
 	
