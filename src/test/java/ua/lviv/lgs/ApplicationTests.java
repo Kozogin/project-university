@@ -5,11 +5,9 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +16,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import ua.lviv.lgs.dao.ApplicantRepository;
-import ua.lviv.lgs.dao.FacultyLessonsRepository;
-import ua.lviv.lgs.dao.FacultyRepository;
-import ua.lviv.lgs.dao.NameOfLessonRepository;
 import ua.lviv.lgs.dao.UserRepository;
 import ua.lviv.lgs.domain.Applicant;
-import ua.lviv.lgs.domain.Faculty;
-import ua.lviv.lgs.domain.FacultyLessons;
-import ua.lviv.lgs.domain.NameOfLesson;
 import ua.lviv.lgs.domain.Role;
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.service.ApplicantService;
-import ua.lviv.lgs.service.FacultyLessonsService;
-import ua.lviv.lgs.service.FacultyService;
-import ua.lviv.lgs.service.NameOfLessonService;
 import ua.lviv.lgs.service.UserService;
 
 
@@ -53,33 +42,10 @@ public class ApplicationTests {
 	@Autowired
 	private ApplicantRepository applicantRepository;
 	
-	@Autowired
-	private FacultyService facultyService;
-	
-	@Autowired
-	private FacultyRepository facultyRepository;
-	
-	@Autowired
-	private NameOfLessonService nameOfLessonService;
-	
-	@Autowired
-	private NameOfLessonRepository nameOfLessonRepository;
-	
-	@Autowired
-	private FacultyLessonsService facultyLessonsService;
-	
-	@Autowired
-	private FacultyLessonsRepository facultyLessonsRepository;
-	
 	/*  UsertService   ---------------------------------      */
 	
-	@Before
-	public void beforeTest() {
-		
-	}
-	
 	@Test	
-	public void testSaveUser()  {		
+	public void test1SaveUser()  {		
 		
 		List<User> users = userRepository.findAll();
 		assertThat(users, hasSize(0));
@@ -93,12 +59,9 @@ public class ApplicationTests {
 		user.setPasswordConfirm("1");
 		user.setRole(Role.ROLE_USER);
 
-		userRepository.save(user);
+		userRepository.save(user);			
 
-		users = userService.getAllUsers();
-		assertThat(users, hasSize(1));		
-
-		User userFromDb = users.get(0);
+		User userFromDb = userRepository.findAll().get(0);
 		assertTrue(userFromDb.getAssignedId().equals(user.getAssignedId()));
 		assertTrue(userFromDb.getEmail().equals(user.getEmail()));
 		assertTrue(userFromDb.getFirstName().equals(user.getFirstName()));
@@ -126,22 +89,9 @@ public class ApplicationTests {
 		
 		userService.save(user3);
 		
-		//findByAssignedId("id")
-		assertTrue(userService.findByAssignedId("id1").get().getEmail().equals("1@gmail.com"));	
-		assertFalse(userService.findByAssignedId("id1").get().getEmail().equals("91@gmail.com"));
-	
-		
-		//findAllApplicant()
-		List<User> userss = userService.findAllApplicant();
-		List<User> adminRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_ADMIN)).collect(Collectors.toList());
-		List<User> userRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_USER)).collect(Collectors.toList());
-		List<User> admin = userService.getAllUsers().stream().filter(usert -> usert.getRole().equals(Role.ROLE_ADMIN)).collect(Collectors.toList());
-		
-		assertTrue(adminRole.size() == 0);
-		assertTrue(userRole.size() != 0);
-		assertTrue(admin.size() == 1);
-		
-		
+		users = userService.getAllUsers();
+		assertThat(users, hasSize(3));	
+				
 		//isExist(user)
 		User user5 = new User();
 		user5.setAssignedId("id2000");
@@ -154,10 +104,29 @@ public class ApplicationTests {
 		
 		assertTrue(applicantService.isExist(user5));			
 	}	
+	
+	@Test	
+	public void test2FindByAssignedId()  {
+		assertTrue(userService.findByAssignedId("id1").get().getEmail().equals("1@gmail.com"));	
+		assertFalse(userService.findByAssignedId("id1").get().getEmail().equals("91@gmail.com"));
+	
+	}
+	
+	@Test	
+	public void test3FindAllApplicant()  {
+		List<User> userss = userService.findAllApplicant();
+		List<User> adminRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_ADMIN)).collect(Collectors.toList());
+		List<User> userRole = userss.stream().filter(usert -> usert.getRole().equals(Role.ROLE_USER)).collect(Collectors.toList());
+		List<User> admin = userService.getAllUsers().stream().filter(usert -> usert.getRole().equals(Role.ROLE_ADMIN)).collect(Collectors.toList());
+				
+		assertTrue(adminRole.size() == 0);
+		assertTrue(userRole.size() == 2);
+		assertTrue(admin.size() == 1);
+	}
 
 	
 	@Test	
-	public void testGetLastRegistrationUser()  {	
+	public void test4GetLastRegistrationUser()  {	
 		assertTrue(userService.getLastRegistrationUser().getFirstName().equals("100"));
 		assertFalse(userService.getLastRegistrationUser().getFirstName().equals("100"));
 	}
@@ -165,8 +134,8 @@ public class ApplicationTests {
 	/*  ApplicantService   ---------------------------------      */
 	
 	@Test	
-	public void testSaveApplicant()  {
-		List<Applicant> applicants = new ArrayList<>();
+	public void test5SaveApplicant()  {
+		List<Applicant> applicants = applicantService.getAllApplicant();
 		assertThat(applicants, hasSize(0));
 		
 		Applicant applicant = new Applicant();
@@ -185,93 +154,15 @@ public class ApplicationTests {
 		Applicant applicantFromDb = applicantService.getAllApplicant().get(1);
 		assertTrue(applicantFromDb.getBallgpa().equals(applicant2.getBallgpa()));
 		assertTrue(applicantFromDb.getChecked().equals(applicant2.getChecked()));
-		
-		
-		//findApplicant()
+	}
+	
+	@Test	
+	public void test6FindApplicant()  {
+		Applicant applicantFromDb = applicantService.getAllApplicant().get(1);
 		assertTrue(applicantService.findApplicant(
 				applicantFromDb.getApplicantId()
 				).getBallgpa() == 8.005);
-		
 	}
-	
-	/*  FacultyService   ---------------------------------      */
-	
-	@Test	
-	public void testSaveFaculty()  {
-				
-		List<Faculty> facylties = new ArrayList<>();
-		assertThat(facylties, hasSize(0));
-		
-		Faculty faculty = new Faculty();
-		faculty.setName("f");
-		
-		facultyService.save(faculty);		
-		
-		Faculty faculty2 = new Faculty();
-		faculty2.setName("f2");
-		facultyRepository.save(faculty2);
-		
-		facylties = facultyService.getAllFaculty();
-		assertThat(facylties, hasSize(2));
-		
-		Faculty facultyFromDb = facylties.get(1);
-		assertTrue(facultyFromDb.getName().equals(faculty2.getName()));
-		
-		
-		//findByFacultyId(id)
-		Faculty faculty3 = facultyService.getAllFaculty().get(0);
-		assertTrue(facultyService.findByFacultyId(
-				faculty3.getFacultyId()).getName() == "f");
-	}
-	
-
-		/*  NameOfLessonService   ---------------------------------      */
-	
-	@Test	
-	public void testSaveNameOfLesson()  {
-				
-		List<NameOfLesson> nameOfLessons = new ArrayList<>();
-		assertThat(nameOfLessons, hasSize(0));
-		
-		NameOfLesson nameOfLesson = new NameOfLesson();
-		nameOfLesson.setName("lesson");
-		
-		nameOfLessonService.save(nameOfLesson);		
-		
-		NameOfLesson nameOfLesson2 = new NameOfLesson();
-		nameOfLesson2.setName("lesson2");
-		nameOfLessonRepository.save(nameOfLesson2);
-		
-		nameOfLessons = nameOfLessonService.getAllLesson();
-		assertThat(nameOfLessons, hasSize(2));
-		
-		NameOfLesson nameOfLessonFromDb = nameOfLessons.get(1);
-		assertTrue(nameOfLessonFromDb.getName().equals(nameOfLesson2.getName()));
-		
-		//findByLessonId()
-		NameOfLesson nameOfLesson3 =  nameOfLessonService.getAllLesson().get(0);
-		assertTrue(nameOfLessonService.findByLessonId(
-				nameOfLesson3.getLessonId()
-				).getName() == "lesson");		
-		
-	}
-	
-		
-//	@Test	
-//	public void testSaveFacultyLessons()  {
-//		
-//		Faculty faculty = new Faculty("faculty test");
-//		NameOfLesson nameOfLesson = new NameOfLesson("lesson test");
-//		
-//		FacultyLessons facultyLessons = new FacultyLessons();
-//		facultyLessons.setFacultys(faculty);
-//		facultyLessons.setNameOfLessons(nameOfLesson);
-//		
-//		facultyLessonsService.addFacultyLessons(facultyLessons);
-//		
-//	}
-	
-
 
 
 }
