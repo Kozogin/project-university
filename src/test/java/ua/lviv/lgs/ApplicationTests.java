@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -26,6 +27,7 @@ import ua.lviv.lgs.service.UserService;
 
 @RunWith(SpringRunner.class)
 //@DataJpaTest
+@ActiveProfiles(profiles = "test")
 @SpringBootTest
 @ContextConfiguration(classes = {Application.class})
 public class ApplicationTests {
@@ -44,7 +46,7 @@ public class ApplicationTests {
 	
 	/*  UsertService   ---------------------------------      */
 	
-	@Test	
+	@Test(timeout = 19500)	
 	public void test1SaveUser()  {		
 		
 		List<User> users = userRepository.findAll();

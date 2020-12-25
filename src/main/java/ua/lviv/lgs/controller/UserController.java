@@ -1,6 +1,7 @@
 package ua.lviv.lgs.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -8,6 +9,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -240,8 +243,12 @@ public class UserController {
 		return "apl_success";
 	}
 
-	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)
-	public ModelAndView entrants(ModelMap model) {
+	@RequestMapping(value = { "/application_of_entrants" }, method = RequestMethod.GET)///////////////////////////////////
+	public ModelAndView entrants(ModelMap model ) {
+		
+		 //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
 		ModelAndView map = new ModelAndView("application_of_entrants");
 		map.addObject("users", userService.findAllApplicant());
 		map.addObject("checked", new Applicant());

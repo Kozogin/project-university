@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,6 +20,7 @@ import ua.lviv.lgs.service.NameOfLessonService;
 
 
 @RunWith(SpringRunner.class)
+@ActiveProfiles(profiles = "test")
 @SpringBootTest
 @ContextConfiguration(classes = {Application.class})
 public class NameOfLessonTest {
@@ -40,6 +42,7 @@ public class NameOfLessonTest {
 	public void testSaveNameOfLesson()  {
 				
 		List<NameOfLesson> nameOfLessons = nameOfLessonService.getAllLesson();
+		System.out.println(nameOfLessons);
 		assertThat(nameOfLessons, hasSize(1));
 		
 		NameOfLesson nameOfLesson = new NameOfLesson();

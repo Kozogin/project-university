@@ -1,33 +1,1385 @@
-2020-12-06 10:15:01 [main]  INFO ua.lviv.lgs.ApplicationTests - Starting ApplicationTests on Василь-ПК with PID 9972 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
-2020-12-06 10:15:01 [main]  INFO ua.lviv.lgs.ApplicationTests - No active profile set, falling back to default profiles: default
-2020-12-06 10:15:02 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-06 10:15:02 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130ms. Found 6 JPA repository interfaces.
-2020-12-06 10:15:03 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-06 10:15:04 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-06 10:15:04 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-06 10:15:04 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-06 10:15:04 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-06 10:15:05 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2020-12-06 10:15:05 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a4d1ab7, org.springframework.security.web.context.SecurityContextPersistenceFilter@14823f76, org.springframework.security.web.header.HeaderWriterFilter@f91da5e, org.springframework.security.web.csrf.CsrfFilter@4edef76c, org.springframework.security.web.authentication.logout.LogoutFilter@36a6bea6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b790d86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ed16657, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b6e5c12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@546e61d5, org.springframework.security.web.session.SessionManagementFilter@79fd6f95, org.springframework.security.web.access.ExceptionTranslationFilter@4a67b4ec, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@de8039f]
-2020-12-06 10:15:05 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2020-12-06 10:15:05 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2020-12-06 10:15:07 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
-2020-12-06 10:15:07 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-06 10:15:07 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-06 10:15:08 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
-2020-12-06 10:15:08 [main]  INFO ua.lviv.lgs.ApplicationTests - Started ApplicationTests in 7.476 seconds (JVM running for 9.426)
-2020-12-06 10:15:08 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
-2020-12-06 10:15:08 [main]  INFO ua.lviv.lgs.service.UserService - Register new user {} : User [userId=null, assignedId=null, firstName=100, lastName=100, email=id100, role=null, purchaseDate=null]
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - private generate assigned id {} : 
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=null, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
-2020-12-06 10:15:09 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
-2020-12-06 10:15:09 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-12-06 10:15:09 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-06 10:15:09 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2020-12-06 10:15:09 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 08:37:57 [HikariPool-1 housekeeper]  WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h37m14s67ms421µs139ns).
+2020-12-25 08:38:45 [HikariPool-1 housekeeper]  WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47s955ms731µs952ns).
+2020-12-25 12:01:32 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 16184 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:01:32 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:01:33 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:01:33 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97ms. Found 6 JPA repository interfaces.
+2020-12-25 12:01:34 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:01:34 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:01:34 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:01:35 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:01:35 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:01:35 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3138 ms
+2020-12-25 12:01:35 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:01:35 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:01:35 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:01:36 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:01:36 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68880c21, org.springframework.security.web.context.SecurityContextPersistenceFilter@11a8042c, org.springframework.security.web.header.HeaderWriterFilter@10dc7d6, org.springframework.security.web.csrf.CsrfFilter@7cea0110, org.springframework.security.web.authentication.logout.LogoutFilter@245ec1a6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4beabeec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69391e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103082dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dd2e270, org.springframework.security.web.session.SessionManagementFilter@716e431d, org.springframework.security.web.access.ExceptionTranslationFilter@636bbbbb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ba5aa7a]
+2020-12-25 12:01:36 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:01:36 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:01:37 [main]  WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-12-25 12:01:37 [main]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:01:37 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:01:37 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:01:38 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:01:38 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:01:38 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:01:38 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:01:38 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:01:38 [main]  INFO o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2020-12-25 12:01:38 [main]  INFO o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-25 12:01:38 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-12-25 12:01:56 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 1764 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:01:56 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:01:57 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:01:57 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88ms. Found 6 JPA repository interfaces.
+2020-12-25 12:01:58 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:01:58 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:01:58 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:01:59 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:01:59 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:01:59 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2317 ms
+2020-12-25 12:01:59 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:01:59 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:01:59 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:01:59 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:01:59 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:01:59 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:02:00 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31a3f4de, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e744f43, org.springframework.security.web.header.HeaderWriterFilter@7eae3764, org.springframework.security.web.csrf.CsrfFilter@10823d72, org.springframework.security.web.authentication.logout.LogoutFilter@25b52284, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3fe46690, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a4ccef7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f7da3d3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68880c21, org.springframework.security.web.session.SessionManagementFilter@4f668f29, org.springframework.security.web.access.ExceptionTranslationFilter@d0865a3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44b18fe4]
+2020-12-25 12:02:00 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:02:00 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:02:00 [main]  WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-12-25 12:02:00 [main]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:02:01 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:02:01 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:02:01 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:02:01 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:02:01 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:02:01 [main]  INFO o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2020-12-25 12:02:01 [main]  INFO o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-25 12:02:01 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-12-25 12:02:08 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 10852 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:02:08 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:02:09 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:02:09 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90ms. Found 6 JPA repository interfaces.
+2020-12-25 12:02:10 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:02:10 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:02:10 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:02:10 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:02:10 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:02:10 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2278 ms
+2020-12-25 12:02:10 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:02:11 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:02:11 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:02:11 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:02:11 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:02:11 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d04529c, org.springframework.security.web.context.SecurityContextPersistenceFilter@6884f0d9, org.springframework.security.web.header.HeaderWriterFilter@6a4ccef7, org.springframework.security.web.csrf.CsrfFilter@50756c76, org.springframework.security.web.authentication.logout.LogoutFilter@41fe8e5f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7cd4a4d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26b95b0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f172d4a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14fa92af, org.springframework.security.web.session.SessionManagementFilter@35eb4a3b, org.springframework.security.web.access.ExceptionTranslationFilter@7e744f43, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44b194fe]
+2020-12-25 12:02:11 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:02:12 [main]  WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-12-25 12:02:12 [main]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:02:12 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:02:12 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:02:13 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:02:13 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:02:13 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:02:13 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:02:13 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:02:13 [main]  INFO o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2020-12-25 12:02:13 [main]  INFO o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-25 12:02:13 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-12-25 12:03:20 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 15908 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:03:20 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:03:21 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:03:21 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90ms. Found 6 JPA repository interfaces.
+2020-12-25 12:03:22 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:03:23 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:03:23 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:03:23 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:03:23 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:03:23 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2424 ms
+2020-12-25 12:03:23 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:03:23 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:03:23 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:03:23 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:03:24 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:03:24 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31a3f4de, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e744f43, org.springframework.security.web.header.HeaderWriterFilter@7eae3764, org.springframework.security.web.csrf.CsrfFilter@10823d72, org.springframework.security.web.authentication.logout.LogoutFilter@25b52284, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3fe46690, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a4ccef7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f7da3d3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68880c21, org.springframework.security.web.session.SessionManagementFilter@4f668f29, org.springframework.security.web.access.ExceptionTranslationFilter@d0865a3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44b18fe4]
+2020-12-25 12:03:24 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:03:24 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:03:24 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:03:25 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-25 12:03:25 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:03:26 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:03:26 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:03:27 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:03:27 [main]  INFO ua.lviv.lgs.Application - Started Application in 6.649 seconds (JVM running for 7.472)
+2020-12-25 12:03:37 [http-nio-8080-exec-1]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-25 12:03:45 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:03:52 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:03:52 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:03:54 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:04:16 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:16 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:04:19 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 102
+2020-12-25 12:04:19 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:19 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 102
+2020-12-25 12:04:19 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:04:21 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:21 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:21 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=104, assignedId=ID202011814150, firstName=Nicola, lastName=Tesla, email=nicola@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:04:29 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:04:29 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:04:31 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:04:54 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:54 [http-nio-8080-exec-9]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 102
+2020-12-25 12:04:54 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:04:58 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 101
+2020-12-25 12:04:58 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:04:58 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:04:58 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:05:09 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:05:09 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:05:09 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=104, assignedId=ID202011814150, firstName=Nicola, lastName=Tesla, email=nicola@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:05:09 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=5.0]
+2020-12-25 12:05:10 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=12.0]
+2020-12-25 12:05:10 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=5.0]
+2020-12-25 12:05:16 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:05:16 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:18 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:20 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 19
+2020-12-25 12:05:20 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:05:20 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:23 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 19
+2020-12-25 12:05:23 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=true, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:05:23 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:24 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 15
+2020-12-25 12:05:24 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=15, checked=true, accepted=true, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:05:24 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:29 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:05:29 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=true, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:05:34 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:05:51 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:05:51 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:06:06 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:06:06 [http-nio-8080-exec-7]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:07:04 [main]  INFO ua.lviv.lgs.ApplicationTests - Starting ApplicationTests on Василь-ПК with PID 17048 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:07:04 [main]  INFO ua.lviv.lgs.ApplicationTests - The following profiles are active: test
+2020-12-25 12:07:05 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:07:05 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108ms. Found 6 JPA repository interfaces.
+2020-12-25 12:07:06 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:07:06 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:07:06 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:07:06 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:07:06 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:07:07 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:07:07 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fab35b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@14ef2482, org.springframework.security.web.header.HeaderWriterFilter@7903d448, org.springframework.security.web.csrf.CsrfFilter@113e13f9, org.springframework.security.web.authentication.logout.LogoutFilter@21079a12, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ef6fd7f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75483843, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@612e21b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a094db2, org.springframework.security.web.session.SessionManagementFilter@42ea287, org.springframework.security.web.access.ExceptionTranslationFilter@7c36db44, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f7076bc]
+2020-12-25 12:07:07 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:07:08 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:07:08 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:07:09 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:07:09 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:07:09 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:07:09 [main]  INFO ua.lviv.lgs.ApplicationTests - Started ApplicationTests in 6.082 seconds (JVM running for 7.65)
+2020-12-25 12:07:10 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - Register new user {} : User [userId=null, assignedId=null, firstName=100, lastName=100, email=id100, role=null, purchaseDate=null]
+2020-12-25 12:07:10 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - private generate assigned id {} : 
+2020-12-25 12:07:10 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:07:10 [Time-limited test]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=null, assignedId=id2000, firstName=2000, lastName=2000, email=2000@gmail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=null, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 5
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:07:10 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:07:10 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:07:10 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:07:10 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:07:10 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:07:28 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - Starting FacultyLessonsTest on Василь-ПК with PID 8512 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:07:28 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:07:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:07:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 202ms. Found 6 JPA repository interfaces.
+2020-12-25 12:07:30 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:07:30 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:07:30 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:07:30 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:07:30 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:07:31 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1292071f, org.springframework.security.web.context.SecurityContextPersistenceFilter@113e13f9, org.springframework.security.web.header.HeaderWriterFilter@49c675f0, org.springframework.security.web.csrf.CsrfFilter@21c815e4, org.springframework.security.web.authentication.logout.LogoutFilter@a62c7cd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@61cd1c71, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7979b8b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24e83d19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35d5ac51, org.springframework.security.web.session.SessionManagementFilter@6917bb4, org.springframework.security.web.access.ExceptionTranslationFilter@79fd6f95, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@292158f8]
+2020-12-25 12:07:31 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:07:31 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:07:31 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:07:32 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:07:33 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:07:33 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:07:33 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:07:33 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - Started FacultyLessonsTest in 5.993 seconds (JVM running for 7.588)
+2020-12-25 12:07:34 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:07:34 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:07:34 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:07:34 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:07:54 [main]  INFO ua.lviv.lgs.FacultyTest - Starting FacultyTest on Василь-ПК with PID 16488 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:07:54 [main]  INFO ua.lviv.lgs.FacultyTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:07:55 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:07:55 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115ms. Found 6 JPA repository interfaces.
+2020-12-25 12:07:56 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:07:56 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:07:56 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:07:56 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:07:56 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:07:57 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:07:57 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e8ab90f, org.springframework.security.web.context.SecurityContextPersistenceFilter@124ac145, org.springframework.security.web.header.HeaderWriterFilter@7979b8b7, org.springframework.security.web.csrf.CsrfFilter@761956ac, org.springframework.security.web.authentication.logout.LogoutFilter@78cd163b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4674d90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24e83d19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35267fd4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78d6447a, org.springframework.security.web.session.SessionManagementFilter@1bc49bc5, org.springframework.security.web.access.ExceptionTranslationFilter@113e13f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e7f0216]
+2020-12-25 12:07:57 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:07:57 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:07:58 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:07:59 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:07:59 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:07:59 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:07:59 [main]  INFO ua.lviv.lgs.FacultyTest - Started FacultyTest in 5.956 seconds (JVM running for 7.286)
+2020-12-25 12:08:00 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:08:00 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:08:00 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:08:00 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:08:00 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:08:28 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Starting NameOfLessonTest on Василь-ПК with PID 10076 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:08:28 [main]  INFO ua.lviv.lgs.NameOfLessonTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:08:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:08:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112ms. Found 6 JPA repository interfaces.
+2020-12-25 12:08:30 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:08:30 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:08:30 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:08:30 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:08:31 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:08:31 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:08:31 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6944e53e, org.springframework.security.web.context.SecurityContextPersistenceFilter@79fd6f95, org.springframework.security.web.header.HeaderWriterFilter@1e43e323, org.springframework.security.web.csrf.CsrfFilter@10c07b8d, org.springframework.security.web.authentication.logout.LogoutFilter@4af70944, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e19755a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49c675f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7979b8b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e04737, org.springframework.security.web.session.SessionManagementFilter@10643593, org.springframework.security.web.access.ExceptionTranslationFilter@68d651f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59f93db8]
+2020-12-25 12:08:32 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:08:32 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:08:33 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:08:33 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:08:33 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:08:34 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:08:34 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Started NameOfLessonTest in 6.079 seconds (JVM running for 7.352)
+2020-12-25 12:08:34 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:08:35 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:08:35 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:08:35 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:08:35 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:12:57 [main]  INFO ua.lviv.lgs.ApplicationTests - Starting ApplicationTests on Василь-ПК with PID 7384 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:12:57 [main]  INFO ua.lviv.lgs.ApplicationTests - The following profiles are active: test
+2020-12-25 12:12:59 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:12:59 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146ms. Found 6 JPA repository interfaces.
+2020-12-25 12:13:00 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:13:00 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:13:01 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:13:01 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:13:01 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:13:02 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:13:02 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f731759, org.springframework.security.web.context.SecurityContextPersistenceFilter@57e5396b, org.springframework.security.web.header.HeaderWriterFilter@5aa62ee7, org.springframework.security.web.csrf.CsrfFilter@1f4f0fcc, org.springframework.security.web.authentication.logout.LogoutFilter@24dd44f9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27960b1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6467ddc7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b97907c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f84327b, org.springframework.security.web.session.SessionManagementFilter@3c9ef6e9, org.springframework.security.web.access.ExceptionTranslationFilter@1ac730cd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@613f7eb7]
+2020-12-25 12:13:03 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:13:03 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:13:05 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:13:05 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:13:05 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:13:06 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:13:06 [main]  INFO ua.lviv.lgs.ApplicationTests - Started ApplicationTests in 9.998 seconds (JVM running for 12.874)
+2020-12-25 12:13:07 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - Register new user {} : User [userId=null, assignedId=null, firstName=100, lastName=100, email=id100, role=null, purchaseDate=null]
+2020-12-25 12:13:07 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - private generate assigned id {} : 
+2020-12-25 12:13:07 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:13:07 [Time-limited test]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=null, assignedId=id2000, firstName=2000, lastName=2000, email=2000@gmail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=null, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 5
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:13:07 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:13:07 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:13:07 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:13:07 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:13:08 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:14:07 [main]  INFO ua.lviv.lgs.ApplicationTests - Starting ApplicationTests on Василь-ПК with PID 4532 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:14:07 [main]  INFO ua.lviv.lgs.ApplicationTests - The following profiles are active: test
+2020-12-25 12:14:09 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:14:09 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 161ms. Found 6 JPA repository interfaces.
+2020-12-25 12:14:11 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:14:11 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:14:11 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:14:12 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:14:12 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:14:14 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:14:14 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7cff3f1d, org.springframework.security.web.context.SecurityContextPersistenceFilter@b950f82, org.springframework.security.web.header.HeaderWriterFilter@32a72c4, org.springframework.security.web.csrf.CsrfFilter@67d4c48d, org.springframework.security.web.authentication.logout.LogoutFilter@7015ebef, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fa02932, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e243175, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58dad04a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6401188a, org.springframework.security.web.session.SessionManagementFilter@678a9516, org.springframework.security.web.access.ExceptionTranslationFilter@6c33da7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ab14636]
+2020-12-25 12:14:15 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:14:15 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:14:18 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:14:18 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:14:18 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:14:20 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:14:20 [main]  INFO ua.lviv.lgs.ApplicationTests - Started ApplicationTests in 13.087 seconds (JVM running for 15.513)
+2020-12-25 12:14:21 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - Register new user {} : User [userId=null, assignedId=null, firstName=100, lastName=100, email=id100, role=null, purchaseDate=null]
+2020-12-25 12:14:22 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - private generate assigned id {} : 
+2020-12-25 12:14:22 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:14:22 [Time-limited test]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=null, assignedId=id2000, firstName=2000, lastName=2000, email=2000@gmail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=null, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 5
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:14:22 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:14:22 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:14:22 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:14:22 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:14:22 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:15:37 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Starting NameOfLessonTest on Василь-ПК with PID 2764 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:15:37 [main]  INFO ua.lviv.lgs.NameOfLessonTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:15:39 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:15:39 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 213ms. Found 6 JPA repository interfaces.
+2020-12-25 12:15:41 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:15:41 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:15:41 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:15:41 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:15:41 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:15:43 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:15:43 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6944e53e, org.springframework.security.web.context.SecurityContextPersistenceFilter@79fd6f95, org.springframework.security.web.header.HeaderWriterFilter@1e43e323, org.springframework.security.web.csrf.CsrfFilter@10c07b8d, org.springframework.security.web.authentication.logout.LogoutFilter@4af70944, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e19755a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49c675f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7979b8b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e04737, org.springframework.security.web.session.SessionManagementFilter@10643593, org.springframework.security.web.access.ExceptionTranslationFilter@68d651f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59f93db8]
+2020-12-25 12:15:43 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:15:43 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:15:46 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:15:46 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:15:46 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:15:47 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:15:47 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Started NameOfLessonTest in 11.0 seconds (JVM running for 13.335)
+2020-12-25 12:15:48 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:15:48 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:15:48 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:15:48 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:15:48 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:16:29 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Starting NameOfLessonTest on Василь-ПК with PID 15216 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:16:29 [main]  INFO ua.lviv.lgs.NameOfLessonTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:16:30 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:16:30 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 199ms. Found 6 JPA repository interfaces.
+2020-12-25 12:16:32 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:16:32 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:16:32 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:16:32 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:16:33 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:16:35 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:16:35 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bc7e78e, org.springframework.security.web.context.SecurityContextPersistenceFilter@49c675f0, org.springframework.security.web.header.HeaderWriterFilter@10643593, org.springframework.security.web.csrf.CsrfFilter@360bc645, org.springframework.security.web.authentication.logout.LogoutFilter@397ef2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f49d153, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6917bb4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bc49bc5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a4d1ab7, org.springframework.security.web.session.SessionManagementFilter@eca6a74, org.springframework.security.web.access.ExceptionTranslationFilter@1e43e323, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73c9e8e8]
+2020-12-25 12:16:35 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:16:35 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:16:37 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:16:38 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:16:38 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:16:39 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:16:39 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Started NameOfLessonTest in 10.917 seconds (JVM running for 13.342)
+2020-12-25 12:16:39 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:16:40 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:16:40 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:16:40 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:16:40 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:19:30 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Starting NameOfLessonTest on Василь-ПК with PID 6064 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:19:30 [main]  INFO ua.lviv.lgs.NameOfLessonTest - No active profile set, falling back to default profiles: default
+2020-12-25 12:19:31 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:19:31 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 157ms. Found 6 JPA repository interfaces.
+2020-12-25 12:19:33 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:19:33 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:19:33 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:19:33 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:19:34 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:19:34 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:19:34 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6944e53e, org.springframework.security.web.context.SecurityContextPersistenceFilter@79fd6f95, org.springframework.security.web.header.HeaderWriterFilter@1e43e323, org.springframework.security.web.csrf.CsrfFilter@10c07b8d, org.springframework.security.web.authentication.logout.LogoutFilter@4af70944, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e19755a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49c675f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7979b8b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e04737, org.springframework.security.web.session.SessionManagementFilter@10643593, org.springframework.security.web.access.ExceptionTranslationFilter@68d651f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59f93db8]
+2020-12-25 12:19:35 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:19:35 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:19:37 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:19:37 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:19:37 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:19:38 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:19:38 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Started NameOfLessonTest in 8.899 seconds (JVM running for 11.009)
+2020-12-25 12:19:38 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:19:39 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:19:39 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:19:39 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:19:39 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:20:19 [main]  INFO ua.lviv.lgs.ApplicationTests - Starting ApplicationTests on Василь-ПК with PID 15324 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:20:19 [main]  INFO ua.lviv.lgs.ApplicationTests - The following profiles are active: test
+2020-12-25 12:20:21 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:20:21 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 173ms. Found 6 JPA repository interfaces.
+2020-12-25 12:20:22 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:20:22 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:20:22 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:20:22 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:20:23 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:20:24 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:20:24 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fab35b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@14ef2482, org.springframework.security.web.header.HeaderWriterFilter@7903d448, org.springframework.security.web.csrf.CsrfFilter@113e13f9, org.springframework.security.web.authentication.logout.LogoutFilter@21079a12, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ef6fd7f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75483843, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@612e21b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a094db2, org.springframework.security.web.session.SessionManagementFilter@42ea287, org.springframework.security.web.access.ExceptionTranslationFilter@7c36db44, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f7076bc]
+2020-12-25 12:20:25 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:20:25 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:20:26 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:20:27 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:20:27 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:20:27 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:20:27 [main]  INFO ua.lviv.lgs.ApplicationTests - Started ApplicationTests in 8.836 seconds (JVM running for 11.013)
+2020-12-25 12:20:28 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - Register new user {} : User [userId=null, assignedId=null, firstName=100, lastName=100, email=id100, role=null, purchaseDate=null]
+2020-12-25 12:20:29 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - private generate assigned id {} : 
+2020-12-25 12:20:29 [Time-limited test]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:20:29 [Time-limited test]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=null, assignedId=id2000, firstName=2000, lastName=2000, email=2000@gmail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=null, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : id1
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - get all users {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 5
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:20:29 [main]  INFO ua.lviv.lgs.service.UserService - get last registration user {} : 
+2020-12-25 12:20:29 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:20:29 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:20:29 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:20:29 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:20:51 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Starting NameOfLessonTest on Василь-ПК with PID 8556 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:20:51 [main]  INFO ua.lviv.lgs.NameOfLessonTest - The following profiles are active: test
+2020-12-25 12:20:52 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:20:53 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 160ms. Found 6 JPA repository interfaces.
+2020-12-25 12:20:54 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:20:54 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:20:54 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:20:54 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:20:54 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:20:56 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:20:56 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b9396d3, org.springframework.security.web.context.SecurityContextPersistenceFilter@37e0292a, org.springframework.security.web.header.HeaderWriterFilter@24e83d19, org.springframework.security.web.csrf.CsrfFilter@36cc9385, org.springframework.security.web.authentication.logout.LogoutFilter@1f11f64e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@30364216, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35267fd4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7661b5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@761e788f, org.springframework.security.web.session.SessionManagementFilter@188cbcde, org.springframework.security.web.access.ExceptionTranslationFilter@124ac145, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5bc7e78e]
+2020-12-25 12:20:56 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:20:56 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:20:58 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:20:58 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:20:58 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:21:00 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:21:00 [main]  INFO ua.lviv.lgs.NameOfLessonTest - Started NameOfLessonTest in 9.849 seconds (JVM running for 11.9)
+2020-12-25 12:21:00 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:21:01 [main]  INFO u.l.lgs.service.NameOfLessonService - Create Lesson {} : NameOfLesson [lessonId=null, name=lesson2]
+2020-12-25 12:21:01 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:21:01 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:21:01 [main]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 1
+2020-12-25 12:21:01 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:21:01 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:21:01 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:21:01 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:21:22 [main]  INFO ua.lviv.lgs.FacultyTest - Starting FacultyTest on Василь-ПК with PID 7972 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:21:22 [main]  INFO ua.lviv.lgs.FacultyTest - The following profiles are active: test
+2020-12-25 12:21:24 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:21:24 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 148ms. Found 6 JPA repository interfaces.
+2020-12-25 12:21:26 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:21:26 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:21:26 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:21:26 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:21:26 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:21:28 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b9396d3, org.springframework.security.web.context.SecurityContextPersistenceFilter@37e0292a, org.springframework.security.web.header.HeaderWriterFilter@24e83d19, org.springframework.security.web.csrf.CsrfFilter@36cc9385, org.springframework.security.web.authentication.logout.LogoutFilter@1f11f64e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@30364216, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35267fd4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7661b5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@761e788f, org.springframework.security.web.session.SessionManagementFilter@188cbcde, org.springframework.security.web.access.ExceptionTranslationFilter@124ac145, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5bc7e78e]
+2020-12-25 12:21:28 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:21:28 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:21:28 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:21:30 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:21:30 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:21:30 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:21:31 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.FacultyTest - Started FacultyTest in 9.711 seconds (JVM running for 11.885)
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.service.FacultyService - Create faculty {} : Faculty [facultyId=null, name=f]
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:21:32 [main]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 3
+2020-12-25 12:21:32 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:21:32 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:21:32 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:21:32 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:21:56 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - Starting FacultyLessonsTest on Василь-ПК with PID 17248 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:21:56 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - The following profiles are active: test
+2020-12-25 12:21:57 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:21:57 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 243ms. Found 6 JPA repository interfaces.
+2020-12-25 12:21:59 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:21:59 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:21:59 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:21:59 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:21:59 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:22:01 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:22:01 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@587a1cfb, org.springframework.security.web.context.SecurityContextPersistenceFilter@302edb74, org.springframework.security.web.header.HeaderWriterFilter@1f11f64e, org.springframework.security.web.csrf.CsrfFilter@5c080ef3, org.springframework.security.web.authentication.logout.LogoutFilter@60cf62ad, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6a094db2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@672b72ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44bd4b0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48528634, org.springframework.security.web.session.SessionManagementFilter@858d8b4, org.springframework.security.web.access.ExceptionTranslationFilter@336206d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ef6fd7f]
+2020-12-25 12:22:01 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:22:01 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:22:03 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:22:03 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:22:03 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:22:04 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:22:04 [main]  INFO ua.lviv.lgs.FacultyLessonsTest - Started FacultyLessonsTest in 9.147 seconds (JVM running for 11.461)
+2020-12-25 12:22:05 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:22:05 [main]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAll {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - List<NameOfLesson> getLessonsOfThisFaculty {} : 1
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 1
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAll {} : 
+2020-12-25 12:22:05 [main]  INFO u.l.l.service.FacultyLessonsService - Delete facultyLessons {} : FacultyLessons [facultyLessonsId=6]
+2020-12-25 12:22:05 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:22:05 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:22:05 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:22:05 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:22:27 [main]  INFO ua.lviv.lgs.PointTest - Starting PointTest on Василь-ПК with PID 14916 (started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:22:27 [main]  INFO ua.lviv.lgs.PointTest - The following profiles are active: test
+2020-12-25 12:22:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:22:29 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 179ms. Found 6 JPA repository interfaces.
+2020-12-25 12:22:31 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:22:31 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:22:31 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:22:31 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:22:31 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:22:32 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1907874b, org.springframework.security.web.context.SecurityContextPersistenceFilter@397ef2, org.springframework.security.web.header.HeaderWriterFilter@4ee6291f, org.springframework.security.web.csrf.CsrfFilter@68d651f2, org.springframework.security.web.authentication.logout.LogoutFilter@711d1a52, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@78d6447a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44e93c1f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7903d448, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e65afb6, org.springframework.security.web.session.SessionManagementFilter@37e0292a, org.springframework.security.web.access.ExceptionTranslationFilter@5c080ef3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4674d90]
+2020-12-25 12:22:32 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:22:33 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:22:33 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-25 12:22:34 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:22:35 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:22:35 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:22:36 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:22:36 [main]  INFO ua.lviv.lgs.PointTest - Started PointTest in 9.756 seconds (JVM running for 11.898)
+2020-12-25 12:22:37 [main]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:22:37 [main]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=3, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:22:38 [SpringContextShutdownHook]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:22:38 [SpringContextShutdownHook]  INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:22:38 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-12-25 12:22:38 [SpringContextShutdownHook]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-12-25 12:23:26 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 1472 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:23:26 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:23:28 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:23:28 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146ms. Found 6 JPA repository interfaces.
+2020-12-25 12:23:30 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:23:30 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:23:30 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:23:30 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:23:30 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:23:30 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3842 ms
+2020-12-25 12:23:31 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:23:31 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:23:31 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:23:31 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:23:32 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:23:32 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68880c21, org.springframework.security.web.context.SecurityContextPersistenceFilter@11a8042c, org.springframework.security.web.header.HeaderWriterFilter@10dc7d6, org.springframework.security.web.csrf.CsrfFilter@7cea0110, org.springframework.security.web.authentication.logout.LogoutFilter@245ec1a6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4beabeec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69391e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103082dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dd2e270, org.springframework.security.web.session.SessionManagementFilter@716e431d, org.springframework.security.web.access.ExceptionTranslationFilter@636bbbbb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ba5aa7a]
+2020-12-25 12:23:32 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:23:33 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-25 12:23:33 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:23:33 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:23:33 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:23:35 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:23:35 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:23:36 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:23:36 [main]  INFO ua.lviv.lgs.Application - Started Application in 10.507 seconds (JVM running for 11.522)
+2020-12-25 12:23:47 [http-nio-8080-exec-1]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-25 12:24:01 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:24:14 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:24:25 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:24:25 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:24:35 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:24:36 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:24:39 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 15
+2020-12-25 12:24:39 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=15, checked=false, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:24:39 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:24:40 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 19
+2020-12-25 12:24:40 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=false, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:24:40 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=2, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=2, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=3, checked=false, accepted=false, rejected=false, pointsForBall=null, ballgpa=8.005]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=3, checked=true, accepted=false, rejected=false, pointsForBall=null, ballgpa=8.005]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=15, checked=false, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=15, checked=true, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=19, checked=false, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:24:43 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:24:43 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:24:53 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:24:53 [http-nio-8080-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:11)
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:1)
+	at java.util.TimSort.countRunAndMakeAscending(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at java.util.ArrayList.sort(Unknown Source)
+	at java.util.Collections.sort(Unknown Source)
+	at ua.lviv.lgs.controller.UserController.selectionOptionsPost(UserController.java:407)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:141)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-12-25 12:24:59 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:24:59 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:11)
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:1)
+	at java.util.TimSort.countRunAndMakeAscending(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at java.util.ArrayList.sort(Unknown Source)
+	at java.util.Collections.sort(Unknown Source)
+	at ua.lviv.lgs.controller.UserController.selectionOptionsPost(UserController.java:407)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:141)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-12-25 12:25:06 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:25:06 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:11)
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:1)
+	at java.util.TimSort.countRunAndMakeAscending(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at java.util.ArrayList.sort(Unknown Source)
+	at java.util.Collections.sort(Unknown Source)
+	at ua.lviv.lgs.controller.UserController.selectionOptionsPost(UserController.java:407)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:141)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-12-25 12:25:45 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:25:57 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:25:57 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:11)
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:1)
+	at java.util.TimSort.countRunAndMakeAscending(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at java.util.ArrayList.sort(Unknown Source)
+	at java.util.Collections.sort(Unknown Source)
+	at ua.lviv.lgs.controller.UserController.selectionOptionsPost(UserController.java:407)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:141)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-12-25 12:29:04 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 9892 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:29:04 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:29:05 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:29:05 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 133ms. Found 6 JPA repository interfaces.
+2020-12-25 12:29:07 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:29:07 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:29:07 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:29:08 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:29:08 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:29:08 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4080 ms
+2020-12-25 12:29:08 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:29:08 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:29:09 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:29:09 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:29:09 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68880c21, org.springframework.security.web.context.SecurityContextPersistenceFilter@11a8042c, org.springframework.security.web.header.HeaderWriterFilter@10dc7d6, org.springframework.security.web.csrf.CsrfFilter@7cea0110, org.springframework.security.web.authentication.logout.LogoutFilter@245ec1a6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4beabeec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69391e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103082dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dd2e270, org.springframework.security.web.session.SessionManagementFilter@716e431d, org.springframework.security.web.access.ExceptionTranslationFilter@636bbbbb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ba5aa7a]
+2020-12-25 12:29:10 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:29:10 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:29:10 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-25 12:29:10 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:29:11 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:29:11 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:29:13 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:29:13 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:29:14 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:29:14 [main]  INFO ua.lviv.lgs.Application - Started Application in 11.041 seconds (JVM running for 12.075)
+2020-12-25 12:29:27 [http-nio-8080-exec-1]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-25 12:29:36 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:29:36 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:29:40 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:29:45 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 15
+2020-12-25 12:29:45 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=15, checked=false, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:29:45 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:29:47 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 19
+2020-12-25 12:29:47 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=false, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:29:47 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=2, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=2, checked=true, accepted=null, rejected=null, pointsForBall=null, ballgpa=10.58]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=3, checked=true, accepted=false, rejected=false, pointsForBall=null, ballgpa=8.005]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=3, checked=true, accepted=false, rejected=false, pointsForBall=null, ballgpa=8.005]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=15, checked=false, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=15, checked=true, accepted=false, rejected=false, pointsForBall=20.0, ballgpa=12.0]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=19, checked=false, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:29:54 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=false, pointsForBall=19.333333333333332, ballgpa=12.0]
+2020-12-25 12:29:54 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:29:57 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:29:58 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:11)
+	at ua.lviv.lgs.service.ComparatorApplicant.compare(ComparatorApplicant.java:1)
+	at java.util.TimSort.countRunAndMakeAscending(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at java.util.ArrayList.sort(Unknown Source)
+	at java.util.Collections.sort(Unknown Source)
+	at ua.lviv.lgs.controller.UserController.selectionOptionsPost(UserController.java:413)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:141)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-12-25 12:31:25 [main]  INFO ua.lviv.lgs.Application - Starting Application on Василь-ПК with PID 5108 (C:\Users\Василь\eclipse-workspace\project_university\target\classes started by Василь in C:\Users\Василь\eclipse-workspace\project_university)
+2020-12-25 12:31:25 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to default profiles: default
+2020-12-25 12:31:27 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-25 12:31:27 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 129ms. Found 6 JPA repository interfaces.
+2020-12-25 12:31:29 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-25 12:31:29 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-25 12:31:29 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-25 12:31:29 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-25 12:31:29 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-25 12:31:29 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4114 ms
+2020-12-25 12:31:30 [main]  INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-25 12:31:30 [task-1]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-25 12:31:30 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-25 12:31:30 [task-1]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-25 12:31:31 [task-1]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-25 12:31:31 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-12-25 12:31:31 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68880c21, org.springframework.security.web.context.SecurityContextPersistenceFilter@11a8042c, org.springframework.security.web.header.HeaderWriterFilter@10dc7d6, org.springframework.security.web.csrf.CsrfFilter@7cea0110, org.springframework.security.web.authentication.logout.LogoutFilter@245ec1a6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4beabeec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69391e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103082dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dd2e270, org.springframework.security.web.session.SessionManagementFilter@716e431d, org.springframework.security.web.access.ExceptionTranslationFilter@636bbbbb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ba5aa7a]
+2020-12-25 12:31:31 [task-1]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-12-25 12:31:31 [task-1]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-25 12:31:32 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-25 12:31:32 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+2020-12-25 12:31:34 [task-1]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-25 12:31:34 [task-1]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-25 12:31:34 [main]  INFO o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+2020-12-25 12:31:34 [main]  INFO ua.lviv.lgs.Application - Started Application in 10.105 seconds (JVM running for 11.084)
+2020-12-25 12:32:00 [http-nio-8080-exec-4]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-25 12:32:27 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:32:27 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:32:38 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:32:49 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:32:49 [http-nio-8080-exec-3]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:32:56 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 101
+2020-12-25 12:32:56 [http-nio-8080-exec-5]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : null
+2020-12-25 12:32:56 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:32:56 [http-nio-8080-exec-7]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:32:58 [http-nio-8080-exec-3]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 101
+2020-12-25 12:32:58 [http-nio-8080-exec-3]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:32:58 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:32:58 [http-nio-8080-exec-5]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:00 [http-nio-8080-exec-2]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 102
+2020-12-25 12:33:00 [http-nio-8080-exec-2]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:00 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:00 [http-nio-8080-exec-3]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:04 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 102
+2020-12-25 12:33:04 [http-nio-8080-exec-7]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : null
+2020-12-25 12:33:04 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:04 [http-nio-8080-exec-10]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:08 [http-nio-8080-exec-5]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 102
+2020-12-25 12:33:08 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:08 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:08 [http-nio-8080-exec-7]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:13 [http-nio-8080-exec-8]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 105
+2020-12-25 12:33:13 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:13 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:13 [http-nio-8080-exec-10]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:17 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 103
+2020-12-25 12:33:17 [http-nio-8080-exec-1]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : null
+2020-12-25 12:33:17 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:17 [http-nio-8080-exec-8]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:20 [http-nio-8080-exec-5]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 103
+2020-12-25 12:33:20 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:20 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:20 [http-nio-8080-exec-1]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:22 [http-nio-8080-exec-8]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 104
+2020-12-25 12:33:22 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:22 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:22 [http-nio-8080-exec-2]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:28 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 104
+2020-12-25 12:33:28 [http-nio-8080-exec-10]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : null
+2020-12-25 12:33:28 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:28 [http-nio-8080-exec-8]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:30 [http-nio-8080-exec-1]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 107
+2020-12-25 12:33:30 [http-nio-8080-exec-1]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:30 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:30 [http-nio-8080-exec-10]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:32 [http-nio-8080-exec-4]  INFO u.l.lgs.service.NameOfLessonService - find Lesson by lessonId {} : 106
+2020-12-25 12:33:32 [http-nio-8080-exec-4]  INFO u.l.l.service.FacultyLessonsService - Create facultyLessons {} : FacultyLessons [facultyLessonsId=null]
+2020-12-25 12:33:32 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:32 [http-nio-8080-exec-6]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:33:34 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:39 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 101
+2020-12-25 12:33:39 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:33:39 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:42 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 102
+2020-12-25 12:33:42 [http-nio-8080-exec-6]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 102
+2020-12-25 12:33:42 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:45 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 103
+2020-12-25 12:33:45 [http-nio-8080-exec-4]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 103
+2020-12-25 12:33:45 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:49 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 104
+2020-12-25 12:33:49 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:33:49 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:33:52 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:34:01 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:34:01 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:34:05 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 101
+2020-12-25 12:34:05 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:34:05 [http-nio-8080-exec-3]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:34:05 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:34:21 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:34:21 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:34:21 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=103, assignedId=ID202011814140, firstName=Peter, lastName=Didik, email=peter@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:34:21 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=11.0]
+2020-12-25 12:34:21 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=8.0]
+2020-12-25 12:34:33 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:34:33 [http-nio-8080-exec-3]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:34:33 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:34:50 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:34:50 [http-nio-8080-exec-4]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:34:50 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:35:05 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 102
+2020-12-25 12:35:05 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:35:05 [http-nio-8080-exec-1]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 102
+2020-12-25 12:35:05 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:35:17 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:35:17 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:35:17 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=104, assignedId=ID202011814150, firstName=Nicola, lastName=Tesla, email=nicola@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:35:17 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=12.0]
+2020-12-25 12:35:17 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=5.0]
+2020-12-25 12:35:29 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814160
+2020-12-25 12:35:29 [http-nio-8080-exec-6]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 102
+2020-12-25 12:35:29 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:35:33 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 103
+2020-12-25 12:35:33 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814160
+2020-12-25 12:35:33 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 103
+2020-12-25 12:35:33 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:35:42 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814160
+2020-12-25 12:35:42 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814160
+2020-12-25 12:35:42 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=105, assignedId=ID202011814160, firstName=Vasily, lastName=Mask, email=vasil@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:35:42 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=11.0]
+2020-12-25 12:35:43 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=10.0]
+2020-12-25 12:35:51 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814170
+2020-12-25 12:35:51 [http-nio-8080-exec-4]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 103
+2020-12-25 12:35:51 [http-nio-8080-exec-4]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:35:55 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 104
+2020-12-25 12:35:55 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814170
+2020-12-25 12:35:55 [http-nio-8080-exec-5]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:35:55 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:36:07 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814170
+2020-12-25 12:36:07 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814170
+2020-12-25 12:36:07 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.ApplicantService - is exist user {} : User [userId=106, assignedId=ID202011814170, firstName=Oksana, lastName=Pekun, email=oksana@mail.com, role=ROLE_USER, purchaseDate=null]
+2020-12-25 12:36:07 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=5.0]
+2020-12-25 12:36:07 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.PointService - Save new point {} : Point [pointId=null, ball=12.0]
+2020-12-25 12:36:21 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : admin
+2020-12-25 12:36:21 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:36:29 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:36:29 [http-nio-8080-exec-5]  INFO u.l.lgs.service.NameOfLessonService - List<NameOfLesson> get all lesson {} : 
+2020-12-25 12:36:32 [http-nio-8080-exec-6]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:36:32 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:36:36 [http-nio-8080-exec-10]  INFO ua.lviv.lgs.service.FacultyService - find faculty by facultyId {} : 101
+2020-12-25 12:36:36 [http-nio-8080-exec-1]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 101
+2020-12-25 12:36:36 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:36:38 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=10, checked=false, accepted=false, rejected=false, pointsForBall=20.05, ballgpa=10.55]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=10, checked=true, accepted=false, rejected=false, pointsForBall=20.05, ballgpa=10.55]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=13, checked=false, accepted=false, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=13, checked=true, accepted=false, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=16, checked=false, accepted=false, rejected=false, pointsForBall=19.04, ballgpa=8.54]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=16, checked=true, accepted=false, rejected=false, pointsForBall=19.04, ballgpa=8.54]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.PointService - Find by applicant List<Point> {} : Applicant [applicantId=19, checked=false, accepted=false, rejected=false, pointsForBall=16.8, ballgpa=8.3]
+2020-12-25 12:36:42 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=false, pointsForBall=16.8, ballgpa=8.3]
+2020-12-25 12:36:42 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:36:50 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - List<Applicant> getAllApplicant {} : 
+2020-12-25 12:36:50 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=10, checked=true, accepted=true, rejected=false, pointsForBall=20.05, ballgpa=10.55]
+2020-12-25 12:36:50 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=13, checked=true, accepted=true, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:36:50 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=16, checked=true, accepted=true, rejected=false, pointsForBall=19.04, ballgpa=8.54]
+2020-12-25 12:36:50 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=19, checked=true, accepted=false, rejected=true, pointsForBall=16.8, ballgpa=8.3]
+2020-12-25 12:36:50 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:03 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 10
+2020-12-25 12:37:03 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=10, checked=false, accepted=false, rejected=false, pointsForBall=20.05, ballgpa=10.55]
+2020-12-25 12:37:03 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:05 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 16
+2020-12-25 12:37:05 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=16, checked=true, accepted=false, rejected=true, pointsForBall=19.04, ballgpa=8.54]
+2020-12-25 12:37:06 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:12 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 13
+2020-12-25 12:37:12 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=13, checked=true, accepted=false, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:37:12 [http-nio-8080-exec-1]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:13 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 13
+2020-12-25 12:37:13 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=13, checked=true, accepted=true, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:37:13 [http-nio-8080-exec-6]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:14 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 13
+2020-12-25 12:37:14 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=13, checked=true, accepted=false, rejected=false, pointsForBall=19.9, ballgpa=11.4]
+2020-12-25 12:37:14 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:17 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - find applicant by applicantId {} : 16
+2020-12-25 12:37:17 [http-nio-8080-exec-9]  INFO ua.lviv.lgs.service.ApplicantService - Create applicant {} : Applicant [applicantId=16, checked=true, accepted=true, rejected=false, pointsForBall=19.04, ballgpa=8.54]
+2020-12-25 12:37:17 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.UserService - find List<User> all applicant {} : 
+2020-12-25 12:37:40 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814140
+2020-12-25 12:37:40 [http-nio-8080-exec-3]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:37:40 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.FacultyService - List<Faculty> get all faculty {} : 
+2020-12-25 12:37:54 [http-nio-8080-exec-2]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814150
+2020-12-25 12:37:54 [http-nio-8080-exec-2]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:39:01 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814160
+2020-12-25 12:39:01 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
+2020-12-25 12:39:17 [http-nio-8080-exec-8]  INFO ua.lviv.lgs.service.UserService - find Optional<User> by assigned id {} : ID202011814170
+2020-12-25 12:39:17 [http-nio-8080-exec-8]  INFO u.l.l.service.FacultyLessonsService - List<FacultyLessons> getAllThisFaculty by facultyId {} : 104
