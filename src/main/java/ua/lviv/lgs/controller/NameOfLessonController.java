@@ -22,71 +22,88 @@ import ua.lviv.lgs.service.NameOfLessonService;
 
 @Controller
 public class NameOfLessonController {
-	
+
 	private Faculty choiseFaculty = new Faculty();
-	
+
 	@Autowired
-    private NameOfLessonService nameOfLessonService;
-	
+	private NameOfLessonService nameOfLessonService;
+
 	@Autowired
-    private FacultyService facultyService;
-	
+	private FacultyService facultyService;
+
 	@Autowired
 	private FacultyLessonsService facultyLessonsService;
-		    
-	@RequestMapping(value ="/create_lesson", method = RequestMethod.GET)
-    public String createLesson(Model model) {
-    	model.addAttribute("createLessonForm", new NameOfLesson());
-        return "create_lesson";
-    }
-    
-    @RequestMapping(value = "/create_lesson", method = RequestMethod.POST)
-    public String createLesson(@ModelAttribute("createLessonForm") NameOfLesson createLessonForm, BindingResult bindingResult, Model model) {
 
-        if (bindingResult.hasErrors()) {
-            return "user";
-        }
-        nameOfLessonService.save(createLessonForm);
+	@RequestMapping(value = "/create_lesson", method = RequestMethod.GET)
+	public String createLesson(Model model) {
+		model.addAttribute("createLessonForm", new NameOfLesson());
+		return "create_lesson";
+	}
 
-        return "redirect:/create_lesson";
-    } 
-    
-    @RequestMapping(value ="/lessons", method = RequestMethod.GET)
-    public ModelAndView welcome(ModelMap model) { 
-    	    	    	
-    	ModelAndView map = new ModelAndView("lessons");
-    	List<Faculty> allAndChoiseFaculty = new ArrayList<>();
-    	allAndChoiseFaculty.add(choiseFaculty);
-    	allAndChoiseFaculty.addAll(facultyService.getAllFaculty());
-    	
-    	map.addObject("lessons", nameOfLessonService.getAllLesson());    	
-    	map.addObject("faculties", allAndChoiseFaculty);    	
-    	map.addObject("selectFaculty", new Faculty());
-    	
-        return map;
-    }
-    
-    @RequestMapping(value = "/lessons", method = RequestMethod.POST)
-	public ModelAndView addFacultyLessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson lesson) {
+	@RequestMapping(value = "/create_lesson", method = RequestMethod.POST)
+	public String createLesson(@ModelAttribute("createLessonForm") NameOfLesson createLessonForm,
+			BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "user";
+		}
+		nameOfLessonService.save(createLessonForm);
+
+		return "redirect:/create_lesson";
+	}
+
+	@RequestMapping(value = "/lessons", method = RequestMethod.GET)
+	public ModelAndView welcome(ModelMap model) {
+
+//    	System.out.println();
+//    	System.out.println("%%%%%%%%%  " + nameOfLessonService.findByNameLike("%kra%"));
+//    	System.out.println();
+
+		ModelAndView map = new ModelAndView("lessons");
+		List<Faculty> allAndChoiseFaculty = new ArrayList<>();
+		allAndChoiseFaculty.add(choiseFaculty);
+		allAndChoiseFaculty.addAll(facultyService.getAllFaculty());
+
+		map.addObject("lessons", nameOfLessonService.getAllLesson());
+		map.addObject("faculties", allAndChoiseFaculty);
+		map.addObject("selectFaculty", new Faculty());
+
+		return map;
+	}
+
+	@RequestMapping(value = "/lessons", method = RequestMethod.POST)
+	public ModelAndView lessons(@ModelAttribute("selectFaculty") Faculty faculty, NameOfLesson lesson) {
+
+//    	System.out.println("");
+//    	System.out.println(" lessons ---------------------- " + faculty);
+//    	System.out.println("");
+
+		int facultyIdSelectInt = FacultyJsRest.getFacultyIdSelectInt();
+
+		try {
+			if (facultyIdSelectInt == 0) {
+				if (faculty.getFacultyId() != null) {
+					choiseFaculty = new Faculty(facultyService.findByFacultyId(faculty.getFacultyId()));
+				}
+			} else {
+				choiseFaculty = new Faculty(facultyService.findByFacultyId(facultyIdSelectInt));
+			}
+
+			NameOfLesson nameOfLesson = nameOfLessonService.findByLessonId(lesson.getLessonId());
+			if (nameOfLesson != null) {
+
+				FacultyLessons facultyLessons = new FacultyLessons();
+				facultyLessons.setNameOfLessons(nameOfLesson);
+				facultyLessons.setFacultys(choiseFaculty);
+				facultyLessonsService.addFacultyLessons(facultyLessons);
+			}
+
+		} catch (Exception e) {
+		}
 		
-    	try {
-    		if(faculty.getFacultyId() != null) {    		
-    			choiseFaculty = new Faculty(facultyService.findByFacultyId(faculty.getFacultyId()));
-    		}
-    		
-    		NameOfLesson nameOfLesson = nameOfLessonService.findByLessonId(lesson.getLessonId());
-    		if(nameOfLesson != null) {
-	    		
-	    		FacultyLessons facultyLessons = new FacultyLessons();
-	    		facultyLessons.setNameOfLessons(nameOfLesson);
-	    		facultyLessons.setFacultys(choiseFaculty);		
-	    		facultyLessonsService.addFacultyLessons(facultyLessons);
-    		}
-	    		
-    	} catch(Exception e) {}
-		
+		FacultyJsRest.setFacultyIdSelectInt(0);
+
 		return new ModelAndView("redirect:/lessons");
 	}
-    
 
 }

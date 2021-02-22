@@ -22,7 +22,7 @@
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<%-- <link href="${contextPath}/resources/css/common.css" rel="stylesheet"> --%>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 .text {
@@ -105,9 +105,10 @@
 		</div>
 	</div>
 
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../js/choiseFaculty.js"></script>
+	
+	
 </body>
 </html>

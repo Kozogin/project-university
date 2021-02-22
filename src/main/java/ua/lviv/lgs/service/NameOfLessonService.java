@@ -35,5 +35,9 @@ public class NameOfLessonService {
 		logger.info("List<NameOfLesson> get all lesson {} : "); 
 		return nameOfLessonRepository.findAll();		
 	}
+	
+	public List<NameOfLesson> findByNameLike(String nameLike){
+		return nameOfLessonRepository.findByNameLike(nameLike);				
+	}
 
 }

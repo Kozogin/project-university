@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../css/login.css"> 
 
 <title><spring:message code='header.create_lesson'/></title>
 
